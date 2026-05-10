@@ -1,9 +1,12 @@
 package Entity;
 
+import Behaviour.PatientInterface;
+
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
-public class Patient extends Person{
+public class Patient extends Person implements PatientInterface {
     private String patientId;
     private String bloodGroup;
     private List<String> allergies;
@@ -69,7 +72,19 @@ public class Patient extends Person{
     @Override
     public void displayInfo(){
     }
-    public void addMedicalRecord(){}
-    public void addAppointment(){}
-    public void updateInsurance(){}
+
+    @Override
+    public void addMedicalRecord() {
+
+    }
+
+    @Override
+    public Boolean addAppointment() {
+        return null;
+    }
+
+    @Override
+    public Boolean updateInsurance(UUID id, String insurance) {
+        return null;
+    }
 }
