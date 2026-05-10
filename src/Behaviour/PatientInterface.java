@@ -4,6 +4,6 @@ import java.util.UUID;
 
 public interface PatientInterface {
     void addMedicalRecord();
-    void  addAppointment();
+    void addAppointment();
     void updateInsurance();
 }

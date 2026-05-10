@@ -3,6 +3,7 @@ package Entity;
 import Behaviour.DoctorInterface;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Doctor extends Person implements DoctorInterface {
@@ -14,6 +15,8 @@ public class Doctor extends Person implements DoctorInterface {
     private double consultationFee;
     private List<String> availableSlots;
     private List<String> assignedPatients;
+
+    public static Scanner scanner=new Scanner(System.in);
 
     public Doctor(String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String doctorId) {
         super(specialization,doctorId,qualification,experienceYears,departmentId, consultationFee,availableSlots,assignedPatients);
@@ -76,20 +79,32 @@ public class Doctor extends Person implements DoctorInterface {
         return assignedPatients;
     }
     @Override
-    public void displayInfo(){}
-
-    @Override
-    public Boolean assignPatient(String patient) {
-        return null;
+    public void displayInfo(){
+        System.out.println("Doctor ID: "+doctorId);
+        System.out.println("Specialization: "+specialization);
+        System.out.println("Qualification: "+qualification);
+        System.out.println("Experience Year: "+experienceYears);
+        System.out.println("Department ID: "+departmentId);
+        System.out.println("Consultation Fee: "+consultationFee);
+        System.out.println("Available Slots"+availableSlots);
+        System.out.println("Assigned Patients: "+assignedPatients);
     }
 
     @Override
-    public Boolean removePatient(String patient) {
-        return null;
+    public void assignPatient() {
+        System.out.println("Enter Patient Name");
+        assignedPatients.add(scanner.nextLine());
     }
 
     @Override
-    public Boolean updateAvailability(UUID uuid, Patient updatedPatient) {
-        return null;
+    public void removePatient() {
+        System.out.println("Enter Patient To Remove");
+        assignedPatients.remove(scanner.nextLine());
+    }
+
+    @Override
+    public void updateAvailability() {
+        System.out.println();
+        //availableSlots.set(,scanner.nextLine());
     }
 }
