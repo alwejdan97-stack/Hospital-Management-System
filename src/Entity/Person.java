@@ -60,18 +60,22 @@ public class Person {
     public String getAddress(){
         return address;
     }
-    public void displayInfo(){
-
-    }
 
     @Override
-    public void toString(){
-
+    public String toString(){
+        return "Person{"+"id: "+id+" | firstName: "+firstName+" | lastName: "+lastName+" | dateOfBirth: "+dateOfBirth+" | gender: "+gender+" | phoneNumber: "+phoneNumber+" | email: "+email+" | address: "+address;
     }
     @Override
-    public void equals(){}
+    public Boolean equals(){
+        return true;
+    }
 
     @Override
     public void hashCode(){}
+
+    @Override
+    public void displayInfo(){
+
+    }
 
 }
