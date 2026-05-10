@@ -15,7 +15,7 @@ public class Person implements PersonInterface {
     private String email;
     private String address;
 
-    public Person(String id, String lastName, String firstName, int gender, String dateOfBirth, double phoneNumber, List<String> email, List<String> address) {
+    public Person(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
