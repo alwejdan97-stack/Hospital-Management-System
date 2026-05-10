@@ -3,6 +3,7 @@ package Entity;
 import Behaviour.PersonInterface;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Person implements PersonInterface {
     private String id;
@@ -13,6 +14,17 @@ public class Person implements PersonInterface {
     private String phoneNumber;
     private String email;
     private String address;
+
+    public Person(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+    }
 
     public void setId(String id){
         this.id=id;
@@ -64,12 +76,10 @@ public class Person implements PersonInterface {
     }
 
     @Override
-    public String toString(){
-        return "Person{"+"id: "+id+" | firstName: "+firstName+" | lastName: "+lastName+" | dateOfBirth: "+dateOfBirth+" | gender: "+gender+" | phoneNumber: "+phoneNumber+" | email: "+email+" | address: "+address;
-    }
-
-    public Boolean equals(){
-        return true;
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(dateOfBirth, person.dateOfBirth) && Objects.equals(gender, person.gender) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(email, person.email) && Objects.equals(address, person.address);
     }
 
     @Override
@@ -78,7 +88,22 @@ public class Person implements PersonInterface {
     }
 
     @Override
+    public String toString() {
+        return "Person{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    @Override
     public void displayInfo() {
 
     }
+
 }
