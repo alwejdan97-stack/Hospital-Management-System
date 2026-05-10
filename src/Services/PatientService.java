@@ -41,4 +41,29 @@ public class PatientService {
         }
         return patientList;
     }
+    public void editPatient(){
+
+        System.out.println("Enter Patient ID");
+        String ID=scanner.nextLine();
+        Boolean found=false;
+        for(Patient p:patientList){
+            if(p.getPatientId().equalsIgnoreCase(ID)){
+                System.out.println("Enter New Name");
+                p.setFirstName(scanner.nextLine());
+                System.out.println("Updated Successful");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Patient NOT FOund");
+        }
+        Boolean continueFlag = true;
+        while (continueFlag){
+            System.out.println("If want ot update more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+    }
 }
