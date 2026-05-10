@@ -30,5 +30,11 @@ public class Appointment {
     public String getDoctorId(){
         return doctorId;
     }
+    public void setAppointmentDate(LocalDate appointmentDate){
+        this.appointmentDate=appointmentDate;
+    }
+    public LocalDate getAppointmentDate(){
+        return appointmentDate;
+    }
 
 }
