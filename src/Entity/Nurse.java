@@ -57,12 +57,10 @@ public class Nurse extends Person{
         System.out.println("Assigned Patient: "+assignedPatients);
     }
 
-    public void assignedPatient(){
-        System.out.println("Enter patient");
-        assignedPatients.add(scanner.nextLine());
+    public void assignedPatient(String patient){
+        assignedPatients.add(patient);
     }
-    public void removePatient(){
-        System.out.println("Enter Patient to Remove");
-        assignedPatients.remove(scanner.nextLine());
+    public void removePatient(String patient){
+        assignedPatients.remove(patient);
     }
 }
