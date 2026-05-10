@@ -18,5 +18,17 @@ public class Appointment {
     public String getAppointmentId(){
         return appointmentId;
     }
+    public void setPatientId(String patientId){
+        this.patientId=patientId;
+    }
+    public String getPatientId(){
+        return patientId;
+    }
+    public void setDoctorId(String doctorId){
+        this.patientId=patientId;
+    }
+    public String getDoctorId(){
+        return doctorId;
+    }
 
 }
