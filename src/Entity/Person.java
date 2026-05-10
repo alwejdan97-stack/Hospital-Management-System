@@ -16,12 +16,12 @@ public class Person implements PersonInterface {
     private String email;
     private String address;
 
-    public Person(List<String> id, List<String> firstName, LocalDate lastName, String dateOfBirth, List<String> gender, String phoneNumber, String email, String address) {
+    public Person(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address) {
         this.id = id;
-        this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
+        this.firstName = firstName;
         this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
