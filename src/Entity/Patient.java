@@ -95,22 +95,19 @@ public class Patient extends Person implements PatientInterface {
     }
 
     @Override
-    public void addMedicalRecord() {
-        System.out.println("Enter Medical Record");
-        medicalRecords.add(scanner.nextLine());
+    public void addMedicalRecord(String record) {
+        medicalRecords.add(record);
     }
 
 
 
     @Override
-    public void addAppointment() {
-        System.out.println("Enter new appointment");
-        appointments.add(scanner.nextLine());
+    public void addAppointment(String appointment) {
+        appointments.add(appointment);
     }
 
     @Override
-    public void updateInsurance() {
-        System.out.println("Enter New Insurance");
-        insuranceId=scanner.nextLine();
+    public void updateInsurance(String insuranceId) {
+        setInsuranceId(insuranceId);
     }
 }
