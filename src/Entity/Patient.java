@@ -13,6 +13,10 @@ public class Patient extends Person{
     private List<String> medicalRecords;
     private List<String> appointments;
 
+    public Patient(){
+        super();
+    }
+
     public void setPatientId(String patientId){
         this.patientId=patientId;
     }
@@ -62,6 +66,7 @@ public class Patient extends Person{
         return appointments;
     }
 
+    @Override
     public void displayInfo(){
     }
     public void addMedicalRecord(){}
