@@ -16,6 +16,17 @@ public class Patient extends Person implements PatientInterface {
     private List<String> medicalRecords;
     private List<String> appointments;
 
+    public Patient(List<String> medicalRecords, List<String> appointments, LocalDate registrationDate, String insuranceId, List<String> allergies, String emergencyContact, String patientId, String bloodGroup) {
+        this.medicalRecords = medicalRecords;
+        this.appointments = appointments;
+        this.registrationDate = registrationDate;
+        this.insuranceId = insuranceId;
+        this.allergies = allergies;
+        this.emergencyContact = emergencyContact;
+        this.patientId = patientId;
+        this.bloodGroup = bloodGroup;
+    }
+
     public Patient(){
         super();
     }
