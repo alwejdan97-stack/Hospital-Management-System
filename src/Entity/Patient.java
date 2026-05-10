@@ -2,8 +2,10 @@ package Entity;
 
 import Behaviour.PatientInterface;
 
+import java.awt.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Patient extends Person implements PatientInterface {
@@ -16,6 +18,7 @@ public class Patient extends Person implements PatientInterface {
     private List<String> medicalRecords;
     private List<String> appointments;
 
+    public static Scanner scanner=new Scanner(System.in);
 
 
     public Patient(List<String> medicalRecords, List<String> appointments, LocalDate registrationDate, String insuranceId, List<String> allergies, String emergencyContact, String patientId, String bloodGroup) {
@@ -81,6 +84,14 @@ public class Patient extends Person implements PatientInterface {
 
     @Override
     public void displayInfo(){
+        System.out.println("Patient Id: "+patientId);
+        System.out.println("Blood Group: "+bloodGroup);
+        System.out.println("Allergies: "+allergies);
+        System.out.println("Appointments: "+appointments);
+        System.out.println("Emergency Contact: "+emergencyContact);
+        System.out.println("Registration Date: "+registrationDate);
+        System.out.println("Medical Records: "+medicalRecords);
+        System.out.println("Insurance ID: "+insuranceId);
     }
 
     @Override
@@ -88,9 +99,12 @@ public class Patient extends Person implements PatientInterface {
 
     }
 
+
+
     @Override
     public Boolean addAppointment() {
-        return null;
+        System.out.println("Enter new appointment");
+        appointments.add(scanner.nextLine());
     }
 
     @Override
