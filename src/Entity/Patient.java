@@ -96,19 +96,20 @@ public class Patient extends Person implements PatientInterface {
 
     @Override
     public void addMedicalRecord() {
-
+        System.out.println("Enter Medical Record");
+        medicalRecords.add(scanner.nextLine());
     }
 
 
 
     @Override
-    public Boolean addAppointment() {
+    public void addAppointment() {
         System.out.println("Enter new appointment");
         appointments.add(scanner.nextLine());
     }
 
     @Override
-    public Boolean updateInsurance(UUID id, String insurance) {
-        return null;
+    public void updateInsurance(UUID id, String insurance) {
+        return;
     }
 }
