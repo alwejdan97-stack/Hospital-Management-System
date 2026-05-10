@@ -31,6 +31,30 @@ public class Department implements DepartmentInterface {
     public String getHeadDoctorId(){
         return headDoctorId;
     }
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
+    }
+    public List<Doctor> getDoctors() {
+        return doctors;
+    }
+    public void setNurses(List<Nurse> nurses) {
+        this.nurses = nurses;
+    }
+    public List<Nurse> getNurses() {
+        return nurses;
+    }
+    public void setBedCapacity(int bedCapacity) {
+        this.bedCapacity = bedCapacity;
+    }
+    public int getBedCapacity() {
+        return bedCapacity;
+    }
+    public void setAvailableBeds(int availableBeds) {
+        this.availableBeds = availableBeds;
+    }
+    public int getAvailableBeds() {
+        return availableBeds;
+    }
 
     @Override
     public void assignDoctor(String doctorName) {
