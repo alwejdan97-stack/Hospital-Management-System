@@ -65,4 +65,10 @@ public class Doctor extends Person{
     public List<Patient> getAssignedPatients(){
         return assignedPatients;
     }
+    @Override
+    public void displayInfo(){}
+
+    public void assignPatient(){}
+    public void removePatient(){}
+    public void updateAvailability(){}
 }
