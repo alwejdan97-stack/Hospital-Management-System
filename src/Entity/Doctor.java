@@ -16,8 +16,15 @@ public class Doctor extends Person implements DoctorInterface {
     private List<String> availableSlots;
     private List<Patient> assignedPatients;
 
-    public Doctor(){
-        super();
+    public Doctor(String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<Patient> assignedPatients, String doctorId) {
+        this.specialization = specialization;
+        this.qualification = qualification;
+        this.experienceYears = experienceYears;
+        this.departmentId = departmentId;
+        this.consultationFee = consultationFee;
+        this.availableSlots = availableSlots;
+        this.assignedPatients = assignedPatients;
+        this.doctorId = doctorId;
     }
 
     public void setDoctorId(String doctorId){
