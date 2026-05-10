@@ -16,7 +16,10 @@ public class Patient extends Person implements PatientInterface {
     private List<String> medicalRecords;
     private List<String> appointments;
 
+
+
     public Patient(List<String> medicalRecords, List<String> appointments, LocalDate registrationDate, String insuranceId, List<String> allergies, String emergencyContact, String patientId, String bloodGroup) {
+        super(medicalRecords,appointments,registrationDate,insuranceId,allergies,emergencyContact,patientId,bloodGroup);
         this.medicalRecords = medicalRecords;
         this.appointments = appointments;
         this.registrationDate = registrationDate;
@@ -25,10 +28,6 @@ public class Patient extends Person implements PatientInterface {
         this.emergencyContact = emergencyContact;
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;
-    }
-
-    public Patient(){
-        super();
     }
 
     public void setPatientId(String patientId){
