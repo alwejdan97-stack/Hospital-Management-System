@@ -3,6 +3,7 @@ package Entity;
 import Behaviour.AppointmentInterface;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Appointment implements AppointmentInterface {
     private String appointmentId;
@@ -13,6 +14,18 @@ public class Appointment implements AppointmentInterface {
     private String status;
     private String reason;
     private String notes;
+
+    public Scanner scanner=new Scanner(System.in);
+    public Appointment(String appointmentId, String patientId, String doctorId, LocalDate appointmentDate, String appointmentTime, String status, String notes, String reason) {
+        this.appointmentId = appointmentId;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
+        this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
+        this.status = status;
+        this.notes = notes;
+        this.reason = reason;
+    }
 
     public void setAppointmentId(String appointmentId){
         this.appointmentId=appointmentId;
@@ -63,18 +76,30 @@ public class Appointment implements AppointmentInterface {
         return notes;
     }
 
-    @Override
-    public Boolean reschedule(Appointment appointment) {
-        return null;
+    public void displayInfo(){
+        System.out.println("Appointment ID: "+appointmentId);
+        System.out.println("Patient ID: "+patientId);
+        System.out.println("Doctor ID: "+doctorId);
+        System.out.println("Appointment Date: "+appointmentDate);
+        System.out.println("Appointment Time: "+appointmentTime);
+        System.out.println("Status: "+status);
+        System.out.println("Reason:"+reason);
+        System.out.println("Notes: "+notes);
     }
 
     @Override
-    public Boolean cancel(Appointment appointment) {
-        return null;
+    public void reschedule(LocalDate newDate, String newTime) {
+        setAppointmentDate(newDate);
+        setAppointmentTime(newTime);
     }
 
     @Override
-    public Boolean complete(Appointment appointmentComplete) {
-        return null;
+    public void cancel(String status) {
+        setStatus(status);
+    }
+
+    @Override
+    public void complete(String status) {
+        setStatus(status);
     }
 }
