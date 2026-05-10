@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
-    List<Patient> patients=new ArrayList<>();
+    List<Patient> patientList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     Patient patient=new Patient();
 
-    public Patient addPatient(Patient patient){
+    public Patient addPatient(){
         System.out.println(" ** Adding new Patient **");
         System.out.println("Enter Name: ");
         patient.setFirstName(scanner.nextLine()); patient.setLastName(scanner.nextLine());
@@ -31,6 +31,14 @@ public class PatientService {
         return patient;
     }
     public List<Patient> addPatients(){
-
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            patientList.add(addPatient());
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+        return patientList;
     }
 }
