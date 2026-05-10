@@ -13,7 +13,7 @@ public class PatientService {
     Patient patient=new Patient();
 
     public Patient addPatient(){
-        System.out.println(" ** Adding new Patient **");
+        System.out.println(" ** Adding new Patient ** ");
         System.out.println("Enter Name: ");
         patient.setFirstName(scanner.nextLine()); patient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
@@ -56,7 +56,7 @@ public class PatientService {
             }
         }
         if(!found){
-            System.out.println("Patient NOT FOund");
+            System.out.println("Patient NOT Found");
         }
         Boolean continueFlag = true;
         while (continueFlag){
@@ -66,4 +66,29 @@ public class PatientService {
             }
         }
     }
+    public void removePatient(){
+
+        System.out.println("Enter Patient ID");
+        String ID=scanner.nextLine();
+        Boolean found=false;
+        for(Patient p:patientList){
+            if(p.getPatientId().equalsIgnoreCase(ID)){
+            patientList.remove(ID);
+                System.out.println("Patient Removed Successful");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Patient NOT Found");
+        }
+        Boolean continueFlag = true;
+        while (continueFlag){
+            System.out.println("If want ot delete more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+    }
+
 }
