@@ -67,7 +67,7 @@ public class PatientService {
         }
     }
     public void removePatient(){
-
+        displayAllPatients();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -90,5 +90,35 @@ public class PatientService {
             }
         }
     }
-
+    public void getPatientById(){
+        if(patientList.isEmpty()){
+            System.out.println("NO Patient in the List");
+        }
+        displayAllPatients();
+            System.out.println("Enter Patient ID");
+            String ID=scanner.nextLine();
+            Boolean found = false;
+            for(Patient p:patientList){
+                if(p.getPatientId().equalsIgnoreCase(ID)){
+                    System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName());
+                    System.out.println("Patient ID: "+p.getPatientId());
+                    System.out.println("Patient Birthday: "+p.getDateOfBirth());
+                    System.out.println("Patient Phone Number: "+p.getPhoneNumber());
+                    System.out.println("Patient Address: "+p.getAddress());
+                    found=true;
+                }
+            }
+            if (!found) {
+                System.out.println("Patient NOT found");
+            }
+        }
+    }
+    public void displayAllPatients(){
+        if(patientList.isEmpty()){
+            System.out.println("NO Patient in the List");
+        }
+        for(Patient p:patientList) {
+                System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
+        }
+    }
 }
