@@ -3,7 +3,6 @@ package Entity;
 import Behaviour.DoctorInterface;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 public class Doctor extends Person implements DoctorInterface {
@@ -14,9 +13,10 @@ public class Doctor extends Person implements DoctorInterface {
     private String departmentId;
     private double consultationFee;
     private List<String> availableSlots;
-    private List<Patient> assignedPatients;
+    private List<String> assignedPatients;
 
-    public Doctor(String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<Patient> assignedPatients, String doctorId) {
+    public Doctor(String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String doctorId) {
+        super(specialization,doctorId,qualification,experienceYears,departmentId, consultationFee,availableSlots,assignedPatients);
         this.specialization = specialization;
         this.qualification = qualification;
         this.experienceYears = experienceYears;
@@ -69,22 +69,22 @@ public class Doctor extends Person implements DoctorInterface {
     public List<String> getAvailableSlots(){
         return availableSlots;
     }
-    public void setAssignedPatients(List<Patient> assignedPatients){
+    public void setAssignedPatients(List<String> assignedPatients){
         this.assignedPatients=assignedPatients;
     }
-    public List<Patient> getAssignedPatients(){
+    public List<String> getAssignedPatients(){
         return assignedPatients;
     }
     @Override
     public void displayInfo(){}
 
     @Override
-    public Boolean assignPatient(Patient patient) {
+    public Boolean assignPatient(String patient) {
         return null;
     }
 
     @Override
-    public Boolean removePatient(Patient patient) {
+    public Boolean removePatient(String patient) {
         return null;
     }
 

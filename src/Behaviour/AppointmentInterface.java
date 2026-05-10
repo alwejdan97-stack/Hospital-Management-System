@@ -3,7 +3,7 @@ package Behaviour;
 import Entity.Appointment;
 
 public interface AppointmentInterface {
-    Boolean reschedule(Appointment appointment);
-    Boolean cancel(Appointment appointment);
-    Boolean complete(Appointment appointmentComplete);
+    Boolean reschedule(String appointment);
+    Boolean cancel(String appointment);
+    Boolean complete(String appointmentComplete);
 }

@@ -5,7 +5,7 @@ import Entity.Patient;
 import java.util.UUID;
 
 public interface DoctorInterface {
-    Boolean assignPatient(Patient patient);
-    Boolean removePatient(Patient patient);
+    Boolean assignPatient(String patient);
+    Boolean removePatient(String patient);
     Boolean updateAvailability(UUID uuid,Patient updatedPatient);
 }
