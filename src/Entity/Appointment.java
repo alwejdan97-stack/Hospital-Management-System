@@ -36,5 +36,17 @@ public class Appointment {
     public LocalDate getAppointmentDate(){
         return appointmentDate;
     }
+    public void setAppointmentTime(String appointmentTime){
+        this.appointmentTime=appointmentTime;
+    }
+    public String getAppointmentTime(){
+        return appointmentTime;
+    }
+    public void setStatus(String status){
+        this.status=status;
+    }
+    public String getStatus(){
+        return status;
+    }
 
 }
