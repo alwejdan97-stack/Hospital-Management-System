@@ -91,20 +91,17 @@ public class Doctor extends Person implements DoctorInterface {
     }
 
     @Override
-    public void assignPatient() {
-        System.out.println("Enter Patient Name");
-        assignedPatients.add(scanner.nextLine());
+    public void assignPatient(String patient) {
+        assignedPatients.add(patient);
     }
 
     @Override
-    public void removePatient() {
-        System.out.println("Enter Patient To Remove");
-        assignedPatients.remove(scanner.nextLine());
+    public void removePatient(String patient) {
+        assignedPatients.remove(patient);
     }
 
     @Override
-    public void updateAvailability() {
-        System.out.println();
-        //availableSlots.set(,scanner.nextLine());
+    public void updateAvailability(List<String> avilabiltySlot) {
+        setAvailableSlots(avilabiltySlot);
     }
 }
