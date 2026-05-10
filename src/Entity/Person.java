@@ -65,7 +65,7 @@ public class Person {
     public String toString(){
         return "Person{"+"id: "+id+" | firstName: "+firstName+" | lastName: "+lastName+" | dateOfBirth: "+dateOfBirth+" | gender: "+gender+" | phoneNumber: "+phoneNumber+" | email: "+email+" | address: "+address;
     }
-    @Override
+
     public Boolean equals(){
         return true;
     }
@@ -75,9 +75,7 @@ public class Person {
         return 0;
     }
 
-    @Override
     public void displayInfo(){
 
     }
-
 }
