@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.AppointmentInterface;
+
 import java.time.LocalDate;
 
-public class Appointment {
+public class Appointment implements AppointmentInterface {
     private String appointmentId;
     private String patientId;
     private String doctorId;
@@ -59,5 +61,20 @@ public class Appointment {
     }
     public String getNotes(){
         return notes;
+    }
+
+    @Override
+    public Boolean reschedule(Appointment appointment) {
+        return null;
+    }
+
+    @Override
+    public Boolean cancel(Appointment appointment) {
+        return null;
+    }
+
+    @Override
+    public Boolean complete(Appointment appointmentComplete) {
+        return null;
     }
 }
