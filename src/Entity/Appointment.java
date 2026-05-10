@@ -11,4 +11,12 @@ public class Appointment {
     private String status;
     private String reason;
     private String notes;
+
+    public void setAppointmentId(String appointmentId){
+        this.appointmentId=appointmentId;
+    }
+    public String getAppointmentId(){
+        return appointmentId;
+    }
+
 }
