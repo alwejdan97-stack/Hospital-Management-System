@@ -60,4 +60,18 @@ public class Person {
     public String getAddress(){
         return address;
     }
+    public void displayInfo(){
+
+    }
+
+    @Override
+    public void toString(){
+
+    }
+    @Override
+    public void equals(){}
+
+    @Override
+    public void hashCode(){}
+
 }
