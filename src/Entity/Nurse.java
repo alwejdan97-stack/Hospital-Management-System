@@ -1,15 +1,18 @@
 package Entity;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Nurse extends Person{
     private String nurseId;
     private String departmentId;
     private String shift;
     private String qualification;
-    private List<Patient> assignedPatients;
+    private List<String> assignedPatients;
 
-    public Nurse(String nurseId, String departmentId, String shift, String qualification, List<Patient> assignedPatients) {
+    public static Scanner scanner=new Scanner(System.in);
+
+    public Nurse(String nurseId, String departmentId, String shift, String qualification, List<String> assignedPatients) {
         this.nurseId = nurseId;
         this.departmentId = departmentId;
         this.shift = shift;
@@ -38,13 +41,28 @@ public class Nurse extends Person{
     public void setQualification(String qualification){
         this.qualification=qualification;
     }
-    public void setAssignedPatients(List<Patient> assignedPatients){
+    public void setAssignedPatients(List<String> assignedPatients){
         this.assignedPatients=assignedPatients;
     }
-    public List<Patient> getAssignedPatients(){
+    public List<String> getAssignedPatients(){
         return assignedPatients;
     }
 
     @Override
-    public void displayInfo(){}
+    public void displayInfo(){
+        System.out.println("Nurs ID: "+nurseId);
+        System.out.println("Department ID: "+departmentId);
+        System.out.println("Shift: "+shift);
+        System.out.println("Qualification: "+qualification);
+        System.out.println("Assigned Patient: "+assignedPatients);
+    }
+
+    public void assignedPatient(){
+        System.out.println("Enter patient");
+        assignedPatients.add(scanner.nextLine());
+    }
+    public void removePatient(){
+        System.out.println("Enter Patient to Remove");
+        assignedPatients.remove(scanner.nextLine());
+    }
 }
