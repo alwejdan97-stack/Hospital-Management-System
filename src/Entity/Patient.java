@@ -61,4 +61,10 @@ public class Patient extends Person{
     public List<String> getAppointments(){
         return appointments;
     }
+
+    public void displayInfo(){
+    }
+    public void addMedicalRecord(){}
+    public void addAppointment(){}
+    public void updateInsurance(){}
 }
