@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.PersonInterface;
+
 import java.time.LocalDate;
 
-public class Person {
+public class Person implements PersonInterface {
     private String id;
     private String firstName;
     private String lastName;
@@ -75,7 +77,8 @@ public class Person {
         return 0;
     }
 
-    public void displayInfo(){
+    @Override
+    public void displayInfo() {
 
     }
 }
