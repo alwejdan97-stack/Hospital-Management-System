@@ -48,5 +48,16 @@ public class Appointment {
     public String getStatus(){
         return status;
     }
-
+    public void setReason(String reason){
+        this.reason=reason;
+    }
+    public String getReason(){
+        return reason;
+    }
+    public void setNotes(String notes){
+        this.notes=notes;
+    }
+    public String getNotes(){
+        return notes;
+    }
 }
