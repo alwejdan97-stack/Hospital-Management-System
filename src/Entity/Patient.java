@@ -12,4 +12,53 @@ public class Patient extends Person{
     private String insuranceId;
     private List<String> medicalRecords;
     private List<String> appointments;
+
+    public void setPatientId(String patientId){
+        this.patientId=patientId;
+    }
+    public String getPatientId(){
+        return patientId;
+    }
+    public void setBloodGroup(String bloodGroup){
+        this.bloodGroup=bloodGroup;
+    }
+    public String getBloodGroup(){
+        return bloodGroup;
+    }
+    public void setAllergies(List<String> allergies){
+        this.allergies=allergies;
+    }
+    public List<String> getAllergies(){
+        return allergies;
+    }
+    public void setEmergencyContact(String emergencyContact){
+        this.emergencyContact=emergencyContact;
+    }
+    public String getEmergencyContact(){
+        return emergencyContact;
+    }
+    public void setRegistrationDate(LocalDate registrationDate){
+        this.registrationDate=registrationDate;
+    }
+    public LocalDate getRegistrationDate(){
+        return registrationDate;
+    }
+    public void setInsuranceId(String insuranceId){
+        this.insuranceId=insuranceId;
+    }
+    public String getInsuranceId(){
+        return insuranceId;
+    }
+    public void setMedicalRecords(List<String> medicalRecords){
+        this.medicalRecords=medicalRecords;
+    }
+    public List<String> getMedicalRecords(){
+        return medicalRecords;
+    }
+    public void setAppointments(List<String> appointments){
+        this.appointments=appointments;
+    }
+    public List<String> getAppointments(){
+        return appointments;
+    }
 }
