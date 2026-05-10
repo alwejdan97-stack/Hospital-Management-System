@@ -2,20 +2,19 @@ package Entity;
 
 import Behaviour.PersonInterface;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Person implements PersonInterface {
     private String id;
     private String firstName;
     private String lastName;
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
     private String gender;
     private String phoneNumber;
     private String email;
     private String address;
 
-    public Person(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address) {
+    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,10 +43,10 @@ public class Person implements PersonInterface {
     public String getLastName(){
         return lastName;
     }
-    public void setDateOfBirth(LocalDate dateOfBirth){
+    public void setDateOfBirth(String dateOfBirth){
         this.dateOfBirth=dateOfBirth;
     }
-    public LocalDate getDateOfBirth(){
+    public String getDateOfBirth(){
         return dateOfBirth;
     }
     public void setGender(String gender){
