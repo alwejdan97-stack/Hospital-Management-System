@@ -23,4 +23,10 @@ public class Department {
     public String getDepartmentName(){
         return departmentName;
     }
+    public void setHeadDoctorId(String headDoctorId){
+        this.headDoctorId=headDoctorId;
+    }
+    public String getHeadDoctorId(){
+        return headDoctorId;
+    }
 }
