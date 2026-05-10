@@ -109,7 +109,8 @@ public class Patient extends Person implements PatientInterface {
     }
 
     @Override
-    public void updateInsurance(UUID id, String insurance) {
-        return;
+    public void updateInsurance() {
+        System.out.println("Enter New Insurance");
+        insuranceId=scanner.nextLine();
     }
 }
