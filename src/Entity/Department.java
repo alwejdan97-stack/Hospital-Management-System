@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.DepartmentInterface;
+
 import java.util.List;
 
-public class Department {
+public class Department implements DepartmentInterface {
     private String departmentId;
     private String departmentName;
     private String headDoctorId;
@@ -28,5 +30,20 @@ public class Department {
     }
     public String getHeadDoctorId(){
         return headDoctorId;
+    }
+
+    @Override
+    public void assignDoctor(String doctorName) {
+
+    }
+
+    @Override
+    public void assignNurse(String nursName) {
+
+    }
+
+    @Override
+    public Boolean updateBedAvailability(int updatedBed) {
+        return null;
     }
 }
