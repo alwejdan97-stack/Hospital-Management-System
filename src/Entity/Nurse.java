@@ -9,6 +9,14 @@ public class Nurse extends Person{
     private String qualification;
     private List<Patient> assignedPatients;
 
+    public Nurse(String nurseId, String departmentId, String shift, String qualification, List<Patient> assignedPatients) {
+        this.nurseId = nurseId;
+        this.departmentId = departmentId;
+        this.shift = shift;
+        this.qualification = qualification;
+        this.assignedPatients = assignedPatients;
+    }
+
     public void setNurseId(String nurseId){
         this.nurseId=nurseId;
     }
