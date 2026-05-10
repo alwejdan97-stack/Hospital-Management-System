@@ -71,7 +71,9 @@ public class Person {
     }
 
     @Override
-    public void hashCode(){}
+    public int hashCode(){
+        return 0;
+    }
 
     @Override
     public void displayInfo(){
