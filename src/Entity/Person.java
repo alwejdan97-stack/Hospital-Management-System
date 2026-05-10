@@ -16,7 +16,7 @@ public class Person implements PersonInterface {
     private String email;
     private String address;
 
-    public Person(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address) {
+    public Person(List<String> id, List<String> lastName, LocalDate firstName, String gender, List<String> dateOfBirth, String phoneNumber, String email, String address) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -104,7 +104,13 @@ public class Person implements PersonInterface {
 
     @Override
     public void displayInfo() {
-
+        System.out.println("ID: "+id);
+        System.out.println("Name: "+firstName+" "+lastName);
+        System.out.println("Date of Birth: "+dateOfBirth);
+        System.out.println("Gender: "+gender);
+        System.out.println("Phone Number: "+phoneNumber);
+        System.out.println("Email: "+email);
+        System.out.println("Address: "+address);
     }
 
 }
