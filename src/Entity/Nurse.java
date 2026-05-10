@@ -36,4 +36,7 @@ public class Nurse extends Person{
     public List<Patient> getAssignedPatients(){
         return assignedPatients;
     }
+
+    @Override
+    public void displayInfo(){}
 }
