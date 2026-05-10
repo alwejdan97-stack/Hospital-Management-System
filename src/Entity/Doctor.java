@@ -1,9 +1,12 @@
 package Entity;
 
+import Behaviour.DoctorInterface;
+
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
-public class Doctor extends Person{
+public class Doctor extends Person implements DoctorInterface {
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -68,7 +71,18 @@ public class Doctor extends Person{
     @Override
     public void displayInfo(){}
 
-    public void assignPatient(){}
-    public void removePatient(){}
-    public void updateAvailability(){}
+    @Override
+    public Boolean assignPatient(Patient patient) {
+        return null;
+    }
+
+    @Override
+    public Boolean removePatient(Patient patient) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateAvailability(UUID uuid, Patient updatedPatient) {
+        return null;
+    }
 }
