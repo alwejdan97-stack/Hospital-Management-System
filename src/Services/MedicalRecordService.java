@@ -11,7 +11,7 @@ public class MedicalRecordService {
     public Scanner scanner=new Scanner(System.in);
     MedicalRecord medicalRecord=new MedicalRecord();
 
-    public MedicalRecord createRecord(){}
+    public MedicalRecord addRecord(){}
 
     public List<MedicalRecord> addRecords(){}
 
@@ -24,6 +24,8 @@ public class MedicalRecordService {
     public void getRecordsByDoctorId(){}
 
     public void displayPatientHistory(){}
+
+    public void displayAllRecords(){}
 
     public Boolean handelMedicalRecordService(Integer medicalRecordOption){
         switch (medicalRecordOption){
