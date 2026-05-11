@@ -16,6 +16,9 @@ public class MedicalRecordService {
     public Scanner scanner=new Scanner(System.in);
     MedicalRecord medicalRecord=new MedicalRecord();
     public Patient patient=new Patient();
+    public List<Patient> patientList=new ArrayList<>();
+    public List<Doctor> doctorList=new ArrayList<>();
+    public List<Nurse> nurseList=new ArrayList<>();
     public Doctor doctor=new Doctor();
     public Nurse nurse=new Nurse();
 
@@ -65,7 +68,7 @@ public class MedicalRecordService {
     }
 
     public void updateRecord(){
-        displayAllRecords();
+        //displayAllRecords();
         System.out.println("Enter Record ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -91,7 +94,7 @@ public class MedicalRecordService {
     }
 
     public void deleteRecord(){
-        displayAllRecords();
+        //displayAllRecords();
         System.out.println("Enter Record ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -115,7 +118,17 @@ public class MedicalRecordService {
         }
     }
 
-    public void getRecordsByPatientId(){}
+    public void getRecordsByPatientId(){
+        //displayAllRecords()
+        System.out.println("Enter Patient ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(MedicalRecord m: medicalRecordList){
+            if(m.getPatientId().equalsIgnoreCase(ID)){
+                m.displayInfo();
+            }
+            }
+        }
 
     public void getRecordsByDoctorId(){}
 
@@ -130,7 +143,7 @@ public class MedicalRecordService {
         }
     }
 
-    public Boolean handelMedicalRecordService(Integer medicalRecordOption){
+    /*public Boolean handelMedicalRecordService(Integer medicalRecordOption){
         switch (medicalRecordOption){
             case 1 -> {
                 System.out.println("== Add New Patient ==");
@@ -171,5 +184,5 @@ public class MedicalRecordService {
             }
         }
         return true;
-    }
+    }*/
 }
