@@ -2,6 +2,7 @@ package Utils;
 
 public class MenuMessage {
     public static String MAIN_MENU_MESSAGE = """
+            ==== Hospital Management System ====
             1- Patient Menu
             2- Doctor Menu
             3- Nurse Menu
