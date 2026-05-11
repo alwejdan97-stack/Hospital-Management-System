@@ -30,7 +30,7 @@ public class NurseService {
         nurse.setGender(scanner.nextLine());
         System.out.println("Enter Phone Number:");
         nurse.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Qualification: ");
+        System.out.println("Enter Qualification:");
         nurse.setQualification(scanner.nextLine());
         System.out.println("Enter Gender: ");
         nurse.setGender(scanner.nextLine());
