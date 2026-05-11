@@ -199,8 +199,8 @@ public class AppointmentService {
         }
     }
 
-    public Boolean handelMedicalRecordService(Integer medicalRecordOption){
-        switch (medicalRecordOption){
+    public Boolean handelAppointmentService(Integer appointmentOption){
+        switch (appointmentOption){
             case 1 -> {
                 System.out.println("== Add New Appointment ==");
                 addAppointments();
