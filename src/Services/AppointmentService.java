@@ -194,4 +194,62 @@ public class AppointmentService {
             System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime()+" | Notes: "+a.getNotes());
         }
     }
+
+    public Boolean handelMedicalRecordService(Integer medicalRecordOption){
+        switch (medicalRecordOption){
+            case 1 -> {
+                System.out.println("== Add New Appointment ==");
+                addAppointments();
+            }
+            case 2 -> {
+                System.out.println("== Update Appointment ==");
+                updateAppointment();
+            }
+
+            case 3 -> {
+                System.out.println("== Show Appointments ==");
+                displayAllAppointments();
+            }
+
+            case 4 -> {
+                System.out.println("== Show Appointments Using Patient ID ==");
+                getAppointmentByPatientId();
+            }
+
+            case 5 -> {
+                System.out.println("== Show Appointments Using Doctor ID ==");
+                getAppointmentByDoctorId();
+            }
+
+            case 6 -> {
+                System.out.println("== Show Appointments Using Appointment Date ==");
+                getAppointmentByDate();
+            }
+
+            case 7 -> {
+                System.out.println("== Delete Appointments ==");
+                deleteAppointment();
+            }
+
+            case 8 -> {
+                System.out.println("== Reschedule Appointment ==");
+                rescheduleAppointment();
+            }
+
+            case 9 -> {
+                System.out.println("== Cancel Appointment ==");
+                cancelAppointment();
+            }
+
+            case 10 ->
+            {
+                return false;
+            }
+
+            default ->{
+                System.out.println("Invalid Option");
+            }
+        }
+        return true;
+    }
 }
