@@ -162,8 +162,23 @@ public class AppointmentService {
                 LocalDate date=LocalDate.parse(scanner.nextLine(),formatter);
                 System.out.println("Enter new Time");
                 String newTime=scanner.nextLine();
-                rescheduleAppointment();
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Appointment NOT found");
+        }
+    }
+
+    public void cancelAppointment(){
+        System.out.println("Enter Appointment ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(Appointment a:appointmentList) {
+            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
+                a.setStatus("Cancel");
+                System.out.println("Appointment Successfully canceled");
                 found=true;
             }
         }
