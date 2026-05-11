@@ -35,4 +35,6 @@ public class GeneralPractitioner extends Doctor {
         return vaccinationCertified;
     }
 
+    public void scheduleHomeVisit(){}
+    public void administerVaccine(){}
 }
