@@ -5,6 +5,7 @@ import Behaviour.PatientInterface;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+import java.util.*;
 
 public class Patient extends Person implements PatientInterface {
     private String patientId;
@@ -104,6 +105,4 @@ public class Patient extends Person implements PatientInterface {
     public void updateInsurance(String newInsurance) {
         updateInsurance(newInsurance);
     }
-
-
 }
