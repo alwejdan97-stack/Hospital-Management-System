@@ -221,7 +221,7 @@ public Boolean handelDoctorService(Integer doctorOption){
         }
 
         default ->{
-
+            System.out.println("Invalid Option");
         }
     }
     return true;
