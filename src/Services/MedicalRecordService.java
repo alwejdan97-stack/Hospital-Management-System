@@ -1,10 +1,28 @@
 package Services;
 
-public class MedicalRecordService {
+import Entity.MedicalRecord;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MedicalRecordService {
+    public List<MedicalRecord> medicalRecordList=new ArrayList<>();
+    public Scanner scanner=new Scanner(System.in);
+    MedicalRecord medicalRecord=new MedicalRecord();
+
+    public MedicalRecord createRecord(){}
+
+    public List<MedicalRecord> addRecords(){}
+
+    public void updateRecord(){}
+
+    public void deleteRecord(){}
 
     public void getRecordsByPatientId(){}
+
     public void getRecordsByDoctorId(){}
+
     public void displayPatientHistory(){}
 
     public Boolean handelMedicalRecordService(Integer medicalRecordOption){
