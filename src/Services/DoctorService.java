@@ -19,8 +19,10 @@ public class DoctorService {
     public Doctor addDoctor(){
         System.out.println(" ** Adding new Doctor ** ");
 
-        System.out.println("Enter Name: ");
-        doctor.setFirstName(scanner.nextLine()); doctor.setLastName(scanner.nextLine());
+        System.out.println("Enter First Name: ");
+        doctor.setFirstName(scanner.nextLine());
+        System.out.println("Enter Second Name: ");
+        doctor.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
         doctor.setDoctorId(scanner.nextLine());
         System.out.println("Enter Date Of Birth: ");
