@@ -44,5 +44,27 @@ public class InPatient extends Patient {
         this.dailyCharges = dailyCharges;
     }
 
+    public LocalDate getDischargeDate() {
+        return dischargeDate;
+    }
 
+    public LocalDate getAdmissionDate() {
+        return admissionDate;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public String getBedNumber() {
+        return bedNumber;
+    }
+
+    public Double getDailyCharges() {
+        return dailyCharges;
+    }
+
+    public String getAdmittingDoctorId() {
+        return admittingDoctorId;
+    }
 }
