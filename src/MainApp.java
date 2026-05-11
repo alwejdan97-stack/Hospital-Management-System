@@ -58,12 +58,12 @@ public class MainApp {
                         medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
                     }
                 }
-                case 5 -> {Boolean courseMenuContinue = true;
-                    while (courseMenuContinue) {
-                        System.out.println("*********** Course Menu ***********");
-                        System.out.println(MenuMessages.COURSE_MENU_MESSAGE);
-                        Integer courseOption=input.nextInt();
-                        courseMenuContinue=courseService.handleCourse(courseOption);
+                case 5 -> {Boolean appointmentMenuContinue = true;
+                    while (appointmentMenuContinue) {
+                        System.out.println("*********** Appointment Menu ***********");
+                        System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
+                        Integer appointmentOption=input.nextInt();
+                        appointmentMenuContinue=appointmentService.handelMedicalRecordService(appointmentOption);
                     }
                 }
                 case 6 ->{
