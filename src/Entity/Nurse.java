@@ -12,10 +12,11 @@ public class Nurse extends Person{
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Nurse(String nurseId, String departmentId, String shift, String qualification, List<String> assignedPatients) {
+    public Nurse(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address, String nurseId, String shift, String departmentId, String qualification, List<String> assignedPatients) {
+        super(id, lastName, firstName, gender, dateOfBirth, phoneNumber, email, address);
         this.nurseId = nurseId;
-        this.departmentId = departmentId;
         this.shift = shift;
+        this.departmentId = departmentId;
         this.qualification = qualification;
         this.assignedPatients = assignedPatients;
     }
