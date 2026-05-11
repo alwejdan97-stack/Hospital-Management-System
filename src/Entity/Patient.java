@@ -19,16 +19,17 @@ public class Patient extends Person implements PatientInterface {
     public static Scanner scanner=new Scanner(System.in);
 
 
+
     public Patient() {
-        super(medicalRecords,appointments,registrationDate,insuranceId,allergies,emergencyContact,patientId,bloodGroup);
-        this.medicalRecords = medicalRecords;
-        this.appointments = appointments;
-        this.registrationDate = registrationDate;
-        this.insuranceId = insuranceId;
-        this.allergies = allergies;
-        this.emergencyContact = emergencyContact;
+        super();
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;
+        this.allergies = allergies;
+        this.emergencyContact = emergencyContact;
+        this.medicalRecords = medicalRecords;
+        this.appointments = appointments;
+        this.insuranceId = insuranceId;
+        this.registrationDate = registrationDate;
     }
 
     public void setPatientId(String patientId){

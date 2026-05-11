@@ -4,22 +4,22 @@ import Behaviour.DoctorInterface;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Doctor extends Person implements DoctorInterface {
     private String doctorId;
     private String specialization;
     private String qualification;
-    private int experienceYears;
+    private Integer experienceYears;
     private String departmentId;
-    private double consultationFee;
+    private Double consultationFee;
     private List<String> availableSlots;
-    private List<String> assignedPatients;
+    private List<Patient> assignedPatients;
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Doctor(String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String doctorId) {
-        super(specialization,doctorId,qualification,experienceYears,departmentId, consultationFee,availableSlots,assignedPatients);
+    public Doctor() {
+        super();
+        this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
         this.experienceYears = experienceYears;
@@ -27,7 +27,6 @@ public class Doctor extends Person implements DoctorInterface {
         this.consultationFee = consultationFee;
         this.availableSlots = availableSlots;
         this.assignedPatients = assignedPatients;
-        this.doctorId = doctorId;
     }
 
     public void setDoctorId(String doctorId){
@@ -72,10 +71,10 @@ public class Doctor extends Person implements DoctorInterface {
     public List<String> getAvailableSlots(){
         return availableSlots;
     }
-    public void setAssignedPatients(List<String> assignedPatients){
+    public void setAssignedPatients(List<Patient> assignedPatients){
         this.assignedPatients=assignedPatients;
     }
-    public List<String> getAssignedPatients(){
+    public List<Patient> getAssignedPatients(){
         return assignedPatients;
     }
     @Override
@@ -91,12 +90,12 @@ public class Doctor extends Person implements DoctorInterface {
     }
 
     @Override
-    public void assignPatient(String patient) {
+    public void assignPatient(Patient patient) {
         assignedPatients.add(patient);
     }
 
     @Override
-    public void removePatient(String patient) {
+    public void removePatient(Patient patient) {
         assignedPatients.remove(patient);
     }
 

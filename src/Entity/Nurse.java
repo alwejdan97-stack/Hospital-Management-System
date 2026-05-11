@@ -12,8 +12,8 @@ public class Nurse extends Person{
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Nurse(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address, String nurseId, String shift, String departmentId, String qualification, List<String> assignedPatients) {
-        super(id, lastName, firstName, gender, dateOfBirth, phoneNumber, email, address);
+    public Nurse() {
+        super();
         this.nurseId = nurseId;
         this.shift = shift;
         this.departmentId = departmentId;

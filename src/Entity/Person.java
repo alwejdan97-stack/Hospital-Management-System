@@ -2,11 +2,10 @@ package Entity;
 
 import Behaviour.PersonInterface;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Person implements PersonInterface {
-    private String id;
+    String id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -15,12 +14,13 @@ public class Person implements PersonInterface {
     private String email;
     private String address;
 
-    public Person(String id, String lastName, String firstName, String gender, String dateOfBirth, String phoneNumber, String email, String address) {
+    public Person() {
+        super();
         this.id = id;
-        this.lastName = lastName;
         this.firstName = firstName;
-        this.gender = gender;
         this.dateOfBirth = dateOfBirth;
+        this.lastName = lastName;
+        this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
