@@ -17,8 +17,10 @@ public class PatientService {
     public Patient addPatient(){
         System.out.println(" ** Adding new Patient ** ");
 
-        System.out.println("Enter Name: ");
-        patient.setFirstName(scanner.nextLine()); patient.setLastName(scanner.nextLine());
+        System.out.println("Enter First Name: ");
+        patient.setFirstName(scanner.nextLine());
+        System.out.println("Enter Last Name: ");
+        patient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
         patient.setPatientId(scanner.nextLine());
         System.out.println("Enter Date Of Birth: ");
@@ -41,8 +43,9 @@ public class PatientService {
             patientList.add(addPatient());
             System.out.println("If want ot add more patient press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=false;
+                continueFlag=true;
             }
+            continueFlag=false;
         }
     }
     public void editPatient(){

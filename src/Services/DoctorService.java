@@ -47,8 +47,9 @@ public class DoctorService {
             doctorList.add(addDoctor());
             System.out.println("If want ot add more doctors press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=false;
+                continueFlag=true;
             }
+            continueFlag=false;
         }
         return doctorList;
     }

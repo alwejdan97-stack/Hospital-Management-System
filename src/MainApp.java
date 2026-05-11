@@ -28,7 +28,7 @@ public class MainApp {
                 case 1 -> {
                     Boolean PatientMenuContinue = true;
                     while (PatientMenuContinue) {
-                        System.out.println(" *********** Doctor Menu ***********");
+                        System.out.println(" *********** Patient Menu ***********");
                         System.out.println(menuMessage.PATIENT_MENU_MESSAGE);
                         Integer patientOption = input.nextInt();
                         PatientMenuContinue = patientService.handelPatientService(patientOption);
