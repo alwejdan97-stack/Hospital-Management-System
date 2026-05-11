@@ -118,15 +118,15 @@ public class DoctorService {
             }
         }
         if (!found) {
-            System.out.println("Patient NOT found");
+            System.out.println("Doctor NOT found");
         }
     }
 
 public static void displayAllDoctors(){
-    if(DoctorService.doctorList.isEmpty()){
+    if(doctorList.isEmpty()){
         System.out.println("NO Doctor in the List");
     }
-    for(Doctor d: DoctorService.doctorList) {
+    for(Doctor d: doctorList) {
         System.out.println("Doctor Name: " + d.getFirstName() + " " + d.getLastName()+" | Doctor ID: "+d.getDoctorId());
     }
 }
@@ -136,7 +136,7 @@ public static void displayAllDoctors(){
         System.out.println("Enter Doctor Specialization");
         String specialization=scanner.nextLine();
         Boolean found = false;
-        for(Doctor d: DoctorService.doctorList){
+        for(Doctor d: doctorList){
             if(d.getSpecialization().equalsIgnoreCase(specialization)){
                 System.out.println("Doctor Name: "+d.getFirstName()+" "+d.getLastName()+" is found");
                 System.out.println("Doctor ID: "+d.getDoctorId());
@@ -153,18 +153,14 @@ public static void displayAllDoctors(){
             System.out.println("Doctor NOT found");
         }
     }
-public Doctor searchPatientsByName(){
+public Doctor searchDoctorByName(){
     displayAllDoctors();
     System.out.println("Enter Doctor Name");
     String name=scanner.nextLine();
     Boolean found = false;
-    for(Doctor p: DoctorService.doctorList){
+    for(Doctor p: doctorList){
         if(p.getFirstName().equalsIgnoreCase(name)){
             System.out.println("Doctor Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
-                /*System.out.println("Patient ID: "+p.getPatientId());
-                System.out.println("Patient Birthday: "+p.getDateOfBirth());
-                System.out.println("Patient Phone Number: "+p.getPhoneNumber());
-                System.out.println("Patient Address: "+p.getAddress());*/
             found=true;
         }
     }
