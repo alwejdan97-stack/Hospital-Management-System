@@ -43,12 +43,13 @@ public class MenuMessage {
             9- Go Back to Main Menu
             """;
     public static String DEPARTMENT_MENU_MESSAGE = """
-            1- ADD
-            2- UPDATE
-            3- DISPLAY
-            4- DISPLAY SPECIFIC TEACHER
-            5- DELETE
-            6- Go Back to Main Menu
+            1- Add New Department
+            2- Update Department
+            3- Show Departments
+            4- Show Departments Using Department ID
+            5- Delete Department
+            6- Assign Doctors To Departments
+            7- Go Back to Main Menu
             """;
     public static String APPOINTMENT_MENU_MESSAGE = """
             1- Add New Appointment
