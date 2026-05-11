@@ -56,7 +56,7 @@ public class AppointmentService {
     }
 
     public void updateAppointment(){
-        //displayAllRecords();
+        displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -82,7 +82,7 @@ public class AppointmentService {
     }
 
     public void deleteAppointment(){
-        //displayAllRecords();
+        displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -107,7 +107,7 @@ public class AppointmentService {
     }
 
     public void getAppointmentByPatientId(){
-        //displayAllRecords();
+        displayAllAppointments();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -123,6 +123,7 @@ public class AppointmentService {
     }
 
     public void getAppointmentByDoctorId(){
+        displayAllAppointments();
         System.out.println("Enter Doctor ID");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -138,6 +139,7 @@ public class AppointmentService {
     }
 
     public void getAppointmentByDate(){
+        displayAllAppointments();
         System.out.println("Enter Appointment Date");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -153,6 +155,7 @@ public class AppointmentService {
     }
 
     public void rescheduleAppointment(){
+        displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -172,6 +175,7 @@ public class AppointmentService {
     }
 
     public void cancelAppointment(){
+        displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID=scanner.nextLine();
         Boolean found = false;
