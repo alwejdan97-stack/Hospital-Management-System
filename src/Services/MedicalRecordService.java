@@ -11,9 +11,33 @@ public class MedicalRecordService {
     public Scanner scanner=new Scanner(System.in);
     MedicalRecord medicalRecord=new MedicalRecord();
 
-    public MedicalRecord addRecord(){}
+    public MedicalRecord addRecord(){
+        System.out.println(" ** Adding new Record ** ");
 
-    public List<MedicalRecord> addRecords(){}
+        System.out.println("Enter Medical Record ID: ");
+        medicalRecord.setRecordId(scanner.nextLine());
+        System.out.println("Enter Doctor ID: ");
+        medicalRecord.setDoctorId(scanner.nextLine());
+        System.out.println("Enter Patient ID: ");
+        medicalRecord.setPatientId(scanner.nextLine());
+        System.out.println("Enter Diagnosis: ");
+        medicalRecord.setDiagnosis(scanner.nextLine());
+        System.out.println("Enter Prescription: ");
+        medicalRecord.setPrescription(scanner.nextLine());
+        System.out.println("Enter Visit Date: ");
+        medicalRecord.setVisitDate();
+        System.out.println("Enter Test Result:");
+        medicalRecord.setTestResults(scanner.nextLine());
+        System.out.println("Enter Notes: ");
+        medicalRecord.setNotes(scanner.nextLine());
+
+        System.out.println("Record Add Successfully");
+        return medicalRecord;
+    }
+
+    public List<MedicalRecord> addRecords(){
+
+    }
 
     public void updateRecord(){}
 
