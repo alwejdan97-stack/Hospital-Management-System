@@ -42,20 +42,20 @@ public class MainApp {
                         doctorMenuContinue=doctorService.handelDoctorService(doctorOption);
                     }
                 }
-                /*case 3 ->{Boolean teacherMenuContinue = true;
-                    while (teacherMenuContinue) {
-                        System.out.println("*********** Teacher Menu ***********");
-                        System.out.println(MenuMessages.TEACHER_MENU_MESSAGE);
-                        Integer teacherOption=input.nextInt();
-                        teacherMenuContinue=teacherService.handleTeacherMenu(teacherOption);
+                case 3 ->{Boolean nurseMenuContinue = true;
+                    while (nurseMenuContinue) {
+                        System.out.println("*********** Nurse Menu ***********");
+                        System.out.println(MenuMessage.NURSE_MENU_MESSAGE);
+                        Integer nurseOption=input.nextInt();
+                        nurseMenuContinue=nurseService.handelNurseService(nurseOption);
                     }
                 }
-                case 4 -> {Boolean studentMenuContinue = true;
-                    while (studentMenuContinue) {
-                        System.out.println("*********** Student Menu ***********");
-                        System.out.println(MenuMessages.STUDENT_MENU_MESSAGE);
-                        Integer studentOption=input.nextInt();
-                        studentMenuContinue=studentService.handleStudentMenu(studentOption);
+                case 4 -> {Boolean medicalRecordMenuContinue = true;
+                    while (medicalRecordMenuContinue) {
+                        System.out.println("*********** Medical Record Menu ***********");
+                        System.out.println(MenuMessage.MEDICAL_SERVICE_MENU_MESSAGE);
+                        Integer medicalRecordOption=input.nextInt();
+                        medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
                     }
                 }
                 case 5 -> {Boolean courseMenuContinue = true;
@@ -68,7 +68,7 @@ public class MainApp {
                 }
                 case 6 ->{
 
-                }*/
+                }
                 case 7 -> {
                     System.out.println("Exit");
                     mainMenuContinue = false;
