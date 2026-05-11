@@ -2,11 +2,9 @@ package Entity;
 
 import Behaviour.PatientInterface;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Patient extends Person implements PatientInterface {
     private String patientId;
@@ -21,7 +19,7 @@ public class Patient extends Person implements PatientInterface {
     public static Scanner scanner=new Scanner(System.in);
 
 
-    public Patient(List<String> medicalRecords, List<String> appointments, LocalDate registrationDate, String insuranceId, List<String> allergies, String emergencyContact, String patientId, String bloodGroup) {
+    public Patient() {
         super(medicalRecords,appointments,registrationDate,insuranceId,allergies,emergencyContact,patientId,bloodGroup);
         this.medicalRecords = medicalRecords;
         this.appointments = appointments;

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
-    List<Patient> patientList=new ArrayList<>();
+    static List<Patient> patientList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     Patient patient=new Patient();
 
@@ -121,4 +121,63 @@ public class PatientService {
                 System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
         }
     }
+    public void searchPatientsByName(){
+        if(patientList.isEmpty()){
+            System.out.println("NO Patient in the List");
+        }
+        displayAllPatients();
+        System.out.println("Enter Patient Name");
+        String name=scanner.nextLine();
+        Boolean found = false;
+        for(Patient p:patientList){
+            if(p.getFirstName().equalsIgnoreCase(name)){
+                System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
+                /*System.out.println("Patient ID: "+p.getPatientId());
+                System.out.println("Patient Birthday: "+p.getDateOfBirth());
+                System.out.println("Patient Phone Number: "+p.getPhoneNumber());
+                System.out.println("Patient Address: "+p.getAddress());*/
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Patient NOT found");
+        }
+    }
+    public static void handelPatientService(Integer patientOption){
+        switch (patientOption){
+            case 1 -> {
+                System.out.println("== Add New Patient ==");
+                 addPatients();
+            }
+            case 2 -> {
+                System.out.println("== Update Patient ==");
+                editPatient();
+            }
+            case 3 -> {
+                System.out.println("== Show Patient ==");
+
+            }
+
+            case 4 -> {
+                System.out.println("== Show SPECIFIC Patient Using ID ==");
+                displayByName();
+            }
+
+            case 5 -> {
+                System.out.println("== Delete Patient ==");
+                deleteStudent();
+            }
+
+            case 6 -> {
+                System.out.println("== Search For Patient Name ==");
+            }
+
+            case 7 ->
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
