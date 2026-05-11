@@ -66,10 +66,19 @@ public class MainApp {
                         appointmentMenuContinue=appointmentService.handelMedicalRecordService(appointmentOption);
                     }
                 }
-                case 6 ->{
+                case 6 -> {Boolean departmentMenuContinue = true;
+                    while (departmentMenuContinue) {
+                        System.out.println("*********** Department Menu ***********");
+                        System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
+                        Integer departmentOption=input.nextInt();
+                        departmentMenuContinue=departmentService.(departmentOption);
+                    }
+                }
+
+                case 7 ->{
 
                 }
-                case 7 -> {
+                case 8 -> {
                     System.out.println("Exit");
                     mainMenuContinue = false;
                 }
