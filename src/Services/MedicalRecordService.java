@@ -59,7 +59,7 @@ public class MedicalRecordService {
     }
 
     public void updateRecord(){
-        //displayAllRecords();
+        displayAllRecords();
         System.out.println("Enter Record ID");
         String ID=scanner.nextLine();
         Boolean found=false;
