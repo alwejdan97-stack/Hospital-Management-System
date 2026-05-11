@@ -139,10 +139,10 @@ public class AppointmentService {
 
     public void getAppointmentByDate(){
         System.out.println("Enter Appointment Date");
-        LocalDate visitDate=LocalDate.parse(scanner.nextLine(),formatter);
+        String ID=scanner.nextLine();
         Boolean found = false;
         for(Appointment a:appointmentList) {
-            if (a.getAppointmentDate().equals(visitDate)) {
+            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
                 found=true;
             }
@@ -154,10 +154,15 @@ public class AppointmentService {
 
     public void rescheduleAppointment(){
         System.out.println("Enter Appointment ID");
-        LocalDate visitDate=LocalDate.parse(scanner.nextLine(),formatter);
+        String ID=scanner.nextLine();
         Boolean found = false;
         for(Appointment a:appointmentList) {
-            if (a.getAppointmentDate().equals(visitDate)) {
+            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
+                System.out.println("Enter New Date");
+                LocalDate date=LocalDate.parse(scanner.nextLine(),formatter);
+                System.out.println("Enter new Time");
+                String newTime=scanner.nextLine();
+                rescheduleAppointment();
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
                 found=true;
             }
