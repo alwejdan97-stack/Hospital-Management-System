@@ -58,12 +58,14 @@ public class MenuMessage {
             5- DELETE
             6- Go Back to Main Menu
             """;
-    public static String MEDICAL_RECORD_MENU_MESSAGE = """
-            1- ADD
-            2- UPDATE
-            3- DISPLAY
-            4- DISPLAY SPECIFIC COURSE
-            5- DELETE
-            6- Go Back to Main Menu
+    public static String MEDICAL_SERVICE_MENU_MESSAGE = """
+            1- Add New Medical Record
+            2- Update Medical Record
+            3- Show Medical Records
+            4- how Medical Records Using Patient ID
+            5- Show Medical Records Using Doctor ID
+            6- Delete Medical Record
+            7- Display Patient History
+            8- Go Back to Main Menu
             """;
 }
