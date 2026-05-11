@@ -12,5 +12,27 @@ public class GeneralPractitioner extends Doctor {
         this.vaccinationCertified = vaccinationCertified;
     }
 
+    public void setWalkinAvailable(Boolean walkinAvailable) {
+        this.walkinAvailable = walkinAvailable;
+    }
+
+    public void setHomeVisitAvailable(Boolean homeVisitAvailable) {
+        this.homeVisitAvailable = homeVisitAvailable;
+    }
+
+    public void setVaccinationCertified(Boolean vaccinationCertified) {
+        this.vaccinationCertified = vaccinationCertified;
+    }
+
+    public Boolean getWalkinAvailable() {
+        return walkinAvailable;
+    }
+    public Boolean getHomeVisitAvailable() {
+        return homeVisitAvailable;
+    }
+
+    public Boolean getVaccinationCertified() {
+        return vaccinationCertified;
+    }
 
 }
