@@ -11,7 +11,7 @@ import static Entity.Patient.scanner;
 
 public class PatientService {
     public static List<Patient> patientList=new ArrayList<>();
-    public Scanner scanner=new Scanner(System.in);
+    public static Scanner scanner=new Scanner(System.in);
     public Patient patient=new Patient();
 
     public Patient addPatient(){
@@ -113,12 +113,11 @@ public class PatientService {
                 System.out.println("Patient NOT found");
             }
         }
-    }
     public static void displayAllPatients(){
-        if(patientList.isEmpty()){
+        if(PatientService.patientList.isEmpty()){
             System.out.println("NO Patient in the List");
         }
-        for(Patient p:patientList) {
+        for(Patient p: PatientService.patientList) {
                 System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
         }
     }
@@ -127,7 +126,7 @@ public class PatientService {
         System.out.println("Enter Patient Name");
         String name=scanner.nextLine();
         Boolean found = false;
-        for(Patient p:patientList){
+        for(Patient p: PatientService.patientList){
             if(p.getFirstName().equalsIgnoreCase(name)){
                 System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
                 /*System.out.println("Patient ID: "+p.getPatientId());
@@ -145,30 +144,31 @@ public class PatientService {
         switch (patientOption){
             case 1 -> {
                 System.out.println("== Add New Patient ==");
-
+                addPatients();
             }
             case 2 -> {
                 System.out.println("== Update Patient ==");
-
+                editPatient();
             }
 
             case 3 -> {
                 System.out.println("== Show Patient ==");
-
+                displayAllPatients();
             }
 
             case 4 -> {
                 System.out.println("== Show SPECIFIC Patient Using ID ==");
-
+                getPatientById();
             }
 
             case 5 -> {
                 System.out.println("== Delete Patient ==");
-
+                removePatient();
             }
 
             case 6 -> {
                 System.out.println("== Search For Patient Name ==");
+                searchPatientsByName();
             }
 
             case 7 ->
@@ -177,7 +177,7 @@ public class PatientService {
             }
 
             default ->{
-
+                System.out.println("Invalid Option");
             }
         }
         return true;
