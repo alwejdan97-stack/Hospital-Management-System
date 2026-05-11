@@ -94,7 +94,7 @@ public class MedicalRecordService {
     }
 
     public void deleteRecord(){
-        //displayAllRecords();
+        displayAllRecords();
         System.out.println("Enter Record ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -119,7 +119,7 @@ public class MedicalRecordService {
     }
 
     public void getRecordsByPatientId(){
-        //displayAllRecords()
+        displayAllRecords();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -150,7 +150,19 @@ public class MedicalRecordService {
     }
 
     public void displayPatientHistory(){
-
+        displayAllRecords();
+        System.out.println("Enter Patient ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(MedicalRecord m: medicalRecordList) {
+            if (m.getPatientId().equalsIgnoreCase(ID)) {
+                System.out.println("Record ID: " +m.getRecordId() + patient.getFirstName()+" " +patient.getLastName()+ " | Patient ID: " + m.getPatientId() + " | Date of Birth: " + patient.getDateOfBirth() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Record NOT found");
+        }
     }
 
     public void displayAllRecords(){
@@ -165,35 +177,40 @@ public class MedicalRecordService {
     public Boolean handelMedicalRecordService(Integer medicalRecordOption){
         switch (medicalRecordOption){
             case 1 -> {
-                System.out.println("== Add New Patient ==");
-                addPatients();
+                System.out.println("== Add New Medical Record ==");
+                addRecords();
             }
             case 2 -> {
-                System.out.println("== Update Patient ==");
-                editPatient();
+                System.out.println("== Update Medical Record ==");
+                updateRecord();
             }
 
             case 3 -> {
-                System.out.println("== Show Patients ==");
-                displayAllPatients();
+                System.out.println("== Show Medical Records ==");
+                displayAllRecords();
             }
 
             case 4 -> {
-                System.out.println("== Show SPECIFIC Patient Using ID ==");
-                getPatientById();
+                System.out.println("== Show Medical Records Using Patient ID ==");
+                getRecordsByPatientId();
             }
 
             case 5 -> {
-                System.out.println("== Delete Patient ==");
-                removePatient();
+                System.out.println("== Show Medical Records Using Doctor ID ==");
+                getRecordsByDoctorId();
             }
 
             case 6 -> {
-                System.out.println("== Search For a Patient ==");
-                searchPatientsByName();
+                System.out.println("== Delete Medical Record ==");
+                deleteRecord();
             }
 
-            case 7 ->
+            case 7 -> {
+                System.out.println("== Display Patient History ==");
+                displayPatientHistory();
+            }
+
+            case 8 ->
             {
                 return false;
             }
