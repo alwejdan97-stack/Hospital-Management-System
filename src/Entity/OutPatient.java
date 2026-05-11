@@ -13,4 +13,17 @@ public class OutPatient extends Patient{
         this.lastVisitDate = lastVisitDate;
         this.preferredDoctorId = preferredDoctorId;
     }
+
+    public void setVisitCount(int visitCount) {
+        this.visitCount = visitCount;
+    }
+
+    public void setLastVisitDate(LocalDate lastVisitDate) {
+        this.lastVisitDate = lastVisitDate;
+    }
+
+    public void setPreferredDoctorId(String preferredDoctorId) {
+        this.preferredDoctorId = preferredDoctorId;
+    }
+
 }
