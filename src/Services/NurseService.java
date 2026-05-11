@@ -1,4 +1,252 @@
 package Services;
 
+import Entity.Doctor;
+import Entity.Nurse;
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class NurseService {
+    public static List<Nurse> nurseList=new ArrayList<>();
+    public Scanner scanner=new Scanner(System.in);
+    public Nurse nurse=new Nurse();
+
+    public Nurse addNurse(){
+        System.out.println(" ** Adding new Nurse ** ");
+
+        System.out.println("Enter First Name: ");
+        nurse.setFirstName(scanner.nextLine());
+        System.out.println("Enter Last Name: ");
+        nurse.setLastName(scanner.nextLine());
+        System.out.println("Enter ID: ");
+        nurse.setNurseId(scanner.nextLine());
+        System.out.println("Enter Date Of Birth: ");
+        nurse.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Address: ");
+        nurse.setAddress(scanner.nextLine());
+        System.out.println("Enter Email: ");
+        nurse.setGender(scanner.nextLine());
+        System.out.println("Enter Phone Number:");
+        nurse.setPhoneNumber(scanner.nextLine());
+        System.out.println("Enter Qualification: ");
+        nurse.setQualification(scanner.nextLine());
+        System.out.println("Enter Gender: ");
+        nurse.setGender(scanner.nextLine());
+        System.out.println("Enter Shift: ");
+        nurse.setShift(scanner.nextLine());
+        System.out.println("Assign Patient:");
+        nurse.assignedPatient(scanner.nextLine());
+        System.out.println("Enter Department ID: ");
+        nurse.setDepartmentId(scanner.nextLine());
+
+        System.out.println("Nurse Add Successfully");
+        return nurse;
+    }
+    public List<Nurse> addNurses(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            nurseList.add(addNurse());
+            System.out.println("If want ot add more nurses press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=true;
+            }
+            continueFlag=false;
+        }
+        return nurseList;
+    }
+    public void editNurse(){
+        displayAllNurses();
+        System.out.println("Enter Nurse ID");
+        String ID=scanner.nextLine();
+        Boolean found=false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(ID)){
+                System.out.println("Enter New Name");
+                n.setFirstName(scanner.nextLine());
+                System.out.println("Nurse Updated Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Nurse NOT Found");
+        }
+        Boolean continueFlag = true;
+        while (continueFlag){
+            System.out.println("If want ot update more Nurses press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+    }
+    public void removeNurse(){
+        displayAllNurses();
+        System.out.println("Enter Nurse ID");
+        String ID=scanner.nextLine();
+        Boolean found=false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(ID)){
+                nurseList.remove(ID);
+                System.out.println("Nurse Removed Successful");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Nurse NOT Found");
+        }
+        Boolean continueFlag = true;
+        while (continueFlag){
+            System.out.println("If want ot delete more Nurses press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+    }
+    public void getNurseById(){
+        displayAllNurses();
+        System.out.println("Enter Nurse ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(ID)){
+                System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName());
+                System.out.println("Nurse ID: "+n.getNurseId());
+                System.out.println("Nurse Birthday: "+n.getDateOfBirth());
+                System.out.println("Nurse Phone Number: "+n.getPhoneNumber());
+                System.out.println("Nurse Address: "+n.getAddress());
+                System.out.println("Nurse Department ID:"+n.getDepartmentId());
+                System.out.println("Nurse Shift: "+n.getShift());
+                System.out.println("Nurse Assign Patients: "+n.getAssignedPatients());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Nurse NOT found");
+        }
+    }
+
+    public void getNursesByDepartment(){
+        displayAllNurses();
+        System.out.println("Enter Nurse Department");
+        String department=scanner.nextLine();
+        Boolean found = false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(department)){
+                System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName());
+                System.out.println("Nurse ID: "+n.getNurseId());
+                System.out.println("Nurse Birthday: "+n.getDateOfBirth());
+                System.out.println("Nurse Phone Number: "+n.getPhoneNumber());
+                System.out.println("Nurse Address: "+n.getAddress());
+                System.out.println("Nurse Department ID:"+n.getDepartmentId());
+                System.out.println("Nurse Shift: "+n.getShift());
+                System.out.println("Nurse Assign Patients: "+n.getAssignedPatients());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Nurse NOT found");
+        }
+    }
+
+    public void getNursesByShift(){
+        displayAllNurses();
+        System.out.println("Enter Nurse Shift");
+        String shift=scanner.nextLine();
+        Boolean found = false;
+        for(Nurse n:nurseList){
+            if(n.getShift().equalsIgnoreCase(shift)){
+                System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName());
+                System.out.println("Nurse ID: "+n.getNurseId());
+                System.out.println("Nurse Birthday: "+n.getDateOfBirth());
+                System.out.println("Nurse Phone Number: "+n.getPhoneNumber());
+                System.out.println("Nurse Address: "+n.getAddress());
+                System.out.println("Nurse Department ID:"+n.getDepartmentId());
+                System.out.println("Nurse Shift: "+n.getShift());
+                System.out.println("Nurse Assign Patients: "+n.getAssignedPatients());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Nurse NOT found");
+        }
+    }
+
+    public static void displayAllNurses(){
+        if(nurseList.isEmpty()){
+            System.out.println("NO Nurse in the List");
+        }
+        for(Nurse n: nurseList) {
+            System.out.println("Doctor Name: " + n.getFirstName() + " " + n.getLastName()+" | Doctor ID: "+n.getNurseId()+" | Department ID: "+ n.getDepartmentId()+ " | Shift: "+n.getShift());
+        }
+    }
+
+    public Nurse searchNurseByName(){
+        displayAllNurses();
+        System.out.println("Enter Nurse Name");
+        String name=scanner.nextLine();
+        Boolean found = false;
+        for(Nurse n: nurseList){
+            if(n.getFirstName().equalsIgnoreCase(name)){
+                System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName()+" is found");
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Nurse NOT found");
+        }
+        return nurse;
+    }
+
+    public Boolean handelNurseService(Integer nurseOption){
+        switch (nurseOption){
+            case 1 -> {
+                System.out.println("== Add New Nurse ==");
+                addNurses();
+            }
+            case 2 -> {
+                System.out.println("== Update Nurse ==");
+                editNurse();
+            }
+
+            case 3 -> {
+                System.out.println("== Show Nurse ==");
+                displayAllNurses();
+            }
+
+            case 4 -> {
+                System.out.println("== Show SPECIFIC Nurse Using ID ==");
+                getNurseById();
+            }
+            case 5 -> {
+                System.out.println("== Show SPECIFIC Nurse Using Department ID ==");
+                getNursesByDepartment();
+            }
+            case 6 -> {
+                System.out.println("== Show SPECIFIC Nurse Using Shift ==");
+                getNursesByShift();
+            }
+
+            case 7 -> {
+                System.out.println("== Delete Nurse ==");
+                removeNurse();
+            }
+
+            case 8 -> {
+                System.out.println("== Search For Nurse ==");
+                searchNurseByName();
+            }
+            case 9 ->
+            {
+                return false;
+            }
+
+            default ->{
+                System.out.println("Invalid Option");
+            }
+        }
+        return true;
+    }
 }
