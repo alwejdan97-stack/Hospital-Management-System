@@ -90,7 +90,30 @@ public class MedicalRecordService {
         }
     }
 
-    public void deleteRecord(){}
+    public void deleteRecord(){
+        displayAllRecords();
+        System.out.println("Enter Record ID");
+        String ID=scanner.nextLine();
+        Boolean found=false;
+        for(MedicalRecord m:medicalRecordList){
+            if(m.getRecordId().equalsIgnoreCase(ID)){
+                medicalRecordList.remove(ID);
+                System.out.println("Record Removed Successful");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Record NOT Found");
+        }
+        Boolean continueFlag = true;
+        while (continueFlag){
+            System.out.println("If want ot delete more Records press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+    }
 
     public void getRecordsByPatientId(){}
 
