@@ -152,7 +152,7 @@ public class PatientService {
             }
 
             case 3 -> {
-                System.out.println("== Show Patient ==");
+                System.out.println("== Show Patients ==");
                 displayAllPatients();
             }
 
@@ -167,7 +167,7 @@ public class PatientService {
             }
 
             case 6 -> {
-                System.out.println("== Search For Patient Name ==");
+                System.out.println("== Search For a Patient ==");
                 searchPatientsByName();
             }
 
