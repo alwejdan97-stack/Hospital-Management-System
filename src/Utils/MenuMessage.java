@@ -42,7 +42,7 @@ public class MenuMessage {
             8- Search For Nurse
             9- Go Back to Main Menu
             """;
-    public static String TEACHER_MENU_MESSAGE = """
+    public static String DEPARTMENT_MENU_MESSAGE = """
             1- ADD
             2- UPDATE
             3- DISPLAY
@@ -50,7 +50,15 @@ public class MenuMessage {
             5- DELETE
             6- Go Back to Main Menu
             """;
-    public static String COURSE_MENU_MESSAGE = """
+    public static String APPOINTMENT_MENU_MESSAGE = """
+            1- ADD
+            2- UPDATE
+            3- DISPLAY
+            4- DISPLAY SPECIFIC COURSE
+            5- DELETE
+            6- Go Back to Main Menu
+            """;
+    public static String MEDICAL_RECORD_MENU_MESSAGE = """
             1- ADD
             2- UPDATE
             3- DISPLAY
