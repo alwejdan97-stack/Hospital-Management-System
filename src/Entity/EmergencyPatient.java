@@ -29,4 +29,20 @@ public class EmergencyPatient extends Patient {
     public void setAdmittedViaER(Boolean admittedViaER) {
         this.admittedViaER = admittedViaER;
     }
+
+    public String getEmergencyType() {
+        return emergencyType;
+    }
+
+    public String getArrivalMode() {
+        return arrivalMode;
+    }
+
+    public int getTriageLevel() {
+        return triageLevel;
+    }
+
+    public Boolean getAdmittedViaER() {
+        return admittedViaER;
+    }
 }
