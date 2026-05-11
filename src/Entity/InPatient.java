@@ -19,4 +19,30 @@ public class InPatient extends Patient {
         this.admittingDoctorId = admittingDoctorId;
         this.dailyCharges = dailyCharges;
     }
+
+    public void setAdmissionDate(LocalDate admissionDate) {
+        this.admissionDate = admissionDate;
+    }
+
+    public void setDischargeDate(LocalDate dischargeDate) {
+        this.dischargeDate = dischargeDate;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void setBedNumber(String bedNumber) {
+        this.bedNumber = bedNumber;
+    }
+
+    public void setAdmittingDoctorId(String admittingDoctorId) {
+        this.admittingDoctorId = admittingDoctorId;
+    }
+
+    public void setDailyCharges(Double dailyCharges) {
+        this.dailyCharges = dailyCharges;
+    }
+
+
 }
