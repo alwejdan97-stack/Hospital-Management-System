@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.SimpleTimeZone;
 
 public class DepartmentService {
     public List<Department> departmentList=new ArrayList<>();
@@ -56,7 +57,7 @@ public class DepartmentService {
     }
 
     public void updateDepartments(){
-        displayAllAppointments();
+        displayAllDepartments();
         System.out.println("Enter Department ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -82,7 +83,7 @@ public class DepartmentService {
     }
 
     public void deleteDepartment(){
-        displayAllAppointments();
+        displayAllDepartments();
         System.out.println("Enter Department ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -107,7 +108,7 @@ public class DepartmentService {
     }
 
     public void getAppointmentById(){
-        displayAllAppointments();
+        displayAllDepartments();
         System.out.println("Enter Department ID");
         String ID=scanner.nextLine();
         Boolean found = false;
@@ -123,61 +124,65 @@ public class DepartmentService {
     }
 
     public void displayAllDepartments(){
-        if(appointmentList.isEmpty()){
-            System.out.println("NO Appointments In The List");
+        if(departmentList.isEmpty()){
+            System.out.println("NO Department In The List");
         }
-        for(Appointment a:appointmentList){
-            System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime()+" | Notes: "+a.getNotes());
+        for(Department d:departmentList){
+            System.out.println("Department Name: "+d.getDepartmentName()+" | Department ID: " + d.getDepartmentId() + " | Doctors: " + d.getDoctors() + " | Nurses: " + d.getNurses() + " | Bed Capacity: " + d.getBedCapacity() + " | Available Bed: " + d.getAvailableBeds());
         }
     }
 
-    public Boolean handelMedicalRecordService(Integer medicalRecordOption){
-        switch (medicalRecordOption){
+    public void assignDoctorToDepartment(){
+        System.out.println(doctorList);
+        System.out.println("Enter Doctor ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(Doctor d:doctorList) {
+            if (d.getDepartmentId().equalsIgnoreCase(ID)) {
+                System.out.println("Enter Department ID");
+                d.setDepartmentId(scanner.nextLine());
+                System.out.println("Doctor Successfully assign");
+                found=true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Doctor NOT found");
+        }
+    }
+
+    public Boolean handelDepartmentService(Integer departmentOption){
+        switch (departmentOption){
             case 1 -> {
-                System.out.println("== Add New Appointment ==");
-                addAppointments();
+                System.out.println("== Add New Department ==");
+                addDepartments();
             }
             case 2 -> {
-                System.out.println("== Update Appointment ==");
-                updateAppointment();
+                System.out.println("== Update Department ==");
+                updateDepartments();
             }
 
             case 3 -> {
-                System.out.println("== Show Appointments ==");
-                displayAllAppointments();
+                System.out.println("== Show Departments ==");
+                displayAllDepartments();
             }
 
             case 4 -> {
-                System.out.println("== Show Appointments Using Patient ID ==");
-                getAppointmentByPatientId();
+                System.out.println("== Show Departments Using Department ID ==");
+                getAppointmentById();
             }
 
             case 5 -> {
-                System.out.println("== Show Appointments Using Doctor ID ==");
-                getAppointmentByDoctorId();
+                System.out.println("== Delete Department ==");
+                deleteDepartment();
             }
 
             case 6 -> {
-                System.out.println("== Show Appointments Using Appointment Date ==");
-                getAppointmentByDate();
+                System.out.println("== Assigne Doctors To Departments ==");
+                assignDoctorToDepartment();
             }
 
-            case 7 -> {
-                System.out.println("== Delete Appointments ==");
-                deleteAppointment();
-            }
-
-            case 8 -> {
-                System.out.println("== Reschedule Appointment ==");
-                rescheduleAppointment();
-            }
-
-            case 9 -> {
-                System.out.println("== Cancel Appointment ==");
-                cancelAppointment();
-            }
-
-            case 10 ->
+            case 7 ->
             {
                 return false;
             }
