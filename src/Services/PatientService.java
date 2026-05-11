@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static Entity.Patient.scanner;
+
 public class PatientService {
-    static List<Patient> patientList=new ArrayList<>();
+    public static List<Patient> patientList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
-    Patient patient=new Patient();
+    public Patient patient=new Patient();
 
     public Patient addPatient(){
         System.out.println(" ** Adding new Patient ** ");
+
         System.out.println("Enter Name: ");
         patient.setFirstName(scanner.nextLine()); patient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
@@ -28,9 +31,11 @@ public class PatientService {
         patient.setPhoneNumber(scanner.nextLine());
         System.out.println("Enter Emergency Contact Number:");
         patient.setEmergencyContact(scanner.nextLine());
+
+        System.out.println("Patient Add Successfully");
         return patient;
     }
-    public List<Patient> addPatients(){
+    public void addPatients(){
         Boolean continueFlag = true;
         while (continueFlag) {
             patientList.add(addPatient());
@@ -39,10 +44,9 @@ public class PatientService {
                 continueFlag=false;
             }
         }
-        return patientList;
     }
     public void editPatient(){
-
+        displayAllPatients();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
         Boolean found=false;
@@ -50,7 +54,7 @@ public class PatientService {
             if(p.getPatientId().equalsIgnoreCase(ID)){
                 System.out.println("Enter New Name");
                 p.setFirstName(scanner.nextLine());
-                System.out.println("Updated Successful");
+                System.out.println("Patient Updated Successfully");
                 found=true;
                 break;
             }
@@ -91,9 +95,6 @@ public class PatientService {
         }
     }
     public void getPatientById(){
-        if(patientList.isEmpty()){
-            System.out.println("NO Patient in the List");
-        }
         displayAllPatients();
             System.out.println("Enter Patient ID");
             String ID=scanner.nextLine();
@@ -113,7 +114,7 @@ public class PatientService {
             }
         }
     }
-    public void displayAllPatients(){
+    public static void displayAllPatients(){
         if(patientList.isEmpty()){
             System.out.println("NO Patient in the List");
         }
@@ -121,10 +122,7 @@ public class PatientService {
                 System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
         }
     }
-    public void searchPatientsByName(){
-        if(patientList.isEmpty()){
-            System.out.println("NO Patient in the List");
-        }
+    public static void searchPatientsByName(){
         displayAllPatients();
         System.out.println("Enter Patient Name");
         String name=scanner.nextLine();
@@ -143,16 +141,17 @@ public class PatientService {
             System.out.println("Patient NOT found");
         }
     }
-    public static void handelPatientService(Integer patientOption){
+    public Boolean handelPatientService(Integer patientOption){
         switch (patientOption){
             case 1 -> {
                 System.out.println("== Add New Patient ==");
-                 addPatients();
+
             }
             case 2 -> {
                 System.out.println("== Update Patient ==");
-                editPatient();
+
             }
+
             case 3 -> {
                 System.out.println("== Show Patient ==");
 
@@ -160,12 +159,12 @@ public class PatientService {
 
             case 4 -> {
                 System.out.println("== Show SPECIFIC Patient Using ID ==");
-                displayByName();
+
             }
 
             case 5 -> {
                 System.out.println("== Delete Patient ==");
-                deleteStudent();
+
             }
 
             case 6 -> {
@@ -176,8 +175,11 @@ public class PatientService {
             {
                 return false;
             }
+
+            default ->{
+
+            }
         }
         return true;
     }
-
 }
