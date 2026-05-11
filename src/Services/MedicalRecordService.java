@@ -16,15 +16,6 @@ public class MedicalRecordService {
     public Scanner scanner=new Scanner(System.in);
     MedicalRecord medicalRecord=new MedicalRecord();
     public Patient patient=new Patient();
-    public List<Patient> patientList=new ArrayList<>();
-    public List<Doctor> doctorList=new ArrayList<>();
-    public List<Nurse> nurseList=new ArrayList<>();
-    public Doctor doctor=new Doctor();
-    public Nurse nurse=new Nurse();
-
-    PatientService patientService=new PatientService();
-    DoctorService doctorService=new DoctorService();
-    NurseService nurseService=new NurseService();
 
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
