@@ -37,4 +37,7 @@ public class Consultant extends Doctor{
     public int getConsultationDuration() {
         return consultationDuration;
     }
+
+    public void scheduleConsultation(){}
+    public void provideSecondOpinion(){}
 }
