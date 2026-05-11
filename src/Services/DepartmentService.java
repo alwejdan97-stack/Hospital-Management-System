@@ -178,7 +178,7 @@ public class DepartmentService {
             }
 
             case 6 -> {
-                System.out.println("== Assigne Doctors To Departments ==");
+                System.out.println("== Assign Doctors To Departments ==");
                 assignDoctorToDepartment();
             }
 
