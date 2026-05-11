@@ -1,19 +1,15 @@
 package Services;
 
 import Entity.Doctor;
-import Entity.Patient;
-
-import javax.print.Doc;
 
 //import static DoctorService.doctorList;
 //import static DoctorService.doctorList;
 import java.util.*;
-import static Entity.Patient.scanner;
 
 public class DoctorService {
     public static List<Doctor> doctorList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
-    public Doctor doctor=new Doctor();
+    public Doctor doctor =new Doctor();
     public List<Doctor> avilableSlots=new ArrayList<>();
 
     public Doctor addDoctor(){
@@ -58,9 +54,9 @@ public class DoctorService {
     public void editDoctor(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found=false;
-        for(Doctor d:doctorList){
+        for(Doctor d: doctorList){
             if(d.getDoctorId().equalsIgnoreCase(ID)){
                 System.out.println("Enter New Name");
                 d.setFirstName(scanner.nextLine());
@@ -83,9 +79,9 @@ public class DoctorService {
     public void removeDoctor(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found=false;
-        for(Doctor d:doctorList){
+        for(Doctor d: doctorList){
             if(d.getDoctorId().equalsIgnoreCase(ID)){
                 doctorList.remove(ID);
                 System.out.println("Doctor Removed Successful");
@@ -107,9 +103,9 @@ public class DoctorService {
     public void getDoctorById(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found = false;
-        for(Doctor d:doctorList){
+        for(Doctor d: doctorList){
             if(d.getDoctorId().equalsIgnoreCase(ID)){
                 System.out.println("Doctor Name: "+d.getFirstName()+" "+d.getLastName());
                 System.out.println("Doctor ID: "+d.getDoctorId());
@@ -136,7 +132,7 @@ public static void displayAllDoctors(){
     public void getDoctorsBySpecialization(){
         displayAllDoctors();
         System.out.println("Enter Doctor Specialization");
-        String specialization=scanner.nextLine();
+        java.lang.String specialization=scanner.nextLine();
         Boolean found = false;
         for(Doctor d: doctorList){
             if(d.getSpecialization().equalsIgnoreCase(specialization)){
@@ -155,10 +151,10 @@ public static void displayAllDoctors(){
             System.out.println("Doctor NOT found");
         }
     }
-public Doctor searchDoctorByName(){
+public void searchDoctorByName(){
     displayAllDoctors();
     System.out.println("Enter Doctor Name");
-    String name=scanner.nextLine();
+    java.lang.String name=scanner.nextLine();
     Boolean found = false;
     for(Doctor p: doctorList){
         if(p.getFirstName().equalsIgnoreCase(name)){
@@ -169,7 +165,6 @@ public Doctor searchDoctorByName(){
     if (!found) {
         System.out.println("Doctor NOT found");
     }
-    return doctor;
 }
 
 public void getAvailableDoctors(){

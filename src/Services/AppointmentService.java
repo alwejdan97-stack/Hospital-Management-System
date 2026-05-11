@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class AppointmentService {
     public List<Appointment> appointmentList=new ArrayList<>();
-    public Scanner scanner=new Scanner(System.in);
+    public static Scanner scanner=new Scanner(System.in);
     Appointment appointment=new Appointment();
     public Patient patient=new Patient();
 
@@ -61,7 +61,7 @@ public class AppointmentService {
         String ID=scanner.nextLine();
         Boolean found=false;
         for(Appointment a:appointmentList){
-            if(a.getAppointmentId().equalsIgnoreCase(ID)){
+            if(a.getAppointmentId().equals(ID)){
                 System.out.println("Enter New Appointment ID");
                 a.setAppointmentId(scanner.nextLine());
                 System.out.println("Appointment Updated Successfully");

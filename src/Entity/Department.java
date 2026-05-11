@@ -5,37 +5,37 @@ import Behaviour.DepartmentInterface;
 import java.util.List;
 
 public class Department implements DepartmentInterface {
-    private String departmentId;
-    private String departmentName;
-    private String headDoctorId;
-    private List<Doctor> doctors;
+    private java.lang.String departmentId;
+    private java.lang.String departmentName;
+    private java.lang.String headStringId;
+    private List<String> strings;
     private List<Nurse> nurses;
     private int bedCapacity;
     private int availableBeds;
 
-    public void setDepartmentId(String departmentId){
+    public void setDepartmentId(java.lang.String departmentId){
         this.departmentId=departmentId;
     }
-    public String getDepartmentId(){
+    public java.lang.String getDepartmentId(){
         return departmentId;
     }
-    public void setDepartmentName(String departmentName){
+    public void setDepartmentName(java.lang.String departmentName){
         this.departmentName=departmentName;
     }
-    public String getDepartmentName(){
+    public java.lang.String getDepartmentName(){
         return departmentName;
     }
-    public void setHeadDoctorId(String headDoctorId){
-        this.headDoctorId=headDoctorId;
+    public void setHeadDoctorId(java.lang.String headStringId){
+        this.headStringId = headStringId;
     }
-    public String getHeadDoctorId(){
-        return headDoctorId;
+    public java.lang.String getHeadDoctorId(){
+        return headStringId;
     }
-    public void setDoctors(List<Doctor> doctors) {
-        this.doctors = doctors;
+    public void setDoctors(List<String> strings) {
+        this.strings = strings;
     }
-    public List<Doctor> getDoctors() {
-        return doctors;
+    public List<String> getDoctors() {
+        return strings;
     }
     public void setNurses(List<Nurse> nurses) {
         this.nurses = nurses;
@@ -57,12 +57,12 @@ public class Department implements DepartmentInterface {
     }
 
     @Override
-    public void assignDoctor(String doctorName) {
+    public void assignDoctor(java.lang.String stringName) {
 
     }
 
     @Override
-    public void assignNurse(String nursName) {
+    public void assignNurse(java.lang.String nursName) {
 
     }
 

@@ -1,8 +1,6 @@
 package Services;
 
-import Entity.Doctor;
 import Entity.MedicalRecord;
-import Entity.Nurse;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -64,7 +62,7 @@ public class MedicalRecordService {
         String ID=scanner.nextLine();
         Boolean found=false;
         for(MedicalRecord m:medicalRecordList){
-            if(m.getRecordId().equalsIgnoreCase(ID)){
+            if(m.getRecordId().equals(ID)){
                 System.out.println("Enter New Record ID");
                 m.setRecordId(scanner.nextLine());
                 System.out.println("Record Updated Successfully");
@@ -87,10 +85,10 @@ public class MedicalRecordService {
     public void deleteRecord(){
         displayAllRecords();
         System.out.println("Enter Record ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found=false;
         for(MedicalRecord m:medicalRecordList){
-            if(m.getRecordId().equalsIgnoreCase(ID)){
+            if(m.getRecordId().equals(ID)){
                 medicalRecordList.remove(ID);
                 System.out.println("Record Removed Successful");
                 found=true;
@@ -115,7 +113,7 @@ public class MedicalRecordService {
         String ID=scanner.nextLine();
         Boolean found = false;
         for(MedicalRecord m: medicalRecordList) {
-            if (m.getPatientId().equalsIgnoreCase(ID)) {
+            if (m.getPatientId().equals(ID)) {
                 System.out.println("Record ID: " + m.getRecordId() + " | Patient ID: " + m.getPatientId() + " | Doctor ID: " + m.getDoctorId() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
                 found=true;
             }
@@ -127,10 +125,10 @@ public class MedicalRecordService {
 
     public void getRecordsByDoctorId(){
         System.out.println("Enter Doctor ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found = false;
         for(MedicalRecord m: medicalRecordList) {
-            if (m.getPatientId().equalsIgnoreCase(ID)) {
+            if (m.getPatientId().equals(ID)) {
                 System.out.println("Record ID: " + m.getRecordId() + " | Patient ID: " + m.getPatientId() + " | Doctor ID: " + m.getDoctorId() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
                 found=true;
             }
@@ -146,7 +144,7 @@ public class MedicalRecordService {
         String ID=scanner.nextLine();
         Boolean found = false;
         for(MedicalRecord m: medicalRecordList) {
-            if (m.getPatientId().equalsIgnoreCase(ID)) {
+            if (m.getPatientId().equals(ID)) {
                 System.out.println("Record ID: " +m.getRecordId() + patient.getFirstName()+" " +patient.getLastName()+ " | Patient ID: " + m.getPatientId() + " | Date of Birth: " + patient.getDateOfBirth() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
                 found=true;
             }

@@ -50,7 +50,17 @@ public class MainApp {
                         nurseMenuContinue=nurseService.handelNurseService(nurseOption);
                     }
                 }
-                case 4 -> {Boolean medicalRecordMenuContinue = true;
+                case 4 -> {
+                    Boolean departmentMenuContinue = true;
+                    while (departmentMenuContinue) {
+                        System.out.println("*********** Department Menu ***********");
+                        System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
+                        Integer departmentOption = input.nextInt();
+                        departmentMenuContinue = departmentService.handelDepartmentService(departmentOption);
+                    }
+                }
+
+                case 5 -> {Boolean medicalRecordMenuContinue = true;
                     while (medicalRecordMenuContinue) {
                         System.out.println("*********** Medical Record Menu ***********");
                         System.out.println(MenuMessage.MEDICAL_SERVICE_MENU_MESSAGE);
@@ -58,7 +68,9 @@ public class MainApp {
                         medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
                     }
                 }
-                case 5 -> {Boolean appointmentMenuContinue = true;
+
+
+                case 6 -> {Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
                         System.out.println("*********** Appointment Menu ***********");
                         System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
@@ -66,14 +78,7 @@ public class MainApp {
                         appointmentMenuContinue=appointmentService.handelAppointmentService(appointmentOption);
                     }
                 }
-                case 6 -> {Boolean departmentMenuContinue = true;
-                    while (departmentMenuContinue) {
-                        System.out.println("*********** Department Menu ***********");
-                        System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
-                        Integer departmentOption=input.nextInt();
-                        departmentMenuContinue=departmentService.handelDepartmentService(departmentOption);
-                    }
-                }
+
                 case 8 -> {
                     System.out.println("Exit");
                     mainMenuContinue = false;

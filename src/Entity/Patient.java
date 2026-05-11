@@ -9,16 +9,14 @@ import java.util.Scanner;
 public class Patient extends Person implements PatientInterface {
     private String patientId;
     private String bloodGroup;
-    private List<String> allergies;
-    private String emergencyContact;
+    private List<String > allergies;
+    private String  emergencyContact;
     private LocalDate registrationDate;
     private String insuranceId;
-    private List<String> medicalRecords;
+    private List<String > medicalRecords;
     private List<String> appointments;
 
     public static Scanner scanner=new Scanner(System.in);
-
-
 
     public Patient() {
         super();
@@ -41,13 +39,13 @@ public class Patient extends Person implements PatientInterface {
     public void setBloodGroup(String bloodGroup){
         this.bloodGroup=bloodGroup;
     }
-    public String getBloodGroup(){
+    public String  getBloodGroup(){
         return bloodGroup;
     }
-    public void setAllergies(List<String> allergies){
+    public void setAllergies(List<String > allergies){
         this.allergies=allergies;
     }
-    public List<String> getAllergies(){
+    public List<String > getAllergies(){
         return allergies;
     }
     public void setEmergencyContact(String emergencyContact){
@@ -62,7 +60,7 @@ public class Patient extends Person implements PatientInterface {
     public LocalDate getRegistrationDate(){
         return registrationDate;
     }
-    public void setInsuranceId(String insuranceId){
+    public void setInsuranceId(String  insuranceId){
         this.insuranceId=insuranceId;
     }
     public String getInsuranceId(){
@@ -71,7 +69,7 @@ public class Patient extends Person implements PatientInterface {
     public void setMedicalRecords(List<String> medicalRecords){
         this.medicalRecords=medicalRecords;
     }
-    public List<String> getMedicalRecords(){
+    public List<String > getMedicalRecords(){
         return medicalRecords;
     }
     public void setAppointments(List<String> appointments){
@@ -95,18 +93,17 @@ public class Patient extends Person implements PatientInterface {
 
     @Override
     public void addMedicalRecord(String record) {
-        medicalRecords.add(record);
+        addMedicalRecord(record);
     }
-
-
-
     @Override
     public void addAppointment(String appointment) {
-        appointments.add(appointment);
+        addAppointment(appointment);
     }
 
     @Override
-    public void updateInsurance(String insuranceId) {
-        setInsuranceId(insuranceId);
+    public void updateInsurance(String newInsurance) {
+        updateInsurance(newInsurance);
     }
+
+
 }

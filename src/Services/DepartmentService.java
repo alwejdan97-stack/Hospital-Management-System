@@ -2,21 +2,22 @@ package Services;
 
 import Entity.*;
 
-import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
 
 public class DepartmentService {
     public List<Department> departmentList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     Department department=new Department();
     public Patient patient=new Patient();
-    public List<Doctor> doctorList=new ArrayList<>();
+    public List<Doctor> doctorList =new ArrayList<>();
     public List<Nurse> nurseList=new ArrayList<>();
     public List<Patient> patientList=new ArrayList<>();
+    public DoctorService doctorService=new DoctorService();
+    public NurseService nurseService=new NurseService();
 
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -30,9 +31,9 @@ public class DepartmentService {
         System.out.println("Enter Head Doctor ID:");
         department.setHeadDoctorId(scanner.nextLine());
         System.out.println("Enter Doctors");
-        department.setDoctors(doctorList);
+        //department.setDoctors(doctorService.addDoctors());
         System.out.println("Enter Nurses");
-        department.setNurses(nurseList);
+        department.setNurses(nurseService.addNurses());
         System.out.println("Enter available Bed");
         department.setAvailableBeds(scanner.nextInt());
         System.out.println("Enter Bed Capacity");
@@ -59,7 +60,7 @@ public class DepartmentService {
     public void updateDepartments(){
         displayAllDepartments();
         System.out.println("Enter Department ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found=false;
         for(Department d:departmentList){
             if(d.getDepartmentId().equalsIgnoreCase(ID)){
@@ -85,7 +86,7 @@ public class DepartmentService {
     public void deleteDepartment(){
         displayAllDepartments();
         System.out.println("Enter Department ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found=false;
         for(Department d:departmentList){
             if(d.getDepartmentId().equalsIgnoreCase(ID)){
@@ -110,7 +111,7 @@ public class DepartmentService {
     public void getAppointmentById(){
         displayAllDepartments();
         System.out.println("Enter Department ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found = false;
         for(Department d:departmentList) {
             if (d.getDepartmentId().equalsIgnoreCase(ID)) {
@@ -135,9 +136,9 @@ public class DepartmentService {
     public void assignDoctorToDepartment(){
         System.out.println(doctorList);
         System.out.println("Enter Doctor ID");
-        String ID=scanner.nextLine();
+        java.lang.String ID=scanner.nextLine();
         Boolean found = false;
-        for(Doctor d:doctorList) {
+        for(Doctor d: doctorList) {
             if (d.getDepartmentId().equalsIgnoreCase(ID)) {
                 System.out.println("Enter Department ID");
                 d.setDepartmentId(scanner.nextLine());

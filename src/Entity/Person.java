@@ -32,7 +32,7 @@ public class Person implements PersonInterface {
     public String getId(){
         return id;
     }
-    public void setFirstName(String firstName){
+    public void setFirstName(java.lang.String firstName){
         this.firstName=firstName;
     }
     public String getFirstName(){
@@ -88,7 +88,7 @@ public class Person implements PersonInterface {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "Person{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +

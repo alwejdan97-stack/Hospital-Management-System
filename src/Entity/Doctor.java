@@ -13,7 +13,7 @@ public class Doctor extends Person implements DoctorInterface {
     private String departmentId;
     private Double consultationFee;
     private List<String> availableSlots;
-    private List<Patient> assignedPatients;
+    private List<String> assignedPatients;
 
     public static Scanner scanner=new Scanner(System.in);
 
@@ -71,10 +71,10 @@ public class Doctor extends Person implements DoctorInterface {
     public List<String> getAvailableSlots(){
         return availableSlots;
     }
-    public void setAssignedPatients(List<Patient> assignedPatients){
+    public void setAssignedPatients(List<String> assignedPatients){
         this.assignedPatients=assignedPatients;
     }
-    public List<Patient> getAssignedPatients(){
+    public List<String> getAssignedPatients(){
         return assignedPatients;
     }
     @Override
@@ -90,12 +90,12 @@ public class Doctor extends Person implements DoctorInterface {
     }
 
     @Override
-    public void assignPatient(Patient patient) {
+    public void assignPatient(String patient) {
         assignedPatients.add(patient);
     }
 
     @Override
-    public void removePatient(Patient patient) {
+    public void removePatient(String patient) {
         assignedPatients.remove(patient);
     }
 

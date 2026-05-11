@@ -19,7 +19,7 @@ public class PatientService {
 
         System.out.println("Enter First Name: ");
         patient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name: ");
+        System.out.println("Enter Second Name");
         patient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
         patient.setPatientId(scanner.nextLine());
@@ -43,9 +43,8 @@ public class PatientService {
             patientList.add(addPatient());
             System.out.println("If want ot add more patient press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=true;
+                continueFlag=false;
             }
-            continueFlag=false;
         }
     }
     public void editPatient(){
@@ -54,7 +53,7 @@ public class PatientService {
         String ID=scanner.nextLine();
         Boolean found=false;
         for(Patient p:patientList){
-            if(p.getPatientId().equalsIgnoreCase(ID)){
+            if(p.getPatientId().equals(ID)){
                 System.out.println("Enter New Name");
                 p.setFirstName(scanner.nextLine());
                 System.out.println("Patient Updated Successfully");
@@ -79,7 +78,7 @@ public class PatientService {
         String ID=scanner.nextLine();
         Boolean found=false;
         for(Patient p:patientList){
-            if(p.getPatientId().equalsIgnoreCase(ID)){
+            if(p.getPatientId().equals(ID)){
             patientList.remove(ID);
                 System.out.println("Patient Removed Successful");
                 found=true;
@@ -132,10 +131,7 @@ public class PatientService {
         for(Patient p: PatientService.patientList){
             if(p.getFirstName().equalsIgnoreCase(name)){
                 System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
-                /*System.out.println("Patient ID: "+p.getPatientId());
-                System.out.println("Patient Birthday: "+p.getDateOfBirth());
-                System.out.println("Patient Phone Number: "+p.getPhoneNumber());
-                System.out.println("Patient Address: "+p.getAddress());*/
+
                 found=true;
             }
         }

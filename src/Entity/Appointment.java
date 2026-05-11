@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Appointment implements AppointmentInterface {
     private String appointmentId;
     private String patientId;
-    private String doctorId;
+    private String stringId;
     private LocalDate appointmentDate;
     private String appointmentTime;
     private String status;
@@ -20,7 +20,7 @@ public class Appointment implements AppointmentInterface {
         super();
         this.appointmentId = appointmentId;
         this.patientId = patientId;
-        this.doctorId = doctorId;
+        this.stringId = stringId;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.status = status;
@@ -40,11 +40,11 @@ public class Appointment implements AppointmentInterface {
     public String getPatientId(){
         return patientId;
     }
-    public void setDoctorId(String doctorId){
+    public void setDoctorId(String stringId){
         this.patientId=patientId;
     }
     public String getDoctorId(){
-        return doctorId;
+        return stringId;
     }
     public void setAppointmentDate(LocalDate appointmentDate){
         this.appointmentDate=appointmentDate;
@@ -80,7 +80,7 @@ public class Appointment implements AppointmentInterface {
     public void displayInfo(){
         System.out.println("Appointment ID: "+appointmentId);
         System.out.println("Patient ID: "+patientId);
-        System.out.println("Doctor ID: "+doctorId);
+        System.out.println("Doctor ID: "+ stringId);
         System.out.println("Appointment Date: "+appointmentDate);
         System.out.println("Appointment Time: "+appointmentTime);
         System.out.println("Status: "+status);
