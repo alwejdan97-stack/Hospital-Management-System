@@ -67,4 +67,8 @@ public class InPatient extends Patient {
     public String getAdmittingDoctorId() {
         return admittingDoctorId;
     }
+
+    public void calculateStayDuration(){}
+    public void calculateTotalCharges(){}
+
 }
