@@ -63,7 +63,7 @@ public class MainApp {
                         System.out.println("*********** Appointment Menu ***********");
                         System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
                         Integer appointmentOption=input.nextInt();
-                        appointmentMenuContinue=appointmentService.handelMedicalRecordService(appointmentOption);
+                        appointmentMenuContinue=appointmentService.handelAppointmentService(appointmentOption);
                     }
                 }
                 case 6 -> {Boolean departmentMenuContinue = true;
@@ -71,12 +71,8 @@ public class MainApp {
                         System.out.println("*********** Department Menu ***********");
                         System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
                         Integer departmentOption=input.nextInt();
-                        //departmentMenuContinue=departmentService.(departmentOption);
+                        departmentMenuContinue=departmentService.handelDepartmentService(departmentOption);
                     }
-                }
-
-                case 7 ->{
-
                 }
                 case 8 -> {
                     System.out.println("Exit");
