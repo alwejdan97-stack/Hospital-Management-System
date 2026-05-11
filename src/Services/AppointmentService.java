@@ -186,4 +186,12 @@ public class AppointmentService {
             System.out.println("Appointment NOT found");
         }
     }
+    public void displayAllAppointments(){
+        if(appointmentList.isEmpty()){
+            System.out.println("NO Appointments In The List");
+        }
+        for(Appointment a:appointmentList){
+            System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime()+" | Notes: "+a.getNotes());
+        }
+    }
 }
