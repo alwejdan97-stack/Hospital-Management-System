@@ -123,16 +123,35 @@ public class MedicalRecordService {
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
         Boolean found = false;
-        for(MedicalRecord m: medicalRecordList){
-            if(m.getPatientId().equalsIgnoreCase(ID)){
-                m.displayInfo();
-            }
+        for(MedicalRecord m: medicalRecordList) {
+            if (m.getPatientId().equalsIgnoreCase(ID)) {
+                System.out.println("Record ID: " + m.getRecordId() + " | Patient ID: " + m.getPatientId() + " | Doctor ID: " + m.getDoctorId() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
+                found=true;
             }
         }
+        if (!found) {
+            System.out.println("Record NOT found");
+        }
+    }
 
-    public void getRecordsByDoctorId(){}
+    public void getRecordsByDoctorId(){
+        System.out.println("Enter Doctor ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(MedicalRecord m: medicalRecordList) {
+            if (m.getPatientId().equalsIgnoreCase(ID)) {
+                System.out.println("Record ID: " + m.getRecordId() + " | Patient ID: " + m.getPatientId() + " | Doctor ID: " + m.getDoctorId() + " | Diagnosis: " + m.getDiagnosis() + " | Prescription: " + m.getPrescription() + " | Visit Date: " + m.getVisitDate());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Record NOT found");
+        }
+    }
 
-    public void displayPatientHistory(){}
+    public void displayPatientHistory(){
+
+    }
 
     public void displayAllRecords(){
         if(medicalRecordList.isEmpty()){
@@ -143,7 +162,7 @@ public class MedicalRecordService {
         }
     }
 
-    /*public Boolean handelMedicalRecordService(Integer medicalRecordOption){
+    public Boolean handelMedicalRecordService(Integer medicalRecordOption){
         switch (medicalRecordOption){
             case 1 -> {
                 System.out.println("== Add New Patient ==");
@@ -184,5 +203,5 @@ public class MedicalRecordService {
             }
         }
         return true;
-    }*/
+    }
 }
