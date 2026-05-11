@@ -21,12 +21,14 @@ public class MenuMessage {
             """;
 
     public static String DOCTOR_MENU_MESSAGE = """
-            1- ADD
-            2- UPDATE
-            3- DISPLAY
-            4- DISPLAY SPECIFIC DEPARTMENT
-            5- DELETE
-            6- Go Back to Main Menu
+            1- Add New Doctor
+            2- Update Doctor
+            3- Show Doctors
+            4- Show SPECIFIC Doctor Using ID
+            5- Delete Doctor
+            6- Search For Doctor Using Specialization
+            7- Display Available Doctor
+            8- Go Back to Main Menu
             """;
     public static String STUDENT_MENU_MESSAGE = """
             1- ADD
