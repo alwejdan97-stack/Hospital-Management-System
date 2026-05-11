@@ -16,7 +16,8 @@ public class Appointment implements AppointmentInterface {
     private String notes;
 
     public Scanner scanner=new Scanner(System.in);
-    public Appointment(String appointmentId, String patientId, String doctorId, LocalDate appointmentDate, String appointmentTime, String status, String notes, String reason) {
+    public Appointment() {
+        super();
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.doctorId = doctorId;
