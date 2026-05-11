@@ -31,13 +31,16 @@ public class MenuMessage {
             7- Display Available Doctor
             8- Go Back to Main Menu
             """;
-    public static String STUDENT_MENU_MESSAGE = """
-            1- ADD
-            2- UPDATE
-            3- DISPLAY
-            4- DISPLAY SPECIFIC STUDENT
-            5- DELETE
-            6- Go Back to Main Menu
+    public static String NURSE_MENU_MESSAGE = """
+            1- Add New Nurse
+            2- Update Nurse
+            3- Show Nurses
+            4- Show SPECIFIC Nurse Using ID
+            5- Show SPECIFIC Nurse Using Department ID
+            6- SShow SPECIFIC Nurse Using Shift
+            7- Delete Nurse
+            8- Search For Nurse
+            9- Go Back to Main Menu
             """;
     public static String TEACHER_MENU_MESSAGE = """
             1- ADD
