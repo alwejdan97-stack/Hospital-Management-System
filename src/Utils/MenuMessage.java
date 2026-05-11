@@ -51,12 +51,16 @@ public class MenuMessage {
             6- Go Back to Main Menu
             """;
     public static String APPOINTMENT_MENU_MESSAGE = """
-            1- ADD
-            2- UPDATE
-            3- DISPLAY
-            4- DISPLAY SPECIFIC COURSE
-            5- DELETE
-            6- Go Back to Main Menu
+            1- Add New Appointment
+            2- Update Appointment
+            3- Show Appointments
+            4- Show Appointments Using Patient ID
+            5- Show Appointments Using Doctor ID
+            6- Show Appointments Using Appointment Date
+            7- Delete Appointments
+            8- Reschedule Appointment
+            9-Cancel Appointment
+            10- Go Back to Main Menu
             """;
     public static String MEDICAL_SERVICE_MENU_MESSAGE = """
             1- Add New Medical Record
