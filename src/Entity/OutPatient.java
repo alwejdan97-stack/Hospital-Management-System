@@ -38,5 +38,7 @@ public class OutPatient extends Patient{
         return preferredDoctorId;
     }
 
+    public void scheduleFollowUp(){}
+    public void updateVisitCount(){}
 
 }
