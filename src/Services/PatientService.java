@@ -39,8 +39,14 @@ public class PatientService {
     }
     public Patient addPatient(String firstName, String lastName, String phone){
         System.out.println("== Add patient with minimal information ==");
+        System.out.println("Enter First Name: ");
+        firstName=scanner.nextLine();
         patient.setFirstName(firstName);
+        System.out.println("Enter Second Name");
+        lastName=scanner.nextLine();
         patient.setLastName(lastName);
+        System.out.println("Enter Phone Number:");
+        phone=scanner.nextLine();
         patient.setPhoneNumber(phone);
 
         System.out.println("Patient Added Successfully");
@@ -49,10 +55,20 @@ public class PatientService {
 
     public Patient addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
         System.out.println("== Add patient with with blood group and email ==");
+        System.out.println("Enter First Name: ");
+        firstName=scanner.nextLine();
         patient.setFirstName(firstName);
+        System.out.println("Enter Second Name");
+        lastName=scanner.nextLine();
         patient.setLastName(lastName);
+        System.out.println("Enter Phone Number:");
+        phone=scanner.nextLine();
         patient.setPhoneNumber(phone);
+        System.out.println("Enter Blood Group:");
+        bloodGroup=scanner.nextLine();
         patient.setBloodGroup(bloodGroup);
+        System.out.println("Enter Email: ");
+        email=scanner.nextLine();
         patient.setEmail(email);
 
         System.out.println("Patient Added Successfully");
