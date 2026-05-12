@@ -1,6 +1,5 @@
 package Entity;
 
-import Behaviour.AppointmentInterface;
 import Behaviour.Displayable;
 
 import java.time.LocalDate;

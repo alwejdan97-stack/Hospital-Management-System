@@ -1,7 +1,6 @@
 package Entity;
 
 import Behaviour.Displayable;
-import Behaviour.DoctorInterface;
 
 import java.util.List;
 import java.util.Scanner;

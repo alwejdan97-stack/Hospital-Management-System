@@ -1,7 +1,6 @@
 package Entity;
 
 import Behaviour.Displayable;
-import Behaviour.PersonInterface;
 
 import java.util.Objects;
 

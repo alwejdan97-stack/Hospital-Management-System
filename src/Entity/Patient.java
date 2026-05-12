@@ -1,12 +1,10 @@
 package Entity;
 
 import Behaviour.Displayable;
-import Behaviour.PatientInterface;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
-import java.util.*;
 
 public class Patient extends Person implements Displayable {
     private String patientId;
