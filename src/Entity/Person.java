@@ -1,10 +1,11 @@
 package Entity;
 
+import Behaviour.Displayable;
 import Behaviour.PersonInterface;
 
 import java.util.Objects;
 
-public class Person implements PersonInterface {
+public class Person implements Displayable {
     String id;
     private String firstName;
     private String lastName;
@@ -110,6 +111,11 @@ public class Person implements PersonInterface {
         System.out.println("Phone Number: "+phoneNumber);
         System.out.println("Email: "+email);
         System.out.println("Address: "+address);
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println(firstName+" "+lastName+ " | "+id);
     }
 
 }
