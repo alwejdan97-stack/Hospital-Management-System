@@ -74,7 +74,12 @@ public class AppointmentService {
         return appointment;
     }
 
-    public Appointment createAppointment(Appointment appointment){}
+    public Appointment createAppointment(Appointment appointment){
+        appointmentList.add(appointment);
+
+        System.out.println("Appointment Add Successfully");
+        return appointment;
+    }
 
 
     public List<Appointment> addAppointments(){
