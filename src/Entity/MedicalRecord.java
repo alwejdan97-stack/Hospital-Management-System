@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.Displayable;
+
 import java.time.LocalDate;
 
-public class MedicalRecord {
+public class MedicalRecord implements Displayable{
     private String recordId;
     private String patientId;
     private String stringId;
@@ -88,6 +90,7 @@ public class MedicalRecord {
         return testResults;
     }
 
+    @Override
     public void displayInfo(){
         System.out.println("Record ID: "+recordId);
         System.out.println("Doctor ID: "+ stringId);
@@ -98,5 +101,10 @@ public class MedicalRecord {
         System.out.println("Notes: "+notes);
         System.out.println("Test Result: "+testResults);
 
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println(recordId+" | "+patientId);
     }
 }
