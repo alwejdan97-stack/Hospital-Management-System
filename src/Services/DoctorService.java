@@ -388,7 +388,12 @@ public Boolean handelDoctorService(Integer doctorOption){
 
     @Override
     public void search(String keyword) {
-
+        for(Doctor d:doctorList){
+            if(d.getDoctorId().equalsIgnoreCase(keyword)||d.getFirstName().equalsIgnoreCase(keyword)||d.getLastName().equalsIgnoreCase(keyword)||d.getDepartmentId().equals(keyword)||d.getPhoneNumber().equalsIgnoreCase(keyword)){
+                System.out.println("Doctor Exist");
+            }
+        }
+        System.out.println("Doctor NOT Exist");
     }
 
     @Override
