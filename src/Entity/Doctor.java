@@ -101,7 +101,8 @@ public class Doctor extends Person implements Displayable {
 
     @Override
     public void displaySummary() {
-        System.out.println(getFirstName()+" "+getLastName()+" | "+doctorId);
+        super.displaySummary();
+        System.out.println(doctorId+" | "+specialization+" | "+departmentId);
     }
 
     public void assignPatient(String patient) {
