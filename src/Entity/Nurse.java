@@ -63,7 +63,8 @@ public class Nurse extends Person implements Displayable {
 
     @Override
     public void displaySummary() {
-        System.out.println(getFirstName()+" "+getLastName()+" | "+nurseId);
+        super.displaySummary();
+        System.out.println(nurseId+" | "+departmentId);
     }
 
     public void assignedPatient(String patient){
