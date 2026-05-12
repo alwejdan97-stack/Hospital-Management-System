@@ -395,7 +395,9 @@ public class AppointmentService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-
+        for (Appointment a: appointmentList){
+            System.out.println(a+" ");
+        }
     }
 
     @Override
