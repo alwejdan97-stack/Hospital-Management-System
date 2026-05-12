@@ -365,7 +365,18 @@ public Boolean handelDoctorService(Integer doctorOption){
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Doctor d:doctorList){
+            if(d.getDoctorId().equalsIgnoreCase(id)){
+                doctorList.remove(id);
+                System.out.println("Doctor Removed Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Doctor NOT Found");
+        }
     }
 
     @Override
