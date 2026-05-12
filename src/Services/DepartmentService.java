@@ -199,7 +199,9 @@ public class DepartmentService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        if(entity instanceof Department){
+            departmentList.add((Department) entity);
+        }
     }
 
     @Override
