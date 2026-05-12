@@ -54,7 +54,4 @@ public class EmergencyPatient extends Patient {
         System.out.println("Triage Level: "+triageLevel);
         System.out.println("Admitted Via ER: "+admittedViaER);
     }
-
-    public void scheduleFollowUp(){}
-    public void updateVisitCount(){}
 }
