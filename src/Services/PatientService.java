@@ -302,12 +302,19 @@ public class PatientService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-
+        for (Patient p: patientList){
+            System.out.println(p+" ");
+        }
     }
 
     @Override
     public void search(String keyword) {
-
+        for(Patient p:patientList){
+            if(p.getPatientId().equalsIgnoreCase(keyword)||p.getFirstName().equalsIgnoreCase(keyword)||p.getLastName().equalsIgnoreCase(keyword)||p.getPhoneNumber().equalsIgnoreCase(keyword)){
+                System.out.println("Patient Exist");
+            }
+        }
+        System.out.println("Patient NOT Exist");
     }
 
     @Override
