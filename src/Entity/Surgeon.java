@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.Displayable;
+
 import java.util.List;
 
-public class Surgeon extends Doctor {
+public class Surgeon extends Doctor implements Displayable {
     private int surgeriesPerformed;
     private List<String> surgeryTypes;
     private Boolean operationTheatreAccess;
@@ -49,5 +51,10 @@ public class Surgeon extends Doctor {
         System.out.println("Surgeries Performed: "+surgeriesPerformed);
         System.out.println("Surgery Type: "+surgeryTypes);
         System.out.println("Operation Theater Access: "+operationTheatreAccess);
+    }
+    @Override
+    public void displaySummary() {
+        super.displaySummary();
+        System.out.println(surgeryTypes+" "+surgeriesPerformed);
     }
 }
