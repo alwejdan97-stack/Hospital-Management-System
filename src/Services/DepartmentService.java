@@ -206,7 +206,18 @@ public class DepartmentService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Department d:departmentList){
+            if(d.getDepartmentId().equalsIgnoreCase(id)){
+                departmentList.remove(id);
+                System.out.println("Department Removed Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Department NOT Found");
+        }
     }
 
     @Override
