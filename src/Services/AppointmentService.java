@@ -337,7 +337,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
         System.out.println("Enter End Date: ");
         endDate = LocalDate.parse(scanner.nextLine(), formatter);
         for(Appointment a:appointmentList){
-            if(a.getDoctorId().equalsIgnoreCase(doctorId)&&a.ge){}
+            if(a.getDoctorId().equalsIgnoreCase(doctorId)){}
         }
     }
 
