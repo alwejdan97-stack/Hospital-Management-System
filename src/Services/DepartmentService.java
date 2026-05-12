@@ -222,7 +222,9 @@ public class DepartmentService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-
+        for (Department d: departmentList){
+            System.out.println(d+" ");
+        }
     }
 
     @Override
