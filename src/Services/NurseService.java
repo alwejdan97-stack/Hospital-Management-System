@@ -276,7 +276,9 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-
+        for (Nurse n: nurseList){
+            System.out.println(n+" ");
+        }
     }
 
     @Override
