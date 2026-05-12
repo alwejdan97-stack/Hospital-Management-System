@@ -329,10 +329,12 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             System.out.println("Enter Appointment Date");
             date = LocalDate.parse(scanner.nextLine(), formatter);
             for(Appointment a:appointmentList){
-
+                if(a.getAppointmentDate().equals(date)){
+                    System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
+                }
             }
         }
-    }
+
 
     public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate) {
         System.out.println("== Display Appointments By Multiple Fields ==");
@@ -345,6 +347,11 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
         System.out.println("Enter End Date: ");
         endDate = LocalDate.parse(scanner.nextLine(), formatter);
 
+        for(Appointment a:appointmentList){
+            if(a.getDoctorId().equalsIgnoreCase(doctorId)){
+                System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
+            }
+        }
     }
 
     public Boolean handelAppointmentService(Integer appointmentOption) {
