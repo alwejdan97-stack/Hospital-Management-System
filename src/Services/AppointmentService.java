@@ -1,5 +1,7 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entity.Appointment;
 import Entity.Patient;
 
@@ -10,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.*;
 
-public class AppointmentService {
+public class AppointmentService implements Manageable, Searchable {
     public static List<Appointment> appointmentList=new ArrayList<>();
     public static Scanner scanner=new Scanner(System.in);
     public static Appointment appointment=new Appointment();
