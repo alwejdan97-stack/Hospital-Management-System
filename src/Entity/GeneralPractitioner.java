@@ -1,6 +1,8 @@
 package Entity;
 
-public class GeneralPractitioner extends Doctor {
+import Behaviour.Displayable;
+
+public class GeneralPractitioner extends Doctor implements Displayable {
     private Boolean walkinAvailable;
     private Boolean homeVisitAvailable;
     private Boolean vaccinationCertified;
@@ -42,6 +44,13 @@ public class GeneralPractitioner extends Doctor {
         System.out.println("Home Visit Available: "+homeVisitAvailable);
         System.out.println("Vacciantion Certified: "+vaccinationCertified);
     }
+
+    @Override
+    public void displaySummary() {
+        super.displaySummary();
+        System.out.println(walkinAvailable+" | "+homeVisitAvailable);
+    }
+
     public void scheduleHomeVisit(){}
     public void administerVaccine(){}
 }
