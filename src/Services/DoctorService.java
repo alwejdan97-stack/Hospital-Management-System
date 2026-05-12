@@ -12,6 +12,7 @@ public class DoctorService {
     public Scanner scanner=new Scanner(System.in);
     public Doctor doctor =new Doctor();
     public List<Doctor> avilableSlots=new ArrayList<>();
+    public List<Patient> patientList=new ArrayList<>();
 
     public Doctor addDoctor(){
         System.out.println(" ** Adding new Doctor ** ");
@@ -120,14 +121,12 @@ public class DoctorService {
         }
     }
 
-    /*public void assignPatient(Doctor doctor, Patient patient){
+    public void assignPatient(Doctor doctor, Patient patient){
         doctorList.add(doctor);
         patientList.add(patient);
-        doctor.s
-        // doctor.setAssignedPatients(patient);
-        System.out.println("Patient Successfully Assign");
 
-    }*/
+        System.out.println("Patient Successfully Assign");
+    }
 
     public void  assignPatient(String doctorId, List<String> patientIds) {
         System.out.println(doctorList+" ");

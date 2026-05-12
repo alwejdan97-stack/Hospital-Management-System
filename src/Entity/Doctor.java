@@ -21,7 +21,7 @@ public class Doctor extends Person implements DoctorInterface {
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Doctor(String doctorId, String specialization, String qualification, String departmentId, Integer experienceYears, Double consultationFee, List<String> availableSlots, double fee, List<String> assignedPatients, String reason, String slot, List<String> slots) {
+    public Doctor() {
         super();
         this.doctorId = doctorId;
         this.specialization = specialization;

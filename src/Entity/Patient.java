@@ -16,14 +16,13 @@ public class Patient extends Person implements PatientInterface {
     private String insuranceId;
     private List<String > medicalRecords;
     private List<String> appointments;
-
     private String phone;
     private String email;
     private String address;
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Patient(String patientId, String bloodGroup, List<String> allergies, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments) {
+    public Patient() {
         super();
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;

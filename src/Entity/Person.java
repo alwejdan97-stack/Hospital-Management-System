@@ -14,18 +14,6 @@ public class Person implements PersonInterface {
     private String email;
     private String address;
 
-    /*public Person() {
-        super();
-        this.id = id;
-        this.firstName = firstName;
-        this.dateOfBirth = dateOfBirth;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-    }*/
-
     public Person() {
         super();
         this.id = id;
