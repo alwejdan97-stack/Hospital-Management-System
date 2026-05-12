@@ -47,7 +47,8 @@ public class DoctorService2 {
         for(Doctor d: doctorList) {
             if (d.getDoctorId().equalsIgnoreCase(doctorId)) {
                 System.out.println("Enter Patient ID");
-                d.setAssignedPatients(scanner.nextLine());
+                patientId=scanner.nextLine();
+                patient.setPatientId(patientId);
                 System.out.println("Patient Successfully assign");
                 found=true;
                 break;
@@ -59,7 +60,8 @@ public class DoctorService2 {
     }
     public void assignPatient(Doctor doctor, Patient patient){
         doctorList.add(doctor);
-        doctor.setAssignedPatients(patientList.add(patient));
+        patientList.add(patient);
+       // doctor.setAssignedPatients(patient);
                 System.out.println("Patient Successfully assign");
 
     }
