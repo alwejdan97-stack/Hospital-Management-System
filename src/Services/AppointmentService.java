@@ -412,6 +412,11 @@ public class AppointmentService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
-
+        for(Appointment a:appointmentList){
+            if(a.getAppointmentId().equalsIgnoreCase(id)){
+                System.out.println("Appointment NOT Exist");
+            }
+        }
+        System.out.println("Appointment NOT Exist");
     }
 }
