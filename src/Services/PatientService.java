@@ -75,14 +75,13 @@ public class PatientService {
         return patient;
     }
 
-    public void addPatient(Patient patient){
+    public Patient addPatient(Patient patient){
         System.out.println("== Add patient With Full Object ==");
         patientList.add(patient);
 
         System.out.println("Patient Added Successfully");
+        return patient;
     }
-
-
 
     public void addPatients(){
         Boolean continueFlag = true;
@@ -188,6 +187,8 @@ public class PatientService {
 
     public void searchPatients(String keyword){
         System.out.println("== Search for patient by any field ==");
+        System.out.println("Enter Patient Field: ");
+        keyword=scanner.nextLine();
         for(Patient p: patientList){
             if(p.getLastName().equalsIgnoreCase(keyword) ||p.getFirstName().equalsIgnoreCase(keyword) ||p.getPatientId().equalsIgnoreCase(keyword) ||p.getPhoneNumber().equalsIgnoreCase(keyword) ||p.getBloodGroup().equalsIgnoreCase(keyword) ||p.getInsuranceId().equalsIgnoreCase(keyword) ||p.getDateOfBirth().equalsIgnoreCase(keyword) ||p.getGender().equalsIgnoreCase(keyword) ||p.getEmail().equalsIgnoreCase(keyword) ||p.getMedicalRecords().equals(keyword)) {
                 System.out.println("Patient exist");
@@ -197,7 +198,11 @@ public class PatientService {
     }
 
     public void searchPatients(String firstName, String lastName){
-        System.out.println("== Search for patient by any name ==");
+        System.out.println("== Search for patient by name ==");
+        System.out.println("Enter First Name: ");
+        firstName=scanner.nextLine();
+        System.out.println("Enter Last Name: ");
+        lastName=scanner.nextLine();
         for(Patient p:patientList){
             if(p.getFirstName().equalsIgnoreCase(firstName)&&p.getLastName().equalsIgnoreCase(lastName)){
                 System.out.println("Patient exist");
@@ -208,6 +213,9 @@ public class PatientService {
 
     public void displayPatients(){
         System.out.println("== Display all patients ==");
+        if(patientList.isEmpty()){
+            System.out.println("No Patient In The List");
+        }
         for(Patient p:patientList){
             System.out.println(p+" ");
         }
