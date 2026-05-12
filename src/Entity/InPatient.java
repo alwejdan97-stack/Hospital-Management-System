@@ -1,8 +1,10 @@
 package Entity;
 
+import Behaviour.Displayable;
+
 import java.time.LocalDate;
 
-public class InPatient extends Patient {
+public class InPatient extends Patient implements Displayable {
     private LocalDate admissionDate;
     private LocalDate dischargeDate;
     private String roomNumber;
@@ -76,6 +78,12 @@ public class InPatient extends Patient {
         System.out.println("Bed Number: "+bedNumber);
         System.out.println("Admitting Doctor ID: "+admittingDoctorId);
         System.out.println("Daily Charges: "+dailyCharges);
+    }
+
+    @Override
+    public void displaySummary() {
+        super.displaySummary();
+        System.out.println(admissionDate+" | "+admittingDoctorId+" | "+roomNumber);
     }
 
     public void calculateStayDuration(){}
