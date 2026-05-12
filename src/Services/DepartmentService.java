@@ -239,6 +239,11 @@ public class DepartmentService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
-
+        for(Department d:departmentList){
+            if(d.getDepartmentId().equalsIgnoreCase(id)){
+                System.out.println("Department NOT Exist");
+            }
+        }
+        System.out.println("Department NOT Exist");
     }
 }
