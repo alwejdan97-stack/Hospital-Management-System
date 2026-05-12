@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Appointment;
 import Entity.Department;
+import Entity.Doctor;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -399,7 +400,12 @@ public class AppointmentService implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
-
+        for(Appointment a:appointmentList){
+            if(a.getDoctorId().equalsIgnoreCase(keyword)||a.getAppointmentId().equalsIgnoreCase(keyword)||a.getPatientId().equalsIgnoreCase(keyword)){
+                System.out.println("Appointment Exist");
+            }
+        }
+        System.out.println("Appointment NOT Exist");
     }
 
     @Override
