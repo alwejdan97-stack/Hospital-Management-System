@@ -291,6 +291,7 @@ public class PatientService implements Manageable, Searchable {
         for(Patient p:patientList){
             if(p.getPatientId().equalsIgnoreCase(id)){
                 patientList.remove(id);
+                System.out.println("Patient Removed Successfully");
                 found=true;
                 break;
             }
