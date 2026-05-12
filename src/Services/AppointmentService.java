@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Appointable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Appointment;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.*;
 
-public class AppointmentService implements Manageable, Searchable {
+public class AppointmentService implements Manageable, Searchable, Appointable {
     public static List<Appointment> appointmentList=new ArrayList<>();
     public static Scanner scanner=new Scanner(System.in);
     public static Appointment appointment=new Appointment();
@@ -97,6 +98,29 @@ public class AppointmentService implements Manageable, Searchable {
             continueFlag=false;
         }
         return appointmentList;
+    }
+
+    @Override
+    public void scheduleAppointment(Appointment appointment) {
+        if(appointment==null){
+            System.out.println("Invalid Appointment");
+        }
+        appointmentList.add(appointment);
+    }
+
+    @Override
+    public void cancelAppointment(String appointmentId) {
+        Boolean found = false;
+        for(Appointment a:appointmentList) {
+            if (a.getAppointmentId().equalsIgnoreCase(appointmentId)) {
+                a.setStatus("Cancel");
+                System.out.println("Appointment Successfully canceled");
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Appointment NOT found");
+        }
     }
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate){
