@@ -17,7 +17,8 @@ public class Appointment implements AppointmentInterface {
     private String notes;
     private String addedBy;
     private LocalDateTime timestamp;
-    public Appointment() {
+
+    public Appointment(String appointmentId, String patientId, String stringId, LocalDate appointmentDate, String appointmentTime, String status, String reason, String addedBy, String notes, LocalDateTime timestamp) {
         super();
         this.appointmentId = appointmentId;
         this.patientId = patientId;
@@ -25,8 +26,10 @@ public class Appointment implements AppointmentInterface {
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.status = status;
-        this.notes = notes;
         this.reason = reason;
+        this.addedBy = addedBy;
+        this.notes = notes;
+        this.timestamp = timestamp;
     }
 
     public void setAppointmentId(String appointmentId){
