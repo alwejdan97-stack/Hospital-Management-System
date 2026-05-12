@@ -1,15 +1,16 @@
 package Entity;
 
 import Behaviour.DepartmentInterface;
+import Behaviour.Displayable;
 
 import java.util.List;
 
-public class Department implements DepartmentInterface {
-    private java.lang.String departmentId;
-    private java.lang.String departmentName;
-    private java.lang.String headStringId;
-    private List<String> strings;
-    private List<Nurse> nurses;
+public class Department implements Displayable {
+    private String departmentId;
+    private String departmentName;
+    private String headDoctorId;
+    private List<String> doctors;
+    private List<String> nurses;
     private int bedCapacity;
     private int availableBeds;
 
@@ -26,21 +27,21 @@ public class Department implements DepartmentInterface {
         return departmentName;
     }
     public void setHeadDoctorId(java.lang.String headStringId){
-        this.headStringId = headStringId;
+        this.headDoctorId = headStringId;
     }
     public java.lang.String getHeadDoctorId(){
-        return headStringId;
+        return headDoctorId;
     }
-    public void setDoctors(List<String> strings) {
-        this.strings = strings;
+    public void setDoctors(List<String> doctors) {
+        this.doctors = doctors;
     }
     public List<String> getDoctors() {
-        return strings;
+        return doctors;
     }
-    public void setNurses(List<Nurse> nurses) {
+    public void setNurses(List<String> nurses) {
         this.nurses = nurses;
     }
-    public List<Nurse> getNurses() {
+    public List<String> getNurses() {
         return nurses;
     }
     public void setBedCapacity(int bedCapacity) {
@@ -56,18 +57,32 @@ public class Department implements DepartmentInterface {
         return availableBeds;
     }
 
-    @Override
-    public void assignDoctor(java.lang.String stringName) {
 
+    public void assignDoctor(String stringName) {
+        assignDoctor(stringName);
+    }
+
+    public void assignNurse(String nursName) {
+        assignNurse(nursName);
+    }
+
+    public void updateBedAvailability(int updatedBed) {
+        updateBedAvailability(updatedBed);
     }
 
     @Override
-    public void assignNurse(java.lang.String nursName) {
-
+    public void displayInfo() {
+        System.out.println("Department Name: "+departmentName);
+        System.out.println("Department ID: "+departmentId);
+        System.out.println("Head Doctor ID: "+headDoctorId);
+        System.out.println("Doctors: "+doctors);
+        System.out.println("Nurses: "+nurses);
+        System.out.println("Bed Capacity: "+bedCapacity);
+        System.out.println("Available Bed: "+availableBeds);
     }
 
     @Override
-    public Boolean updateBedAvailability(int updatedBed) {
-        return null;
+    public void displaySummary() {
+        System.out.println(departmentName+" | "+departmentId+" | "+headDoctorId);
     }
 }
