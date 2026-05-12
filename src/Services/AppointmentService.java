@@ -112,6 +112,26 @@ public class AppointmentService {
         }
     }
 
+    public void rescheduleAppointment(){
+        //displayAllAppointments();
+        System.out.println("Enter Appointment ID");
+        String ID=scanner.nextLine();
+        Boolean found = false;
+        for(Appointment a:appointmentList) {
+            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
+                System.out.println("Enter New Date");
+                LocalDate date=LocalDate.parse(scanner.nextLine(),formatter);
+                System.out.println("Enter new Time");
+                String newTime=scanner.nextLine();
+                System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
+                found=true;
+            }
+        }
+        if (!found) {
+            System.out.println("Appointment NOT found");
+        }
+    }
+
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
         System.out.println("** Reschedule Appointment");
         //displayAllAppointments();
@@ -246,25 +266,7 @@ public class AppointmentService {
         }
     }
 
-    public void rescheduleAppointment(){
-        displayAllAppointments();
-        System.out.println("Enter Appointment ID");
-        String ID=scanner.nextLine();
-        Boolean found = false;
-        for(Appointment a:appointmentList) {
-            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
-                System.out.println("Enter New Date");
-                LocalDate date=LocalDate.parse(scanner.nextLine(),formatter);
-                System.out.println("Enter new Time");
-                String newTime=scanner.nextLine();
-                System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
-                found=true;
-            }
-        }
-        if (!found) {
-            System.out.println("Appointment NOT found");
-        }
-    }
+
 
     public void cancelAppointment(){
         displayAllAppointments();
