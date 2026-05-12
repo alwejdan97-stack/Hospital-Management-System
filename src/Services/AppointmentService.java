@@ -85,7 +85,7 @@ public class AppointmentService {
     public List<Appointment> addAppointments(){
         Boolean continueFlag = true;
         while (continueFlag) {
-            appointmentList.add(createAppointment());
+            appointmentList.add(addAppointment());
             System.out.println("If want ot add more appointments press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=true;
