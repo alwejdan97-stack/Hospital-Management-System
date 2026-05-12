@@ -67,6 +67,16 @@ public class InPatient extends Patient {
     public String getAdmittingDoctorId() {
         return admittingDoctorId;
     }
+    @Override
+    public void displayInfo(){
+        super.displayInfo();
+        System.out.println("Admission Date: "+admissionDate);
+        System.out.println("Discharge Date: "+dischargeDate);
+        System.out.println("Room Number: "+roomNumber);
+        System.out.println("Bed Number: "+bedNumber);
+        System.out.println("Admitting Doctor ID: "+admittingDoctorId);
+        System.out.println("Daily Charges: "+dailyCharges);
+    }
 
     public void calculateStayDuration(){}
     public void calculateTotalCharges(){}
