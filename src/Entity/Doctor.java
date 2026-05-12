@@ -112,11 +112,20 @@ public class Doctor extends Person implements DoctorInterface {
         setAvailableSlots(avilabiltySlot);
     }
 
-    public void updateFee(double fee){}
+    public void updateFee(double fee){
+        this.fee=fee;
+    }
 
-    public void updateFee(double fee, String reason){}
+    public void updateFee(double fee, String reason){
+        this.fee=fee;
+        this.reason=reason;
+    }
 
-    public void addAvailability(String slot){}
+    public void addAvailability(String slot){
+        this.reason=reason;
+    }
 
-    public void addAvailability(List<String> slots){}
+    public void addAvailability(List<String> slots){
+        this.slots=slots;
+    }
 }
