@@ -39,7 +39,7 @@ public class DoctorService2 {
         System.out.println("Doctor added successfully");
         return doctorList;
     }
-    public void PaassignPatient(String doctorId, String patientId){
+    public void assignPatient(String doctorId, String patientId){
         System.out.println(doctorList+" ");
         System.out.println("Enter doctor ID");
         doctorId=scanner.nextLine();
