@@ -42,4 +42,13 @@ public class Surgeon extends Doctor {
     public void updateSurgeryCount(String newSurgery){
         updateSurgeryCount(newSurgery);
     }
+
+    @Override
+    public void displayInfo(){
+        super.displayInfo();
+        System.out.println("Surgeries Performed: "+surgeriesPerformed);
+        System.out.println("Surgery Type: "+surgeryTypes);
+        System.out.println("Operation Theater Access: "+operationTheatreAccess);
+
+    }
 }
