@@ -293,6 +293,11 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
-
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                System.out.println("Nurse Exist");
+            }
+        }
+        System.out.println("Nurse NOT Exist");
     }
 }
