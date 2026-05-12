@@ -381,7 +381,9 @@ public Boolean handelDoctorService(Integer doctorOption){
 
     @Override
     public void getAll() {
-
+        for (Doctor d: doctorList){
+            System.out.println(d+" ");
+        }
     }
 
     @Override
