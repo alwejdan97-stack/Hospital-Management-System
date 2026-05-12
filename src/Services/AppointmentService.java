@@ -8,16 +8,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.*;
 
 public class AppointmentService {
-    public List<Appointment> appointmentList=new ArrayList<>();
+    public static List<Appointment> appointmentList=new ArrayList<>();
     public static Scanner scanner=new Scanner(System.in);
-    Appointment appointment=new Appointment();
-    public Patient patient=new Patient();
+    public static Appointment appointment=new Appointment();
+    public static Patient patient=new Patient();
 
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public Appointment createAppointment(){
+    public Appointment addAppointment(){
         System.out.println(" ** Adding new Appointment ** ");
 
         System.out.println("Enter Appointment ID: ");
@@ -81,9 +82,22 @@ public class AppointmentService {
         return appointment;
     }
 
+    public List<Appointment> addAppointments(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            appointmentList.add(createAppointment());
+            System.out.println("If want ot add more appointments press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=true;
+            }
+            continueFlag=false;
+        }
+        return appointmentList;
+    }
+
     public void rescheduleAppointment(String appointmentId, LocalDate newDate){
         System.out.println("** Reschedule Appointment");
-        displayAllAppointments();
+        //displayAllAppointments();
         System.out.println("Enter Appointment ID: ");
         appointmentId=scanner.nextLine();
         boolean found=false;
@@ -100,7 +114,7 @@ public class AppointmentService {
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
         System.out.println("** Reschedule Appointment");
-
+        //displayAllAppointments();
         System.out.println("Enter Appointment ID: ");
         appointmentId=scanner.nextLine();
         boolean found=false;
@@ -117,19 +131,20 @@ public class AppointmentService {
             }
     }
 
-    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){}
+    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
+            System.out.println("** Reschedule Appointment");
+            appointmentList.add(appointment);
+            for (Appointment a:appointmentList){
+                System.out.println("Enter New Date: ");
+                newDate=LocalDate.parse(scanner.nextLine(),formatter);
+                a.setAppointmentDate(newDate);
+                System.out.println("Enter New Time: ");
+                newTime=scanner.nextLine();
+                a.setAppointmentTime(newTime);
+                System.out.println("Add Reason:");
 
-    public List<Appointment> addAppointments(){
-        Boolean continueFlag = true;
-        while (continueFlag) {
-            appointmentList.add(createAppointment());
-            System.out.println("If want ot add more appointments press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=true;
+                System.out.println("Appointment Reschedule Successfully");
             }
-            continueFlag=false;
-        }
-        return appointmentList;
     }
 
     public void updateAppointment(){
@@ -275,6 +290,21 @@ public class AppointmentService {
             System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime()+" | Notes: "+a.getNotes());
         }
     }
+        public void displayAppointments(LocalDate date){
+            System.out.println("== Display Appointments By Date ==");
+            System.out.println("Enter Appointment Date");
+        }
+    }
+
+        public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate){
+            System.out.println("== Display Appointments By Multiple Fields ==");
+            System.out.println("Enter Doctor ID: ");
+            doctorId=scanner.nextLine();
+            System.out.println("Enter Start Date: ");
+            startDate=LocalDate.parse(scanner.nextLine(),formatter);
+            System.out.println("Enter End Date: ");
+            endDate=LocalDate.parse(scanner.nextLine(),formatter);
+        }
 
     public Boolean handelAppointmentService(Integer appointmentOption){
         switch (appointmentOption){
