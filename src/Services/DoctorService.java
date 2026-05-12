@@ -398,6 +398,11 @@ public Boolean handelDoctorService(Integer doctorOption){
 
     @Override
     public void searchById(String id) {
-
+        for(Doctor d:doctorList){
+            if(d.getDoctorId().equalsIgnoreCase(id)){
+                System.out.println("Doctor NOT Exist");
+            }
+        }
+        System.out.println("Doctor NOT Exist");
     }
 }
