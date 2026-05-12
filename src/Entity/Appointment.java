@@ -5,7 +5,6 @@ import Behaviour.Displayable;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 public class Appointment implements Displayable {
     private String appointmentId;
@@ -19,7 +18,7 @@ public class Appointment implements Displayable {
     private String addedBy;
     private LocalDateTime timestamp;
 
-    public Appointment(String appointmentId, String patientId, String stringId, LocalDate appointmentDate, String appointmentTime, String status, String reason, String addedBy, String notes, LocalDateTime timestamp) {
+    public Appointment() {
         super();
         this.appointmentId = appointmentId;
         this.patientId = patientId;
@@ -33,69 +32,85 @@ public class Appointment implements Displayable {
         this.timestamp = timestamp;
     }
 
-    public void setAppointmentId(String appointmentId){
-        this.appointmentId=appointmentId;
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
     }
-    public String getAppointmentId(){
+
+    public String getAppointmentId() {
         return appointmentId;
     }
-    public void setPatientId(String patientId){
-        this.patientId=patientId;
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
-    public String getPatientId(){
+
+    public String getPatientId() {
         return patientId;
     }
-    public void setDoctorId(String stringId){
-        this.patientId=patientId;
+
+    public void setDoctorId(String stringId) {
+        this.patientId = patientId;
     }
-    public String getDoctorId(){
+
+    public String getDoctorId() {
         return stringId;
     }
-    public void setAppointmentDate(LocalDate appointmentDate){
-        this.appointmentDate=appointmentDate;
+
+    public void setAppointmentDate(LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
     }
-    public LocalDate getAppointmentDate(){
+
+    public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
-    public void setAppointmentTime(String appointmentTime){
-        this.appointmentTime=appointmentTime;
+
+    public void setAppointmentTime(String appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
-    public String getAppointmentTime(){
+
+    public String getAppointmentTime() {
         return appointmentTime;
     }
-    public void setStatus(String status){
-        this.status=status;
+
+    public void setStatus(String status) {
+        this.status = status;
     }
-    public String getStatus(){
+
+    public String getStatus() {
         return status;
     }
-    public void setReason(String reason){
-        this.reason=reason;
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
-    public String getReason(){
+
+    public String getReason() {
         return reason;
     }
-    public void setNotes(String notes){
-        this.notes=notes;
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
-    public String getNotes(){
+
+    public String getNotes() {
         return notes;
     }
 
-    public void displayInfo(){
-        System.out.println("Appointment ID: "+appointmentId);
-        System.out.println("Patient ID: "+patientId);
-        System.out.println("Doctor ID: "+ stringId);
-        System.out.println("Appointment Date: "+appointmentDate);
-        System.out.println("Appointment Time: "+appointmentTime);
-        System.out.println("Status: "+status);
-        System.out.println("Reason:"+reason);
-        System.out.println("Notes: "+notes);
+    @Override
+    public void displayInfo() {
+        System.out.println("Appointment ID: " + appointmentId);
+        System.out.println("Patient ID: " + patientId);
+        System.out.println("Doctor ID: " + stringId);
+        System.out.println("Appointment Date: " + appointmentDate);
+        System.out.println("Appointment Time: " + appointmentTime);
+        System.out.println("Status: " + status);
+        System.out.println("Reason:" + reason);
+        System.out.println("Notes: " + notes);
     }
 
     @Override
     public void displaySummary() {
-        System.out.println(appointmentId+" | "+patientId+" | "+appointmentDate);
+        System.out.println(appointmentId + " | " + patientId + " | " + appointmentDate);
     }
 
     public void reschedule(LocalDate newDate, String newTime) {
@@ -111,18 +126,18 @@ public class Appointment implements Displayable {
         setStatus(status);
     }
 
-    public void addNotes(String notes){
-        this.notes=notes;
+    public void addNotes(String notes) {
+        this.notes = notes;
     }
 
-    public void addNotes(String notes, String addedBy){
-        this.notes=notes;
-        this.addedBy=addedBy;
+    public void addNotes(String notes, String addedBy) {
+        this.notes = notes;
+        this.addedBy = addedBy;
     }
 
-    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
-        this.notes=notes;
-        this.addedBy=addedBy;
-        this.timestamp=timestamp;
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp) {
+        this.notes = notes;
+        this.addedBy = addedBy;
+        this.timestamp = timestamp;
     }
 }
