@@ -37,7 +37,14 @@ public class Consultant extends Doctor{
     public int getConsultationDuration() {
         return consultationDuration;
     }
+    @Override
+    public void displayInfo(){
+        super.displayInfo();
+        System.out.println("Consultation Type: "+consultationTypes);
+        System.out.println("Online Consultation Available: "+onlineConsultationAvailable);
+        System.out.println("Consultation Duration: "+consultationDuration);
 
+    }
     public void scheduleConsultation(){}
     public void provideSecondOpinion(){}
 }
