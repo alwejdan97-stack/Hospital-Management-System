@@ -319,6 +319,11 @@ public class PatientService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
-
+        for(Patient p:patientList){
+            if(p.getPatientId().equalsIgnoreCase(id)){
+                System.out.println("Patient Exist");
+            }
+        }
+        System.out.println("Patient NOT Exist");
     }
 }
