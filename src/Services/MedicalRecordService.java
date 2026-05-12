@@ -224,16 +224,16 @@ public class MedicalRecordService implements Manageable, Searchable {
     @Override
     public void remove(String id) {
         boolean found=false;
-        for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(id)){
-                nurseList.remove(id);
-                System.out.println("Nurse Removed Successfully");
+        for(MedicalRecord m:medicalRecordList){
+            if(m.getRecordId().equalsIgnoreCase(id)){
+                medicalRecordList.remove(id);
+                System.out.println("Medical Record Removed Successfully");
                 found=true;
                 break;
             }
         }
         if(!found){
-            System.out.println("Nurse NOT Found");
+            System.out.println("Medical Record NOT Found");
         }
     }
 
