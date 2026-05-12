@@ -49,6 +49,5 @@ public class Surgeon extends Doctor {
         System.out.println("Surgeries Performed: "+surgeriesPerformed);
         System.out.println("Surgery Type: "+surgeryTypes);
         System.out.println("Operation Theater Access: "+operationTheatreAccess);
-
     }
 }
