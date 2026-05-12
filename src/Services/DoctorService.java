@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Doctor;
+import Entity.MedicalRecord;
 import Entity.Patient;
 
 //import static DoctorService.doctorList;
@@ -357,7 +358,9 @@ public Boolean handelDoctorService(Integer doctorOption){
 
     @Override
     public void add(Object entity) {
-
+        if(entity instanceof Doctor){
+            doctorList.add((Doctor) entity);
+        }
     }
 
     @Override
