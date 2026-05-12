@@ -1,7 +1,6 @@
 package Services;
 
 import Entity.Appointment;
-import Entity.MedicalRecord;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -18,7 +17,7 @@ public class AppointmentService {
 
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public Appointment addAppointment(){
+    public Appointment createAppointment(){
         System.out.println(" ** Adding new Appointment ** ");
 
         System.out.println("Enter Appointment ID: ");
@@ -42,10 +41,17 @@ public class AppointmentService {
         return appointment;
     }
 
+    public Appointment createAppointment(String patientId, String doctorId, LocalDate date){}
+
+    public Appointment createAppointment(String patientId, String doctorId, LocalDate date, String time){}
+
+    public Appointment createAppointment(Appointment appointment){}
+
+
     public List<Appointment> addAppointments(){
         Boolean continueFlag = true;
         while (continueFlag) {
-            appointmentList.add(addAppointment());
+            appointmentList.add(createAppointment());
             System.out.println("If want ot add more appointments press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=true;
