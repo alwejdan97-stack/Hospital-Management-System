@@ -82,8 +82,37 @@ public class DoctorService2 {
             System.out.println("Doctor ID NOT found");
         }
     }
-    public void displayDoctors(){}
-    public void displayDoctors(String specialization){}
-    public void displayDoctors(String departmentId, boolean showAvailableOnly){}
+    public void displayDoctors(){
+        if(doctorList.isEmpty()){
+            System.out.println("NO doctors in the list");
+        }
+        for (Doctor d:doctorList){
+            System.out.println(d+" ");
+        }
+    }
+    public void displayDoctors(String specialization){
+        if(doctorList.isEmpty()){
+            System.out.println("NO doctors in the list");
+        }
+        System.out.println("Enter doctor specialization");
+        specialization=scanner.nextLine();
+        for (Doctor d:doctorList){
+            if(d.getSpecialization().equalsIgnoreCase(specialization)){
+                System.out.println(d+" ");
+            }
+        }
+    }
+    public void displayDoctors(String departmentId, boolean showAvailableOnly){
+        if(doctorList.isEmpty()){
+            System.out.println("NO doctors in the list");
+        }
+        System.out.println("Enter department ID");
+        departmentId=scanner.nextLine();
+        for (Doctor d:doctorList){
+            if(d.getDepartmentId().equalsIgnoreCase(departmentId)&&d.getAvailableSlots().equals(showAvailableOnly)){
+                System.out.println(d+" ");
+            }
+        }
+    }
 
 }
