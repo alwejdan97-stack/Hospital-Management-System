@@ -38,6 +38,14 @@ public class OutPatient extends Patient{
         return preferredDoctorId;
     }
 
+    @Override
+    public void displayInfo(){
+        super.displayInfo();
+        System.out.println("Visit Count: "+visitCount);
+        System.out.println("Last Visit Date: "+lastVisitDate);
+        System.out.println("Preferred Doctor ID: "+preferredDoctorId);
+
+    }
     public void scheduleFollowUp(){}
     public void updateVisitCount(){}
 
