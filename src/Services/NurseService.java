@@ -1,12 +1,15 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entity.Nurse;
+import Entity.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NurseService {
+public class NurseService implements Manageable, Searchable {
     public static List<Nurse> nurseList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     public Nurse nurse=new Nurse();
@@ -246,5 +249,32 @@ public class NurseService {
             }
         }
         return true;
+    }
+
+    @Override
+    public void add(Object entity) {
+        if(entity instanceof Nurse){
+            nurseList.add((Nurse) entity);
+        }
+    }
+
+    @Override
+    public void remove(String id) {
+
+    }
+
+    @Override
+    public void getAll() {
+
+    }
+
+    @Override
+    public void search(String keyword) {
+
+    }
+
+    @Override
+    public void searchById(String id) {
+
     }
 }
