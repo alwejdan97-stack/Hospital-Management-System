@@ -43,7 +43,6 @@ public class Consultant extends Doctor{
         System.out.println("Consultation Type: "+consultationTypes);
         System.out.println("Online Consultation Available: "+onlineConsultationAvailable);
         System.out.println("Consultation Duration: "+consultationDuration);
-
     }
     public void scheduleConsultation(){}
     public void provideSecondOpinion(){}
