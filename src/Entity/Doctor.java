@@ -14,19 +14,27 @@ public class Doctor extends Person implements DoctorInterface {
     private Double consultationFee;
     private List<String> availableSlots;
     private List<String> assignedPatients;
+    private double fee;
+    private String reason;
+    private String slot;
+    private List<String> slots;
 
     public static Scanner scanner=new Scanner(System.in);
 
-    public Doctor() {
+    public Doctor(String doctorId, String specialization, String qualification, String departmentId, Integer experienceYears, Double consultationFee, List<String> availableSlots, double fee, List<String> assignedPatients, String reason, String slot, List<String> slots) {
         super();
         this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
-        this.experienceYears = experienceYears;
         this.departmentId = departmentId;
+        this.experienceYears = experienceYears;
         this.consultationFee = consultationFee;
         this.availableSlots = availableSlots;
+        this.fee = fee;
         this.assignedPatients = assignedPatients;
+        this.reason = reason;
+        this.slot = slot;
+        this.slots = slots;
     }
 
     public void setDoctorId(String doctorId){
@@ -103,4 +111,12 @@ public class Doctor extends Person implements DoctorInterface {
     public void updateAvailability(List<String> avilabiltySlot) {
         setAvailableSlots(avilabiltySlot);
     }
+
+    public void updateFee(double fee){}
+
+    public void updateFee(double fee, String reason){}
+
+    public void addAvailability(String slot){}
+
+    public void addAvailability(List<String> slots){}
 }
