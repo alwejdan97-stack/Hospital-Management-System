@@ -35,6 +35,13 @@ public class GeneralPractitioner extends Doctor {
         return vaccinationCertified;
     }
 
+    @Override
+    public void displayInfo(){
+        super.displayInfo();
+        System.out.println("Walkin Available: "+walkinAvailable);
+        System.out.println("Home Visit Available: "+homeVisitAvailable);
+        System.out.println("Vacciantion Certified: "+vaccinationCertified);
+    }
     public void scheduleHomeVisit(){}
     public void administerVaccine(){}
 }
