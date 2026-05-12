@@ -119,13 +119,16 @@ public class DoctorService {
             System.out.println("Doctor ID NOT Found");
         }
     }
-    public void assignPatient(Doctor doctor, Patient patient){
+
+    /*public void assignPatient(Doctor doctor, Patient patient){
         doctorList.add(doctor);
         patientList.add(patient);
+        doctor.s
         // doctor.setAssignedPatients(patient);
         System.out.println("Patient Successfully Assign");
 
-    }
+    }*/
+
     public void  assignPatient(String doctorId, List<String> patientIds) {
         System.out.println(doctorList+" ");
         System.out.println("Enter doctor ID");
@@ -136,13 +139,13 @@ public class DoctorService {
                 System.out.println("Enter Patient ID");
                 patientIds.add(scanner.nextLine());
                 d.setAssignedPatients(patientIds);
-                System.out.println("Patient Successfully assign");
+                System.out.println("Patient Successfully Assign");
                 found=true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("Doctor ID NOT found");
+            System.out.println("Doctor ID NOT Found");
         }
     }
 
@@ -171,6 +174,7 @@ public class DoctorService {
             }
         }
     }
+
     public void removeDoctor(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
@@ -216,14 +220,47 @@ public class DoctorService {
         }
     }
 
-public static void displayAllDoctors(){
-    if(doctorList.isEmpty()){
-        System.out.println("NO Doctor in the List");
+    public static void displayAllDoctors(){
+        if(doctorList.isEmpty()){
+            System.out.println("NO Doctor in the List");
+        }
+        for(Doctor d: doctorList) {
+            System.out.println("Doctor Name: " + d.getFirstName() + " " + d.getLastName()+" | Doctor ID: "+d.getDoctorId());
+        }
     }
-    for(Doctor d: doctorList) {
-        System.out.println("Doctor Name: " + d.getFirstName() + " " + d.getLastName()+" | Doctor ID: "+d.getDoctorId());
+
+    public void displayDoctors(){
+        if(doctorList.isEmpty()){
+            System.out.println("NO doctors in the list");
+        }
+        for (Doctor d:doctorList){
+            System.out.println(d+" ");
+        }
     }
-}
+    public void displayDoctors(String specialization){
+        if(doctorList.isEmpty()){
+            System.out.println("NO Doctor In The List");
+        }
+        System.out.println("Enter doctor specialization");
+        specialization=scanner.nextLine();
+        for (Doctor d:doctorList){
+            if(d.getSpecialization().equalsIgnoreCase(specialization)){
+                System.out.println(d+" ");
+            }
+        }
+    }
+    public void displayDoctors(String departmentId, boolean showAvailableOnly){
+        if(doctorList.isEmpty()){
+            System.out.println("NO Doctor InThe List");
+        }
+        System.out.println("Enter Department ID");
+        departmentId=scanner.nextLine();
+        for (Doctor d:doctorList){
+            if(d.getDepartmentId().equalsIgnoreCase(departmentId)&&d.getAvailableSlots().equals(showAvailableOnly)){
+                System.out.println(d+" ");
+            }
+        }
+    }
 
     public void getDoctorsBySpecialization(){
         displayAllDoctors();
