@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Appointment;
+import Entity.Department;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -370,7 +371,9 @@ public class AppointmentService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        for (Appointment a: appointmentList){
+            appointmentList.add((Appointment) entity);
+        }
     }
 
     @Override
