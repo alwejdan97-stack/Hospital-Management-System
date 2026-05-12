@@ -21,7 +21,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
     public static Appointment appointment = new Appointment();
     public static Patient patient = new Patient();
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Appointment addAppointment() {
         System.out.println(" ** Adding new Appointment ** ");
@@ -141,7 +141,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
     }
 
     public void rescheduleAppointment() {
-        displayAllAppointments();
+        //displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID = scanner.nextLine();
         Boolean found = false;
@@ -162,7 +162,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime) {
         System.out.println("** Reschedule Appointment");
-        //displayAllAppointments();
+        displayAllAppointments();
         System.out.println("Enter Appointment ID: ");
         appointmentId = scanner.nextLine();
         boolean found = false;
@@ -178,6 +178,8 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
                 found = true;
             }
         }
+
+    }
 
     public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
             System.out.println("** Reschedule Appointment");
@@ -227,7 +229,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             displayAllAppointments();
             System.out.println("Enter Appointment ID");
             String ID = scanner.nextLine();
-            found = false;
+            Boolean found = false;
             for (Appointment a : appointmentList) {
                 if (a.getAppointmentId().equalsIgnoreCase(ID)) {
                     appointmentList.remove(ID);
@@ -252,7 +254,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             displayAllAppointments();
             System.out.println("Enter Patient ID");
             String ID = scanner.nextLine();
-            found = false;
+            Boolean found = false;
             for (Appointment a : appointmentList) {
                 if (a.getAppointmentId().equalsIgnoreCase(ID)) {
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
@@ -268,7 +270,8 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             displayAllAppointments();
             System.out.println("Enter Doctor ID");
             String ID = scanner.nextLine();
-            found = false;
+            Boolean found = false;
+
             for (Appointment a : appointmentList) {
                 if (a.getPatientId().equalsIgnoreCase(ID)) {
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
@@ -284,7 +287,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             displayAllAppointments();
             System.out.println("Enter Appointment Date");
             LocalDate date = LocalDate.parse(scanner.nextLine(), formatter);
-            found = false;
+            Boolean found = false;
             for (Appointment a : appointmentList) {
                 if (a.getAppointmentDate().equals(date)) {
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
@@ -301,7 +304,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             displayAllAppointments();
             System.out.println("Enter Appointment ID");
             String ID = scanner.nextLine();
-            found = false;
+            Boolean found = false;
             for (Appointment a : appointmentList) {
                 if (a.getAppointmentId().equalsIgnoreCase(ID)) {
                     a.setStatus("Cancel");
@@ -321,7 +324,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
             }
         }
-        public void displayAppointments (LocalDate date){
+        public static void displayAppointments (LocalDate date){
             System.out.println("== Display Appointments By Date ==");
             System.out.println("Enter Appointment Date");
             date = LocalDate.parse(scanner.nextLine(), formatter);
@@ -337,7 +340,9 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
         System.out.println("Enter End Date: ");
         endDate = LocalDate.parse(scanner.nextLine(), formatter);
         for(Appointment a:appointmentList){
-            if(a.getDoctorId().equalsIgnoreCase(doctorId)){}
+            if(a.getDoctorId().equalsIgnoreCase(doctorId)){
+
+            }
         }
     }
 
