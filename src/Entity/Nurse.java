@@ -1,9 +1,11 @@
 package Entity;
 
+import Behaviour.Displayable;
+
 import java.util.List;
 import java.util.Scanner;
 
-public class Nurse extends Person{
+public class Nurse extends Person implements Displayable {
     private String nurseId;
     private String departmentId;
     private String shift;
@@ -51,11 +53,17 @@ public class Nurse extends Person{
 
     @Override
     public void displayInfo(){
+        super.displayInfo();
         System.out.println("Nurs ID: "+nurseId);
         System.out.println("Department ID: "+departmentId);
         System.out.println("Shift: "+shift);
         System.out.println("Qualification: "+qualification);
         System.out.println("Assigned Patient: "+assignedPatients);
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println(getFirstName()+" "+getLastName()+" | "+nurseId);
     }
 
     public void assignedPatient(String patient){
