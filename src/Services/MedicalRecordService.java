@@ -239,28 +239,28 @@ public class MedicalRecordService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-        for (Nurse n: nurseList){
-            System.out.println(n+" ");
+        for (MedicalRecord m: medicalRecordList){
+            System.out.println(m+" ");
         }
     }
 
     @Override
     public void search(String keyword) {
-        for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(keyword)||n.getFirstName().equalsIgnoreCase(keyword)||n.getLastName().equalsIgnoreCase(keyword)||n.getPhoneNumber().equalsIgnoreCase(keyword)){
-                System.out.println("Nurse Exist");
+        for(MedicalRecord m:medicalRecordList){
+            if(m.getRecordId().equalsIgnoreCase(keyword)||m.getPatientId().equalsIgnoreCase(keyword)||m.getDoctorId().equalsIgnoreCase(keyword)||m.getVisitDate().equals(keyword)){
+                System.out.println("Medical Record Exist");
             }
         }
-        System.out.println("Nurse NOT Exist");
+        System.out.println("Medical Record NOT Exist");
     }
 
     @Override
     public void searchById(String id) {
-        for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(id)){
-                System.out.println("Nurse Exist");
+        for(MedicalRecord m:medicalRecordList){
+            if(m.getRecordId().equalsIgnoreCase(id)){
+                System.out.println("Medical Record NOT Exist");
             }
         }
-        System.out.println("Nurse NOT Exist");
+        System.out.println("Medical Record NOT Exist");
     }
 }
