@@ -3,6 +3,7 @@ package Entity;
 import Behaviour.AppointmentInterface;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Appointment implements AppointmentInterface {
@@ -14,8 +15,8 @@ public class Appointment implements AppointmentInterface {
     private String status;
     private String reason;
     private String notes;
-
-    public Scanner scanner=new Scanner(System.in);
+    private String addedBy;
+    private LocalDateTime timestamp;
     public Appointment() {
         super();
         this.appointmentId = appointmentId;
@@ -102,5 +103,20 @@ public class Appointment implements AppointmentInterface {
     @Override
     public void complete(String status) {
         setStatus(status);
+    }
+
+    public void addNotes(String notes){
+        this.notes=notes;
+    }
+
+    public void addNotes(String notes, String addedBy){
+        this.notes=notes;
+        this.addedBy=addedBy;
+    }
+
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
+        this.notes=notes;
+        this.addedBy=addedBy;
+        this.timestamp=timestamp;
     }
 }
