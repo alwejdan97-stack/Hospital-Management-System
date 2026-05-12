@@ -1,11 +1,12 @@
 package Entity;
 
+import Behaviour.Displayable;
 import Behaviour.DoctorInterface;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Doctor extends Person implements DoctorInterface {
+public class Doctor extends Person implements Displayable {
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -87,6 +88,7 @@ public class Doctor extends Person implements DoctorInterface {
     }
     @Override
     public void displayInfo(){
+        super.displayInfo();
         System.out.println("Doctor ID: "+doctorId);
         System.out.println("Specialization: "+specialization);
         System.out.println("Qualification: "+qualification);
@@ -98,16 +100,18 @@ public class Doctor extends Person implements DoctorInterface {
     }
 
     @Override
+    public void displaySummary() {
+        System.out.println(getFirstName()+" "+getLastName()+" | "+doctorId);
+    }
+
     public void assignPatient(String patient) {
         assignedPatients.add(patient);
     }
 
-    @Override
     public void removePatient(String patient) {
         assignedPatients.remove(patient);
     }
 
-    @Override
     public void updateAvailability(List<String> avilabiltySlot) {
         setAvailableSlots(avilabiltySlot);
     }
