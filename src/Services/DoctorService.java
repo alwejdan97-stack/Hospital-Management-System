@@ -1,6 +1,7 @@
 package Services;
 
 import Entity.Doctor;
+import Entity.Patient;
 
 //import static DoctorService.doctorList;
 //import static DoctorService.doctorList;
@@ -17,7 +18,7 @@ public class DoctorService {
 
         System.out.println("Enter First Name: ");
         doctor.setFirstName(scanner.nextLine());
-        System.out.println("Enter Second Name: ");
+        System.out.println("Enter Last Name: ");
         doctor.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
         doctor.setDoctorId(scanner.nextLine());
@@ -39,6 +40,53 @@ public class DoctorService {
         System.out.println("Doctor Add Successfully");
         return doctor;
     }
+
+    public Doctor addDoctor(String name, String specialization, String phone){
+        System.out.println("Enter First Name: ");
+        String first=scanner.nextLine();
+        System.out.println("Enter Last Name: ");
+        String last=scanner.nextLine();
+        name=first+last;
+        doctor.setFirstName(name);
+        System.out.println("Enter Specialization: ");
+        specialization=scanner.nextLine();
+        doctor.setSpecialization(specialization);
+        System.out.println("Enter Phone Number:");
+        phone=scanner.nextLine();
+        doctor.setPhoneNumber(phone);
+
+        System.out.println("Doctor Added Successfully");
+        return doctor;
+    }
+
+    public Doctor addDoctor(String name, String specialization, String phone, double consultationFee){
+        System.out.println("Enter First Name: ");
+        String first=scanner.nextLine();
+        System.out.println("Enter Last Name: ");
+        String last=scanner.nextLine();
+        name=first+last;
+        doctor.setFirstName(name);
+        System.out.println("Enter Specialization: ");
+        specialization=scanner.nextLine();
+        doctor.setSpecialization(specialization);
+        System.out.println("Enter Phone Number:");
+        phone=scanner.nextLine();
+        doctor.setPhoneNumber(phone);
+        System.out.println("Enter Consultation Fee: ");
+        consultationFee=scanner.nextInt();
+        doctor.setConsultationFee(consultationFee);
+
+        System.out.println("Doctor Added Successfully");
+        return doctor;
+    }
+
+    public Doctor addDoctor(Doctor doctor){
+        doctorList.add(doctor);
+
+        System.out.println("Doctor Added successfully");
+        return doctor;
+    }
+
     public List<Doctor> addDoctors(){
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -51,6 +99,53 @@ public class DoctorService {
         }
         return doctorList;
     }
+
+    public void assignPatient(String doctorId, String patientId){
+        System.out.println(doctorList+" ");
+        System.out.println("Enter Doctor ID");
+        doctorId=scanner.nextLine();
+        Boolean found=false;
+        for(Doctor d: doctorList) {
+            if (d.getDoctorId().equalsIgnoreCase(doctorId)) {
+                System.out.println("Enter Patient ID");
+                patientId=scanner.nextLine();
+                doctor.assignPatient(patientId);
+                System.out.println("Patient Successfully Assign");
+                found=true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Doctor ID NOT Found");
+        }
+    }
+    public void assignPatient(Doctor doctor, Patient patient){
+        doctorList.add(doctor);
+        patientList.add(patient);
+        // doctor.setAssignedPatients(patient);
+        System.out.println("Patient Successfully Assign");
+
+    }
+    public void  assignPatient(String doctorId, List<String> patientIds) {
+        System.out.println(doctorList+" ");
+        System.out.println("Enter doctor ID");
+        doctorId=scanner.nextLine();
+        Boolean found=false;
+        for(Doctor d: doctorList) {
+            if (d.getDoctorId().equalsIgnoreCase(doctorId)) {
+                System.out.println("Enter Patient ID");
+                patientIds.add(scanner.nextLine());
+                d.setAssignedPatients(patientIds);
+                System.out.println("Patient Successfully assign");
+                found=true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Doctor ID NOT found");
+        }
+    }
+
     public void editDoctor(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
@@ -100,6 +195,7 @@ public class DoctorService {
             }
         }
     }
+
     public void getDoctorById(){
         displayAllDoctors();
         System.out.println("Enter Doctor ID");
