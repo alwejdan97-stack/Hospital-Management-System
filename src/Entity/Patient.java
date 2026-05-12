@@ -1,5 +1,6 @@
 package Entity;
 
+import Behaviour.Displayable;
 import Behaviour.PatientInterface;
 
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.*;
 
-public class Patient extends Person implements PatientInterface {
+public class Patient extends Person implements Displayable {
     private String patientId;
     private String bloodGroup;
     private List<String > allergies;
@@ -85,6 +86,7 @@ public class Patient extends Person implements PatientInterface {
 
     @Override
     public void displayInfo(){
+        super.displayInfo();
         System.out.println("Patient Id: "+patientId);
         System.out.println("Blood Group: "+bloodGroup);
         System.out.println("Allergies: "+allergies);
@@ -96,15 +98,18 @@ public class Patient extends Person implements PatientInterface {
     }
 
     @Override
+    public void displaySummary() {
+        System.out.println(getFirstName()+" "+getLastName()+" | "+patientId);
+    }
+
     public void addMedicalRecord(String record) {
         addMedicalRecord(record);
     }
-    @Override
+
     public void addAppointment(String appointment) {
         addAppointment(appointment);
     }
 
-    @Override
     public void updateInsurance(String newInsurance) {
         updateInsurance(newInsurance);
     }
@@ -116,6 +121,8 @@ public class Patient extends Person implements PatientInterface {
         this.phone=phone;
     }
     public void updateContact(String phone, String email, String address){
+        this.phone=phone;
         this.email=email;
+        this.address=address;
     }
 }
