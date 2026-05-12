@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.MedicalRecord;
+import Entity.Nurse;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -215,26 +216,51 @@ public class MedicalRecordService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        if(entity instanceof MedicalRecordService){
+            medicalRecordList.add((MedicalRecord) entity);
+        }
     }
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                nurseList.remove(id);
+                System.out.println("Nurse Removed Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Nurse NOT Found");
+        }
     }
 
     @Override
     public void getAll() {
-
+        for (Nurse n: nurseList){
+            System.out.println(n+" ");
+        }
     }
 
     @Override
     public void search(String keyword) {
-
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(keyword)||n.getFirstName().equalsIgnoreCase(keyword)||n.getLastName().equalsIgnoreCase(keyword)||n.getPhoneNumber().equalsIgnoreCase(keyword)){
+                System.out.println("Nurse Exist");
+            }
+        }
+        System.out.println("Nurse NOT Exist");
     }
 
     @Override
     public void searchById(String id) {
-
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                System.out.println("Nurse Exist");
+            }
+        }
+        System.out.println("Nurse NOT Exist");
     }
 }
