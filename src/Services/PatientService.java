@@ -287,7 +287,17 @@ public class PatientService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Patient p:patientList){
+            if(p.getPatientId().equalsIgnoreCase(id)){
+                patientList.remove(id);
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Patient NOT Found");
+        }
     }
 
     @Override
