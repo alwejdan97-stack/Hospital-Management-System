@@ -1,5 +1,7 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entity.Doctor;
 import Entity.Patient;
 
@@ -7,7 +9,7 @@ import Entity.Patient;
 //import static DoctorService.doctorList;
 import java.util.*;
 
-public class DoctorService {
+public class DoctorService implements Manageable, Searchable {
     public static List<Doctor> doctorList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     public Doctor doctor =new Doctor();
@@ -352,4 +354,29 @@ public Boolean handelDoctorService(Integer doctorOption){
     }
     return true;
 }
+
+    @Override
+    public void add(Object entity) {
+
+    }
+
+    @Override
+    public void remove(String id) {
+
+    }
+
+    @Override
+    public void getAll() {
+
+    }
+
+    @Override
+    public void search(String keyword) {
+
+    }
+
+    @Override
+    public void searchById(String id) {
+
+    }
 }
