@@ -99,7 +99,8 @@ public class Patient extends Person implements Displayable {
 
     @Override
     public void displaySummary() {
-        System.out.println(getFirstName()+" "+getLastName()+" | "+patientId);
+        super.displaySummary();
+        System.out.println(patientId+" | "+bloodGroup);
     }
 
     public void addMedicalRecord(String record) {
