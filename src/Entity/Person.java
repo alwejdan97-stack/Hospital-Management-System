@@ -15,7 +15,7 @@ public class Person implements PersonInterface {
     private String address;
 
     public Person() {
-        super();
+        //super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
