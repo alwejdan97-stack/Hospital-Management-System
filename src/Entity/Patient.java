@@ -17,18 +17,22 @@ public class Patient extends Person implements PatientInterface {
     private List<String > medicalRecords;
     private List<String> appointments;
 
+    private String phone;
+    private String email;
+    private String address;
+
     public static Scanner scanner=new Scanner(System.in);
 
-    public Patient() {
+    public Patient(String patientId, String bloodGroup, List<String> allergies, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments) {
         super();
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
+        this.registrationDate = registrationDate;
+        this.insuranceId = insuranceId;
         this.medicalRecords = medicalRecords;
         this.appointments = appointments;
-        this.insuranceId = insuranceId;
-        this.registrationDate = registrationDate;
     }
 
     public void setPatientId(String patientId){
@@ -104,5 +108,15 @@ public class Patient extends Person implements PatientInterface {
     @Override
     public void updateInsurance(String newInsurance) {
         updateInsurance(newInsurance);
+    }
+
+    public void updateContact(String phone){
+        this.phone=phone;
+    }
+    public void updateContact(String phone, String email){
+        this.phone=phone;
+    }
+    public void updateContact(String phone, String email, String address){
+        this.email=email;
     }
 }
