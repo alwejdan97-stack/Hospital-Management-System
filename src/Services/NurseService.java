@@ -260,7 +260,18 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Nurse n:nurseList){
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                nurseList.remove(id);
+                System.out.println("Nurse Removed Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Nurse NOT Found");
+        }
     }
 
     @Override
