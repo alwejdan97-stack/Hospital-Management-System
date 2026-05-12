@@ -81,6 +81,43 @@ public class AppointmentService {
         return appointment;
     }
 
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate){
+        System.out.println("** Reschedule Appointment");
+        displayAllAppointments();
+        System.out.println("Enter Appointment ID: ");
+        appointmentId=scanner.nextLine();
+        boolean found=false;
+        for (Appointment a:appointmentList){
+            if(a.getAppointmentId().equalsIgnoreCase(appointmentId)){
+                System.out.println("Enter New Date: ");
+                newDate=LocalDate.parse(scanner.nextLine(),formatter);
+                a.setAppointmentDate(newDate);
+                System.out.println("Appointment Reschedule Successfully");
+                found= true;
+            }
+        }
+    }
+
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
+        System.out.println("** Reschedule Appointment");
+
+        System.out.println("Enter Appointment ID: ");
+        appointmentId=scanner.nextLine();
+        boolean found=false;
+        for (Appointment a:appointmentList){
+            if(a.getAppointmentId().equalsIgnoreCase(appointmentId)){
+                System.out.println("Enter New Date: ");
+                newDate=LocalDate.parse(scanner.nextLine(),formatter);
+                a.setAppointmentDate(newDate);
+                System.out.println("Enter New Time: ");
+                newTime=scanner.nextLine();
+                a.setAppointmentTime(newTime);
+                System.out.println("Appointment Reschedule Successfully");
+                found= true;
+            }
+    }
+
+    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){}
 
     public List<Appointment> addAppointments(){
         Boolean continueFlag = true;
