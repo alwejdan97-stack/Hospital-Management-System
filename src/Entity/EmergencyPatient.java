@@ -60,6 +60,6 @@ public class EmergencyPatient extends Patient implements Displayable {
     @Override
     public void displaySummary(){
         super.displaySummary();
-        System.out.println(emergencyType+" | "+arrivalMode;
+        System.out.println(emergencyType+" | "+arrivalMode);
     }
 }
