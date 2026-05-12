@@ -31,9 +31,9 @@ public class DepartmentService {
         System.out.println("Enter Head Doctor ID:");
         department.setHeadDoctorId(scanner.nextLine());
         System.out.println("Enter Doctors");
-        //department.setDoctors(doctorService.addDoctors());
+        //epartment.setDoctors(doctorService.addDoctors());
         System.out.println("Enter Nurses");
-        department.setNurses(nurseService.addNurses());
+        //department.setNurses(nurseService.addNurses());
         System.out.println("Enter available Bed");
         department.setAvailableBeds(scanner.nextInt());
         System.out.println("Enter Bed Capacity");
