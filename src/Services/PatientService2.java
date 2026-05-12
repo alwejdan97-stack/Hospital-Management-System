@@ -48,6 +48,7 @@ public class PatientService2 {
     }
 
     public void searchPatients(String firstName, String lastName){
+        System.out.println("== Search for patient by any name ==");
         for(Patient p:patientList){
             if(p.getFirstName().equalsIgnoreCase(firstName)&&p.getLastName().equalsIgnoreCase(lastName)){
                 System.out.println("Patient exist");
@@ -57,14 +58,21 @@ public class PatientService2 {
     }
 
     public void displayPatients(){
+        System.out.println("== Display all patients ==");
         for(Patient p:patientList){
             System.out.println(p+" ");
         }
     }
 
     public void displayPatients(String filter){
-
+        System.out.println("== Display all patients ==");
+        for(Patient p: patientList){}
     }
 
-    public void displayPatients(int limit){}
+    public void displayPatients(int limit){
+        System.out.println("== Display limited number of patients ==");
+        for(Patient p: patientList){
+
+        }
+    }
 }
