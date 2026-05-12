@@ -37,6 +37,37 @@ public class PatientService {
         System.out.println("Patient Add Successfully");
         return patient;
     }
+    public Patient addPatient(String firstName, String lastName, String phone){
+        System.out.println("== Add patient with minimal information ==");
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+
+        System.out.println("Patient Added Successfully");
+        return patient;
+    }
+
+    public Patient addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
+        System.out.println("== Add patient with with blood group and email ==");
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+        patient.setBloodGroup(bloodGroup);
+        patient.setEmail(email);
+
+        System.out.println("Patient Added Successfully");
+        return patient;
+    }
+
+    public void addPatient(Patient patient){
+        System.out.println("== Add patient With Full Object ==");
+        patientList.add(patient);
+
+        System.out.println("Patient Added Successfully");
+    }
+
+
+
     public void addPatients(){
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -124,14 +155,13 @@ public class PatientService {
         }
     }
     public static void searchPatientsByName(){
-        displayAllPatients();
+        //displayAllPatients();
         System.out.println("Enter Patient Name");
         String name=scanner.nextLine();
         Boolean found = false;
         for(Patient p: PatientService.patientList){
             if(p.getFirstName().equalsIgnoreCase(name)){
                 System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
-
                 found=true;
             }
         }
@@ -139,6 +169,46 @@ public class PatientService {
             System.out.println("Patient NOT found");
         }
     }
+
+    public void searchPatients(String keyword){
+        System.out.println("== Search for patient by any field ==");
+        for(Patient p: patientList){
+            if(p.getLastName().equalsIgnoreCase(keyword) ||p.getFirstName().equalsIgnoreCase(keyword) ||p.getPatientId().equalsIgnoreCase(keyword) ||p.getPhoneNumber().equalsIgnoreCase(keyword) ||p.getBloodGroup().equalsIgnoreCase(keyword) ||p.getInsuranceId().equalsIgnoreCase(keyword) ||p.getDateOfBirth().equalsIgnoreCase(keyword) ||p.getGender().equalsIgnoreCase(keyword) ||p.getEmail().equalsIgnoreCase(keyword) ||p.getMedicalRecords().equals(keyword)) {
+                System.out.println("Patient exist");
+            }
+        }
+        System.out.println("Patient NOT exist");
+    }
+
+    public void searchPatients(String firstName, String lastName){
+        System.out.println("== Search for patient by any name ==");
+        for(Patient p:patientList){
+            if(p.getFirstName().equalsIgnoreCase(firstName)&&p.getLastName().equalsIgnoreCase(lastName)){
+                System.out.println("Patient exist");
+            }
+        }
+        System.out.println("Patient NOT exist");
+    }
+
+    public void displayPatients(){
+        System.out.println("== Display all patients ==");
+        for(Patient p:patientList){
+            System.out.println(p+" ");
+        }
+    }
+
+    public void displayPatients(String filter){
+        System.out.println("== Display all patients ==");
+        for(Patient p: patientList){}
+    }
+
+    public void displayPatients(int limit){
+        System.out.println("== Display limited number of patients ==");
+        for(Patient p: patientList){
+
+        }
+    }
+
     public Boolean handelPatientService(Integer patientOption){
         switch (patientOption){
             case 1 -> {
