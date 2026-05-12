@@ -1,12 +1,13 @@
 package Entity;
 
 import Behaviour.AppointmentInterface;
+import Behaviour.Displayable;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Appointment implements AppointmentInterface {
+public class Appointment implements Displayable {
     private String appointmentId;
     private String patientId;
     private String stringId;
@@ -93,17 +94,19 @@ public class Appointment implements AppointmentInterface {
     }
 
     @Override
+    public void displaySummary() {
+        System.out.println(appointmentId+" | "+patientId+" | "+appointmentDate);
+    }
+
     public void reschedule(LocalDate newDate, String newTime) {
         setAppointmentDate(newDate);
         setAppointmentTime(newTime);
     }
 
-    @Override
     public void cancel(String status) {
         setStatus(status);
     }
 
-    @Override
     public void complete(String status) {
         setStatus(status);
     }
