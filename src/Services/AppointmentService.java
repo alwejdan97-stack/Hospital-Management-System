@@ -378,7 +378,18 @@ public class AppointmentService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
-
+        boolean found=false;
+        for(Appointment a:appointmentList){
+            if(a.getAppointmentId().equalsIgnoreCase(id)){
+                appointmentList.remove(id);
+                System.out.println("Appointment Removed Successfully");
+                found=true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("Appointment NOT Found");
+        }
     }
 
     @Override
