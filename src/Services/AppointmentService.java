@@ -141,7 +141,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
     }
 
     public void rescheduleAppointment() {
-        //displayAllAppointments();
+        displayAllAppointments();
         System.out.println("Enter Appointment ID");
         String ID = scanner.nextLine();
         Boolean found = false;
@@ -328,22 +328,23 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             System.out.println("== Display Appointments By Date ==");
             System.out.println("Enter Appointment Date");
             date = LocalDate.parse(scanner.nextLine(), formatter);
+            for(Appointment a:appointmentList){
+
+            }
         }
     }
 
     public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate) {
         System.out.println("== Display Appointments By Multiple Fields ==");
         System.out.println("Enter Doctor ID: ");
+        Scanner scanner=new Scanner(System.in);
         doctorId = scanner.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println("Enter Start Date: ");
         startDate = LocalDate.parse(scanner.nextLine(), formatter);
         System.out.println("Enter End Date: ");
         endDate = LocalDate.parse(scanner.nextLine(), formatter);
-        for(Appointment a:appointmentList){
-            if(a.getDoctorId().equalsIgnoreCase(doctorId)){
 
-            }
-        }
     }
 
     public Boolean handelAppointmentService(Integer appointmentOption) {
