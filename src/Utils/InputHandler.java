@@ -22,7 +22,6 @@ public class InputHandler {
     public static int getIntInput(String prompt){
         while(true){
             try{
-
                 System.out.println(prompt);
                 int input=Integer.parseInt(scanner.nextLine());
                 return input;
@@ -31,7 +30,21 @@ public class InputHandler {
             }
         }
     }
-    public static int getIntInput(String prompt, int min, int max){}
+    public static int getIntInput(String prompt, int min, int max){
+        while(true){
+            try{
+                System.out.println(prompt);
+                int input=Integer.parseInt(scanner.nextLine());
+                if(HelperUtils.isValidNumber(input,min,max)){
+                    return input;
+                }else{
+                    System.out.println("Input Must Be Between "+min+" And "+max);
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Integer Input");
+            }
+        }
+    }
     public static double getDoubleInput(String prompt){}
     public static Date getDateInput(String prompt){}
     public static Boolean getConfirmation(String prompt){}
