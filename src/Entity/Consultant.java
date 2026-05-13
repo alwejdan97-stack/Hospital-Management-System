@@ -52,6 +52,10 @@ public class Consultant extends Doctor implements Displayable {
         super.displaySummary();
         System.out.println(consultationTypes+" | "+consultationDuration);
     }
-    public void scheduleConsultation(){}
+    public void scheduleConsultation(){
+        if(onlineConsultationAvailable!=null && onlineConsultationAvailable){
+            System.out.println("Schedule Successful");
+        }
+    }
     public void provideSecondOpinion(){}
 }
