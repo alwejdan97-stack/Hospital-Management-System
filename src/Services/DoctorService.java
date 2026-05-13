@@ -5,6 +5,7 @@ import Behaviour.Searchable;
 import Entity.Doctor;
 import Entity.MedicalRecord;
 import Entity.Patient;
+import Utils.InputHandler;
 
 //import static DoctorService.doctorList;
 //import static DoctorService.doctorList;
@@ -20,26 +21,17 @@ public class DoctorService implements Manageable, Searchable {
     public Doctor addDoctor(){
         System.out.println(" ** Adding new Doctor ** ");
 
-        System.out.println("Enter First Name: ");
-        doctor.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name: ");
-        doctor.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        doctor.setDoctorId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        doctor.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        doctor.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        doctor.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        doctor.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Experience Year:");
-        doctor.setExperienceYears(scanner.nextInt());
-        System.out.println("Enter Qualification: ");
-        doctor.setQualification(scanner.nextLine());
-        System.out.println("Enter Specialization: ");
-        doctor.setSpecialization(scanner.nextLine());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
+        String id= InputHandler.getStringInput("Enter ID: ");
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        String address= InputHandler.getStringInput("Enter Address: ");
+        String email= InputHandler.getStringInput("Enter Email: ");
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        int experienceYear= InputHandler.getIntInput("Enter Experience Year:");
+        String qualification= InputHandler.getStringInput("Enter Qualification: ");
+        String specialization= InputHandler.getStringInput("Enter Specialization: ");
 
         System.out.println("Doctor Add Successfully");
         return doctor;
