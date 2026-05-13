@@ -203,42 +203,40 @@ public class NurseService implements Manageable, Searchable {
     public Boolean handelNurseService(Integer nurseOption){
         switch (nurseOption){
             case 1 -> {
-                System.out.println("== Add New Nurse ==");
+                System.out.println("== Add Nurse ==");
                 addNurses();
             }
-            case 2 -> {
-                System.out.println("== Update Nurse ==");
-                editNurse();
-            }
 
-            case 3 -> {
-                System.out.println("== Show Nurse ==");
+            case 2 -> {
+                System.out.println("== View All Nurses ==");
                 displayAllNurses();
             }
 
-            case 4 -> {
-                System.out.println("== Show SPECIFIC Nurse Using ID ==");
-                getNurseById();
-            }
-            case 5 -> {
-                System.out.println("== Show SPECIFIC Nurse Using Department ID ==");
+            case 3 -> {
+                System.out.println("== View Nurses by Department ==");
                 getNursesByDepartment();
             }
-            case 6 -> {
-                System.out.println("== Show SPECIFIC Nurse Using Shift ==");
+            case 4 -> {
+                System.out.println("== View Nurses by Shift ==");
                 getNursesByShift();
             }
 
+            case 5 -> {
+                System.out.println("== Assign Nurse to Patient ==");
+                nurse.getAssignedPatients();
+            }
+
+            case 6 -> {
+                System.out.println("== Update Nurse Information ==");
+                editNurse();
+            }
+
             case 7 -> {
-                System.out.println("== Delete Nurse ==");
+                System.out.println("== Remove Nurse ==");
                 removeNurse();
             }
 
-            case 8 -> {
-                System.out.println("== Search For Nurse ==");
-                searchNurseByName();
-            }
-            case 9 ->
+            case 8 ->
             {
                 return false;
             }
