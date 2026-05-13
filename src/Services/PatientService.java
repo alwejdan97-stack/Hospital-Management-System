@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.*;
+import Utils.InputHandler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,39 +29,24 @@ public class PatientService implements Manageable, Searchable {
     public Patient addPatient(){
         System.out.println(" ** Register New Patient ** ");
 
-        System.out.println("Enter First Name: ");
-        patient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name");
-        patient.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        patient.setPatientId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        patient.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Gender: ");
-        patient.setGender(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        patient.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        patient.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        patient.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Emergency Contact Number:");
-        patient.setEmergencyContact(scanner.nextLine());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
+        String id= InputHandler.getStringInput("Enter ID: ");
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        String address= InputHandler.getStringInput("Enter Address: ");
+        String email= InputHandler.getStringInput("Enter Email: ");
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
 
         System.out.println("Patient Added Successfully");
         return patient;
     }
     public Patient addPatient(String firstName, String lastName, String phone){
         System.out.println("== Add patient with minimal information ==");
-        System.out.println("Enter First Name: ");
-        firstName=scanner.nextLine();
-        patient.setFirstName(firstName);
-        System.out.println("Enter Second Name");
-        lastName=scanner.nextLine();
-        patient.setLastName(lastName);
-        System.out.println("Enter Phone Number:");
-        phone=scanner.nextLine();
-        patient.setPhoneNumber(phone);
+        firstName= InputHandler.getStringInput("Enter First Name: ");
+        lastName= InputHandler.getStringInput("Enter Last Name");
+        phone= InputHandler.getStringInput("Enter Phone Number:");
 
         System.out.println("Patient Added Successfully");
         return patient;
