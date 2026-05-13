@@ -14,10 +14,6 @@ public class Doctor extends Person implements Displayable {
     private Double consultationFee;
     private List<String> availableSlots;
     private List<String> assignedPatients;
-    private double fee;
-    private String reason;
-    private String slot;
-    private List<String> slots;
 
     public static Scanner scanner=new Scanner(System.in);
 
@@ -30,11 +26,7 @@ public class Doctor extends Person implements Displayable {
         this.experienceYears = experienceYears;
         this.consultationFee = consultationFee;
         this.availableSlots = availableSlots;
-        this.fee = fee;
         this.assignedPatients = assignedPatients;
-        this.reason = reason;
-        this.slot = slot;
-        this.slots = slots;
     }
 
     public void setDoctorId(String doctorId){
@@ -105,6 +97,7 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void assignPatient(String patient) {
+
         assignedPatients.add(patient);
     }
 
@@ -117,19 +110,19 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void updateFee(double fee){
-        this.fee=fee;
+        this.consultationFee=fee;
     }
 
     public void updateFee(double fee, String reason){
-        this.fee=fee;
-        this.reason=reason;
+        this.consultationFee=fee;
+        System.out.println("Updated Reason "+reason);
     }
 
     public void addAvailability(String slot){
-        this.reason=reason;
+        availableSlots.add(slot);
     }
 
     public void addAvailability(List<String> slots){
-        this.slots=slots;
+        availableSlots.addAll(slots);
     }
 }
