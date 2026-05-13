@@ -22,16 +22,27 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(" ** Adding new Doctor ** ");
 
         String first= InputHandler.getStringInput("Enter First Name: ");
+        doctor.setFirstName(first);
         String last= InputHandler.getStringInput("Enter Last Name");
+        doctor.setLastName(last);
         String id= InputHandler.getStringInput("Enter ID: ");
+        doctor.setDoctorId(id);
         String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        doctor.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
+        doctor.setGender(gender);
         String address= InputHandler.getStringInput("Enter Address: ");
+        doctor.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
+        doctor.setEmail(email);
         String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        doctor.setPhoneNumber(phoneNumber);
         int experienceYear= InputHandler.getIntInput("Enter Experience Year:");
+        doctor.setExperienceYears(experienceYear);
         String qualification= InputHandler.getStringInput("Enter Qualification: ");
+        doctor.setQualification(qualification);
         String specialization= InputHandler.getStringInput("Enter Specialization: ");
+        doctor.setSpecialization(specialization);
 
         System.out.println("Doctor Add Successfully");
         return doctor;
