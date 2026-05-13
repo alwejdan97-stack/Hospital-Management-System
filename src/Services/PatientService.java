@@ -105,18 +105,31 @@ public class PatientService implements Manageable, Searchable {
         System.out.println(" ** Register In Patient ** ");
 
         String first= InputHandler.getStringInput("Enter First Name: ");
+        inPatient.setFirstName(first);
         String last= InputHandler.getStringInput("Enter Last Name");
+        inPatient.setLastName(last);
         String id= InputHandler.getStringInput("Enter ID: ");
+        inPatient.setPatientId(id);
         String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        inPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
+        inPatient.setGender(gender);
         String address= InputHandler.getStringInput("Enter Address: ");
+        inPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
+        inPatient.setEmail(email);
         String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        inPatient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        inPatient.setEmergencyContact(emergencyContactNumber);
         LocalDate admissionDate=InputHandler.getDateInput("Enter Admission Date");
-        int roomNumber=InputHandler.getIntInput("Enter Room Number");
-        int bedNumber=InputHandler.getIntInput("Enter BedNumber");
+        inPatient.setAdmissionDate(admissionDate);
+        String roomNumber=InputHandler.getStringInput("Enter Room Number");
+        inPatient.setRoomNumber(roomNumber);
+        String bedNumber=InputHandler.getStringInput("Enter BedNumber");
+        inPatient.setBedNumber(bedNumber);
         double dailyCharge=InputHandler.getDoubleInput("Enter Daily Charges: ");
+        inPatient.setDailyCharges(dailyCharge);
 
         System.out.println("In Patient Added Successfully");
         return inPatient;
