@@ -13,6 +13,7 @@ public class DoctorService implements Manageable, Searchable {
     public static List<Doctor> doctorList=new ArrayList<>();
     public Scanner scanner=new Scanner(System.in);
     public Doctor doctor =new Doctor();
+    public Patient patient=new Patient();
     public List<Doctor> avilableSlots=new ArrayList<>();
     public List<Patient> patientList=new ArrayList<>();
     public Surgeon surgeon=new Surgeon();
@@ -437,39 +438,57 @@ public void getAvailableDoctors(){
 public Boolean handelDoctorService(Integer doctorOption){
     switch (doctorOption){
         case 1 -> {
-            System.out.println("== Add New Doctor ==");
+            System.out.println("== Add Doctor ==");
             addDoctors();
         }
+
         case 2 -> {
-            System.out.println("== Update Doctor ==");
-            editDoctor();
+            System.out.println("== Add Surgeon ==");
+            addDoctors();
         }
 
         case 3 -> {
-            System.out.println("== Show Doctors ==");
-            displayAllDoctors();
+            System.out.println("== Add Consultant ==");
+            addDoctors();
         }
 
         case 4 -> {
-            System.out.println("== Show SPECIFIC Doctor Using ID ==");
-            getDoctorById();
+            System.out.println("== Add General Practitioner ==");
+            addDoctors();
         }
 
+
         case 5 -> {
-            System.out.println("== Delete Doctor ==");
-            removeDoctor();
+            System.out.println("==  View All Doctors ==");
+            displayAllDoctors();
         }
 
         case 6 -> {
-            System.out.println("== Search For Doctor Using Specialization ==");
+            System.out.println("== Search Doctor by Specialization ==");
             getDoctorsBySpecialization();
         }
 
         case 7 -> {
-            System.out.println("== Display Available Doctor ==");
+            System.out.println("== View Available Doctors ==");
             getAvailableDoctors();
         }
-        case 8 ->
+
+        case 8 -> {
+            System.out.println("==  Assign Patient to Doctor ==");
+            assignPatient(doctor.getDoctorId(),patient.getPatientId());
+        }
+
+        case 9 -> {
+            System.out.println("== Update Doctor Information ==");
+            editDoctor();
+        }
+
+        case 10 -> {
+            System.out.println("== Delete Doctor ==");
+            removeDoctor();
+        }
+
+        case 11 ->
         {
             return false;
         }
