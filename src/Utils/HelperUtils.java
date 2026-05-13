@@ -104,8 +104,16 @@ public abstract class HelperUtils {
         }
         return false;
     }
-    public static boolean isFutureDate(Date date){}
-    public static boolean isPastDate(Date date){}
+    public static boolean isFutureDate(Date date){
+        //Date date2=new Date();
+        if(date.after(new Date())){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isPastDate(Date date){
+
+    }
     public static boolean isToday(Date date){}
 
     //Numeric Validation Methods (Overloaded)
