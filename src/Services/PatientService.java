@@ -2,10 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
-import Entity.InPatient;
-import Entity.OutPatient;
-import Entity.Patient;
-import Entity.Person;
+import Entity.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -107,7 +104,7 @@ public class PatientService implements Manageable, Searchable {
     }
 
     public InPatient addInPatient(){
-        System.out.println(" ** Register InPatient ** ");
+        System.out.println(" ** Register In Patient ** ");
 
         System.out.println("Enter First Name: ");
         inPatient.setFirstName(scanner.nextLine());
@@ -137,12 +134,46 @@ public class PatientService implements Manageable, Searchable {
         System.out.println("Enter Daily Charges: ");
         inPatient.setDailyCharges(scanner.nextDouble());
 
-        System.out.println("InPatient Added Successfully");
+        System.out.println("In Patient Added Successfully");
         return inPatient;
     }
 
     public OutPatient addOutPatient(){
-        System.out.println(" ** Register OutPatient ** ");
+        System.out.println(" ** Register Out Patient ** ");
+
+        System.out.println("Enter First Name: ");
+        outPatient.setFirstName(scanner.nextLine());
+        System.out.println("Enter Last Name");
+        outPatient.setLastName(scanner.nextLine());
+        System.out.println("Enter ID: ");
+        outPatient.setPatientId(scanner.nextLine());
+        System.out.println("Enter Date Of Birth: ");
+        outPatient.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Gender: ");
+        outPatient.setGender(scanner.nextLine());
+        System.out.println("Enter Address: ");
+        outPatient.setAddress(scanner.nextLine());
+        System.out.println("Enter Email: ");
+        outPatient.setGender(scanner.nextLine());
+        System.out.println("Enter Phone Number:");
+        outPatient.setPhoneNumber(scanner.nextLine());
+        System.out.println("Enter Emergency Contact Number:");
+        outPatient.setEmergencyContact(scanner.nextLine());
+        System.out.println("Enter Registration Date:");
+        LocalDate registrationDate = LocalDate.parse(scanner.nextLine(), formatter);
+        outPatient.setRegistrationDate(registrationDate);
+        System.out.println("Enter Last Visit Date:");
+        LocalDate lastVisitDate = LocalDate.parse(scanner.nextLine(), formatter);
+        outPatient.setLastVisitDate(lastVisitDate);
+        System.out.println("Enter Preferrd Doctor ID");
+        outPatient.setPreferredDoctorId(scanner.nextLine());
+
+        System.out.println("Out Patient Added Successfully");
+        return outPatient;
+    }
+
+    public EmergencyPatient addEmergencyPatient(){
+        System.out.println(" ** Register Emergency Patient ** ");
 
         System.out.println("Enter First Name: ");
         outPatient.setFirstName(scanner.nextLine());
