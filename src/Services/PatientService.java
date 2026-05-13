@@ -76,8 +76,7 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             patientList.add(addPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -87,33 +86,19 @@ public class PatientService implements Manageable, Searchable {
     public InPatient addInPatient(){
         System.out.println(" ** Register In Patient ** ");
 
-        System.out.println("Enter First Name: ");
-        inPatient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name");
-        inPatient.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        inPatient.setPatientId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        inPatient.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Gender: ");
-        inPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        inPatient.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        inPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        inPatient.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Emergency Contact Number:");
-        inPatient.setEmergencyContact(scanner.nextLine());
-        System.out.println("Enter Admission Date");
-        LocalDate admissionDate = LocalDate.parse(scanner.nextLine(), formatter);
-        inPatient.setAdmissionDate(admissionDate);
-        System.out.println("Enter Room Number");
-        inPatient.setRoomNumber(scanner.nextLine());
-        System.out.println("Enter Bed Number");
-        inPatient.setBedNumber(scanner.nextLine());
-        System.out.println("Enter Daily Charges: ");
-        inPatient.setDailyCharges(scanner.nextDouble());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
+        String id= InputHandler.getStringInput("Enter ID: ");
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        String address= InputHandler.getStringInput("Enter Address: ");
+        String email= InputHandler.getStringInput("Enter Email: ");
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        LocalDate admissionDate=InputHandler.getDateInput("Enter Admission Date");
+        int roomNumber=InputHandler.getIntInput("Enter Room Number");
+        int bedNumber=InputHandler.getIntInput("Enter BedNumber");
+        double dailyCharge=InputHandler.getDoubleInput("Enter Daily Charges: ");
 
         System.out.println("In Patient Added Successfully");
         return inPatient;
