@@ -36,7 +36,7 @@ public class PatientService implements Manageable, Searchable {
         System.out.println("Enter Emergency Contact Number:");
         patient.setEmergencyContact(scanner.nextLine());
 
-        System.out.println("Patient Add Successfully");
+        System.out.println("Patient Added Successfully");
         return patient;
     }
     public Patient addPatient(String firstName, String lastName, String phone){
