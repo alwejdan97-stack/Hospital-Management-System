@@ -4,6 +4,7 @@ import Behaviour.Billable;
 import Behaviour.Displayable;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class InPatient extends Patient implements Displayable, Billable {
     private LocalDate admissionDate;
@@ -87,21 +88,35 @@ public class InPatient extends Patient implements Displayable, Billable {
         System.out.println(admissionDate+" | "+admittingDoctorId+" | "+roomNumber);
     }
 
-    public void calculateStayDuration(){}
-    public void calculateTotalCharges(){}
+    public int calculateStayDuration(){
+        if(admissionDate==null || dischargeDate==null){
+            return 0;
+        }
+        return Math.toIntExact(ChronoUnit.DAYS.between(admissionDate,dischargeDate));
+    }
+    public int calculateTotalCharges(){
+        return ((int)(calculateStayDuration()*dailyCharges));
+    }
 
     @Override
     public void calculateCharges() {
-
+        System.out.println("Total is: "+calculateTotalCharges());
     }
 
     @Override
     public void generateBill() {
-
+        System.out.println("=*= Patient Bill =*=");
+        System.out.println("Patient ID: "+getPatientId());
+        System.out.println("Patient Name: "+getFirstName()+" "+getLastName());
+        System.out.println("Stay Duration In Days: "+calculateStayDuration());
+        System.out.println("Daily Charge: "+dailyCharges);
+        System.out.println("Total: "+calculateTotalCharges());
     }
 
     @Override
     public void processPayment(double amount) {
-
+        if(amount>calculateTotalCharges()){
+            double balance=amount-calculateTotalCharges();
+        }
     }
 }
