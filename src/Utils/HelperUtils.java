@@ -1,7 +1,9 @@
 package Utils;
 
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.UUID;
 
 public abstract class HelperUtils {
     //Null Check Methods (Overloaded)
@@ -57,10 +59,26 @@ public abstract class HelperUtils {
     }
 
     //ID Generation Methods (Overloaded)
-    public static void generateId(){}
-    public static void generateId(String prefix){}
-    public static void generateId(String prefix, int length){}
-    public static void generateId(String prefix, String suffix){}
+    public static String generateId(){
+        UUID uuid=UUID.randomUUID();
+        String id=uuid.toString();
+        return id;
+    }
+    public static String generateId(String prefix){
+        UUID uuid=UUID.randomUUID();
+        String id=uuid.toString();
+        return prefix+" | "+id;
+    }
+    public static String generateId(String prefix, int length){
+        StringBuilder id=new StringBuilder(prefix+" | ");
+        //SecureRandom random=new SecureRandom();
+        //String id=uuid.toString();
+        for(int i=0; i<length;i++){
+           id.append((int)Math.random()*10);
+        }
+        return id.toString();
+    }
+    public static String generateId(String prefix, String suffix){}
 
     //Date Validation Methods (Overloaded)
     public static boolean isValidDate(Date date){}
