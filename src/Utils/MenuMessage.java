@@ -37,24 +37,24 @@ public class MenuMessage {
             2.10 Remove Doctor
             """;
     public static String NURSE_MENU_MESSAGE = """
-            1- Add New Nurse
-            2- Update Nurse
-            3- Show Nurses
-            4- Show SPECIFIC Nurse Using ID
-            5- Show SPECIFIC Nurse Using Department ID
-            6- SShow SPECIFIC Nurse Using Shift
-            7- Delete Nurse
-            8- Search For Nurse
-            9- Go Back to Main Menu
+            3.1 Add Nurse
+            3.2 View All Nurses
+            3.3 View Nurses by Department
+            3.4 View Nurses by Shift
+            3.5 Assign Nurse to Patient
+            3.6 Update Nurse Information
+            3.7 Remove Nurse
             """;
     public static String DEPARTMENT_MENU_MESSAGE = """
-            1- Add New Department
-            2- Update Department
-            3- Show Departments
-            4- Show Departments Using Department ID
-            5- Delete Department
-            6- Assign Doctors To Departments
-            7- Go Back to Main Menu
+            4.1 Schedule New Appointment
+            4.2 View All Appointments
+            4.3 View Appointments by Patient
+            4.4 View Appointments by Doctor
+            4.5 View Appointments by Date
+            4.6 Reschedule Appointment
+            4.7 Cancel Appointment
+            4.8 Complete Appointment
+            4.9 View Upcoming Appointments
             """;
     public static String APPOINTMENT_MENU_MESSAGE = """
             1- Add New Appointment
