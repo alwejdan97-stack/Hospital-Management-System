@@ -6,13 +6,13 @@ public abstract class HelperUtils {
     boolean isNotNull(Object obj);
     boolean isNotNull(String str);
 
-    public static boolean isValidString(String str);
-    public static boolean isValidString(String str, int minLength);
-    public static boolean isValidString(String str, int minLength, int maxLength);
-    public static boolean isValidString(String str, String regex);
+    public static boolean isValidString(String str){}
+    public static boolean isValidString(String str, int minLength){}
+    public static boolean isValidString(String str, int minLength, int maxLength){}
+    public static boolean isValidString(String str, String regex){}
 
-    void generateId();
-    void generateId(String prefix);
-    void generateId(String prefix, int length);
-    void generateId(String prefix, String suffix);
+    public void generateId(){}
+    public void generateId(String prefix){}
+    public void generateId(String prefix, int length){}
+    public void generateId(String prefix, String suffix){}
 }
