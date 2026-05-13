@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Appointment implements Displayable {
     private String appointmentId;
     private String patientId;
-    private String stringId;
+    private String doctorId;
     private LocalDate appointmentDate;
     private String appointmentTime;
     private String status;
@@ -21,7 +21,7 @@ public class Appointment implements Displayable {
         super();
         this.appointmentId = appointmentId;
         this.patientId = patientId;
-        this.stringId = stringId;
+        this.doctorId = doctorId;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.status = status;
@@ -52,7 +52,7 @@ public class Appointment implements Displayable {
     }
 
     public String getDoctorId() {
-        return stringId;
+        return doctorId;
     }
 
     public void setAppointmentDate(LocalDate appointmentDate) {
@@ -99,7 +99,7 @@ public class Appointment implements Displayable {
     public void displayInfo() {
         System.out.println("Appointment ID: " + appointmentId);
         System.out.println("Patient ID: " + patientId);
-        System.out.println("Doctor ID: " + stringId);
+        System.out.println("Doctor ID: " + doctorId);
         System.out.println("Appointment Date: " + appointmentDate);
         System.out.println("Appointment Time: " + appointmentTime);
         System.out.println("Status: " + status);
@@ -115,6 +115,7 @@ public class Appointment implements Displayable {
     public void reschedule(LocalDate newDate, String newTime) {
         setAppointmentDate(newDate);
         setAppointmentTime(newTime);
+        setStatus("Reschedule");
     }
 
     public void cancel(String status) {
