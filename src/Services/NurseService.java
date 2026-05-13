@@ -49,8 +49,8 @@ public class NurseService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             nurseList.add(addNurse());
-            System.out.println("If want ot add more nurses press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -75,8 +75,8 @@ public class NurseService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot update more Nurses press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -99,8 +99,8 @@ public class NurseService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot delete more Nurses press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
