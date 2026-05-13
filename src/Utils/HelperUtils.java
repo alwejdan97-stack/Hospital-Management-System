@@ -22,4 +22,11 @@ public abstract class HelperUtils {
     public static boolean isFutureDate(Date date){}
     public static boolean isPastDate(Date date){}
     public static boolean isToday(Date date){}
+
+    public static boolean isValidNumber(int num, int min, int max){}
+    public static boolean isValidNumber(double num, double min, double max){}
+    public static boolean isPositive(int num){}
+    public static boolean isPositive(double num){}
+    public static boolean isNegative(int num){}
+    public static boolean isNegative(double num){}
 }
