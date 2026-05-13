@@ -8,7 +8,7 @@ public class EmergencyPatient extends Patient implements Displayable {
     private int triageLevel;
     private  Boolean admittedViaER;
 
-    public EmergencyPatient(String emergencyType, String arrivalMode, int triageLevel, Boolean admittedViaER) {
+    public EmergencyPatient() {
         super();
         this.emergencyType = emergencyType;
         this.arrivalMode = arrivalMode;
