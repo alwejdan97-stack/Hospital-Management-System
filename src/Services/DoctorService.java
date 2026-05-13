@@ -97,9 +97,8 @@ public class DoctorService implements Manageable, Searchable {
             doctorList.add(addDoctor());
             System.out.println("If want ot add more doctors press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=true;
+                continueFlag=false;
             }
-            continueFlag=false;
         }
         return doctorList;
     }

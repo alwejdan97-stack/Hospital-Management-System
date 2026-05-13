@@ -51,9 +51,8 @@ public class NurseService implements Manageable, Searchable {
             nurseList.add(addNurse());
             System.out.println("If want ot add more nurses press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=true;
+                continueFlag=false;
             }
-            continueFlag=false;
         }
         return nurseList;
     }

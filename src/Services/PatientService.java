@@ -21,7 +21,7 @@ public class PatientService implements Manageable, Searchable {
 
         System.out.println("Enter First Name: ");
         patient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Second Name");
+        System.out.println("Enter Last Name");
         patient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
         patient.setPatientId(scanner.nextLine());
@@ -85,7 +85,7 @@ public class PatientService implements Manageable, Searchable {
         return patient;
     }
 
-    public void addPatients(){
+    public List<Patient> addPatients(){
         Boolean continueFlag = true;
         while (continueFlag) {
             patientList.add(addPatient());
@@ -94,6 +94,7 @@ public class PatientService implements Manageable, Searchable {
                 continueFlag=false;
             }
         }
+        return patientList;
     }
     public void editPatient(){
         displayAllPatients();

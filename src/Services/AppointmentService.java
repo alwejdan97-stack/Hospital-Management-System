@@ -93,9 +93,8 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             appointmentList.add(addAppointment());
             System.out.println("If want ot add more appointments press C");
             if (scanner.nextLine().equalsIgnoreCase("C")) {
-                continueFlag = true;
+                continueFlag = false;
             }
-            continueFlag = false;
         }
         return appointmentList;
     }

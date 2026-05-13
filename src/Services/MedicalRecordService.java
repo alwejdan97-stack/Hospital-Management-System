@@ -52,9 +52,8 @@ public class MedicalRecordService implements Manageable, Searchable {
             medicalRecordList.add(addRecord());
             System.out.println("If want ot add more records press C");
             if(scanner.nextLine().equalsIgnoreCase("C")){
-                continueFlag=true;
+                continueFlag=false;
             }
-            continueFlag=false;
         }
         return medicalRecordList;
     }
