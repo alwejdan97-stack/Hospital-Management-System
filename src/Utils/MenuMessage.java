@@ -22,6 +22,7 @@ public class MenuMessage {
             1.7 Update Patient Information
             1.8 Remove Patient
             1.9 View Patient Medical History
+            1.10 Go Back To Hospital Management System Menu
             """;
 
     public static String DOCTOR_MENU_MESSAGE = """
@@ -35,6 +36,7 @@ public class MenuMessage {
             2.8 Assign Patient to Doctor
             2.9 Update Doctor Information
             2.10 Remove Doctor
+            2.11 Go Back To Hospital Management System Menu
             """;
     public static String NURSE_MENU_MESSAGE = """
             3.1 Add Nurse
@@ -44,8 +46,9 @@ public class MenuMessage {
             3.5 Assign Nurse to Patient
             3.6 Update Nurse Information
             3.7 Remove Nurse
+            3.8 Go Back To Hospital Management System Menu
             """;
-    public static String DEPARTMENT_MENU_MESSAGE = """
+    public static String APPOINTMENT_MENU_MESSAGE= """
             4.1 Schedule New Appointment
             4.2 View All Appointments
             4.3 View Appointments by Patient
@@ -55,27 +58,34 @@ public class MenuMessage {
             4.7 Cancel Appointment
             4.8 Complete Appointment
             4.9 View Upcoming Appointments
+            4.10 Go Back To Hospital Management System Menu
             """;
-    public static String APPOINTMENT_MENU_MESSAGE = """
-            1- Add New Appointment
-            2- Update Appointment
-            3- Show Appointments
-            4- Show Appointments Using Patient ID
-            5- Show Appointments Using Doctor ID
-            6- Show Appointments Using Appointment Date
-            7- Delete Appointments
-            8- Reschedule Appointment
-            9-Cancel Appointment
-            10- Go Back to Main Menu
+    public static String MEDICAL_SERVICE_MENU_MESSAGE= """
+            5.1 Create Medical Record
+            5.2 View All Records
+            5.3 View Records by Patient
+            5.4 View Records by Doctor
+            5.5 Update Medical Record
+            5.6 Delete Medical Record
+            5.7 Generate Patient History Report
+            5.8 Go Back To Hospital Management System Menu
             """;
-    public static String MEDICAL_SERVICE_MENU_MESSAGE = """
-            1- Add New Medical Record
-            2- Update Medical Record
-            3- Show Medical Records
-            4- how Medical Records Using Patient ID
-            5- Show Medical Records Using Doctor ID
-            6- Delete Medical Record
-            7- Display Patient History
-            8- Go Back to Main Menu
+    public static String DEPARTMENT_MENU_MESSAGE= """
+            6.1 Add Department
+            6.2 View All Departments
+            6.3 View Department Details
+            6.4 Assign Doctor to Department
+            6.5 Assign Nurse to Department
+            6.6 Update Department Information
+            6.7 View Department Statistics
+            6.8 Go Back To Hospital Management System Menu
+            """;
+    public static String REPORT_AND_STATISTICS_MENU_MESSAGE = """
+            7.1 Daily Appointments Report
+            7.2 Doctor Performance Report
+            7.3 Department Occupancy Report
+            7.4 Patient Statistics
+            7.5 Emergency Cases Report
+            7.6 Go Back To Hospital Management System Menu
             """;
 }
