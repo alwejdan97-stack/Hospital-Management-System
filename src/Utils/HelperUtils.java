@@ -117,7 +117,13 @@ public abstract class HelperUtils {
         }
         return false;
     }
-    public static boolean isToday(Date date){}
+    public static boolean isToday(Date date){
+        //Date today=new Date();
+        if(date.getYear()== (new Date()).getYear() && date.getMonth()==(new Date().getMonth())){
+            return true;
+        }
+        return false;
+    }
 
     //Numeric Validation Methods (Overloaded)
     public static boolean isValidNumber(int num, int min, int max){}
