@@ -220,7 +220,7 @@ public class DoctorService implements Manageable, Searchable {
         generalPractitioner.setConsultationFee(consultantFee);
         Boolean homeVisitAvailable=InputHandler.getConfirmation("Enter Home Visit Available");
         generalPractitioner.setHomeVisitAvailable(homeVisitAvailable);
-        Boolean walkinAvailable=InputHandler.getConfirmation("Enter Walk-in Available")
+        Boolean walkinAvailable=InputHandler.getConfirmation("Enter Walk-in Available");
         generalPractitioner.setWalkinAvailable(walkinAvailable);
 
         System.out.println("Consultant Add Successfully");
