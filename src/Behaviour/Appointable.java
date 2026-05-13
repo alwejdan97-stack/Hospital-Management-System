@@ -7,5 +7,5 @@ import java.time.LocalDate;
 public interface Appointable {
     void scheduleAppointment(Appointment appointment);
     void cancelAppointment(String appointmentId);
-    void rescheduleAppointment(String appointmentId, LocalDate newDate);
+    void rescheduleAppointment(String appointment, LocalDate newDate);
 }
