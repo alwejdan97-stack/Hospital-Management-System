@@ -2,6 +2,7 @@ package Utils;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.UUID;
 
@@ -89,10 +90,13 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isValidDate(String dateStr) {
-        if(dateStr!=null){
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try{
+            LocalDate.parse(dateStr,formatter);
             return true;
+        }catch (Exception e) {
+            return false;
         }
-        return false;
     }
     public static boolean isValidDate(Date date, Date minDate, Date maxDate){}
     public static boolean isFutureDate(Date date){}
