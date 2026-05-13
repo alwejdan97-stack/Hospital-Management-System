@@ -45,7 +45,17 @@ public class InputHandler {
             }
         }
     }
-    public static double getDoubleInput(String prompt){}
+    public static double getDoubleInput(String prompt){
+        while(true){
+            try{
+                System.out.println(prompt);
+                double input=Double.parseDouble(scanner.nextLine());
+                return input;
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Double Input");
+            }
+        }
+    }
     public static Date getDateInput(String prompt){}
     public static Boolean getConfirmation(String prompt){}
 }
