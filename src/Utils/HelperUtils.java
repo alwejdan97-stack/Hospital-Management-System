@@ -1,10 +1,10 @@
 package Utils;
 
 public abstract class HelperUtils {
-    public static boolean isNull(Object obj);
-    boolean isNull(String str);
-    boolean isNotNull(Object obj);
-    boolean isNotNull(String str);
+    public static boolean isNull(Object obj){}
+    public static boolean isNull(String str){}
+    public static boolean isNotNull(Object obj){}
+    public static boolean isNotNull(String str){}
 
     public static boolean isValidString(String str){}
     public static boolean isValidString(String str, int minLength){}
