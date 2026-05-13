@@ -398,35 +398,50 @@ public class PatientService implements Manageable, Searchable {
             }
 
             case 2-> {
-                System.out.println("== Register InPatient ==");
-                addInPatient();
-            }
-            case 3 -> {
-                System.out.println("== Update Patient ==");
-                editPatient();
+                System.out.println("== Register In Patient ==");
+                addInPatients();
             }
 
-            case 4 -> {
-                System.out.println("== Show Patients ==");
-                displayAllPatients();
+            case 3-> {
+                System.out.println("== Register Out Patient ==");
+                addOutPatients();
+            }
+
+            case 4-> {
+                System.out.println("==Register Emergency Patient ==");
+                addEmergencyPatients();
             }
 
             case 5 -> {
+                System.out.println("== View All Patients ==");
+                displayAllPatients();
+            }
+
+            case 6 -> {
                 System.out.println("== Show SPECIFIC Patient Using ID ==");
                 getPatientById();
             }
 
-            case 6 -> {
-                System.out.println("== Delete Patient ==");
+            case 7 -> {
+                System.out.println("== Update Patient Information ==");
+                editPatient();
+            }
+
+            case 8 -> {
+                System.out.println("== Remove Patient ==");
                 removePatient();
             }
 
-            case 7 -> {
+            case 9 -> {
                 System.out.println("== Search For a Patient ==");
                 searchPatientsByName();
             }
 
-            case 8 ->
+            case 9-> {
+                System.out.println("== View Patient Medical History ==");
+            }
+
+            case 10 ->
             {
                 return false;
             }
