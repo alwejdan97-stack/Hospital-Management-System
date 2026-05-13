@@ -117,6 +117,7 @@ public class InPatient extends Patient implements Displayable, Billable {
     public void processPayment(double amount) {
         if(amount>calculateTotalCharges()){
             double balance=amount-calculateTotalCharges();
+            System.out.println("Balance Is: "+balance);
         }
     }
 }
