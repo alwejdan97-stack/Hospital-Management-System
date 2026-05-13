@@ -182,13 +182,61 @@ public class DoctorService implements Manageable, Searchable {
     public List<Consultant> addConsultants(){
         Boolean continueFlag = true;
         while (continueFlag) {
-            surgeonList.add(addSurgeon());
+            consultantList.add(addConsultant());
             System.out.println("Press E to exit OR press ENTER for more ");
             if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
-        return surgeonList;
+        return consultantList;
+    }
+
+    public GeneralPractitioner addGeneralPractitioner(){
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        generalPractitioner.setFirstName(first);
+        String last= InputHandler.getStringInput("Enter Last Name");
+        generalPractitioner.setLastName(last);
+        String id= InputHandler.getStringInput("Enter ID: ");
+        generalPractitioner.setDoctorId(id);
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        generalPractitioner.setDateOfBirth(dateOfBirth);
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        generalPractitioner.setGender(gender);
+        String address= InputHandler.getStringInput("Enter Address: ");
+        generalPractitioner.setAddress(address);
+        String email= InputHandler.getStringInput("Enter Email: ");
+        generalPractitioner.setEmail(email);
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        generalPractitioner.setPhoneNumber(phoneNumber);
+        int experienceYear= InputHandler.getIntInput("Enter Experience Year:");
+        generalPractitioner.setExperienceYears(experienceYear);
+        String qualification= InputHandler.getStringInput("Enter Qualification: ");
+        generalPractitioner.setQualification(qualification);
+        String specialization= InputHandler.getStringInput("Enter Specialization: ");
+        generalPractitioner.setSpecialization(specialization);
+        Boolean vaccinationCertified=InputHandler.getConfirmation("Enter Vaccination Certified ");
+        generalPractitioner.setVaccinationCertified(vaccinationCertified);
+        int consultantFee=InputHandler.getIntInput("Enter Consultant Fee");
+        generalPractitioner.setConsultationFee(consultantFee);
+        Boolean homeVisitAvailable=InputHandler.getConfirmation("Enter Home Visit Available");
+        generalPractitioner.setHomeVisitAvailable(homeVisitAvailable);
+        Boolean walkinAvailable=InputHandler.getConfirmation("Enter Walk-in Available")
+        generalPractitioner.setWalkinAvailable(walkinAvailable);
+
+        System.out.println("Consultant Add Successfully");
+        return generalPractitioner;
+    }
+
+    public List<GeneralPractitioner> addGeneralPractitioners(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            consultantList.add(addConsultant());
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
+                continueFlag=false;
+            }
+        }
+        return generalPractitionerList;
     }
 
     public void assignPatient(String doctorId, String patientId){
