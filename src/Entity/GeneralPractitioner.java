@@ -40,9 +40,9 @@ public class GeneralPractitioner extends Doctor implements Displayable {
     @Override
     public void displayInfo(){
         super.displayInfo();
-        System.out.println("Walkin Available: "+walkinAvailable);
+        System.out.println("Walk-in Available: "+walkinAvailable);
         System.out.println("Home Visit Available: "+homeVisitAvailable);
-        System.out.println("Vacciantion Certified: "+vaccinationCertified);
+        System.out.println("Vaccination Certified: "+vaccinationCertified);
     }
 
     @Override
@@ -51,6 +51,14 @@ public class GeneralPractitioner extends Doctor implements Displayable {
         System.out.println(walkinAvailable+" | "+homeVisitAvailable);
     }
 
-    public void scheduleHomeVisit(){}
-    public void administerVaccine(){}
+    public void scheduleHomeVisit(){
+        if(homeVisitAvailable){
+            System.out.println("Schedule Successful");
+        }
+    }
+    public void administerVaccine(){
+        if(vaccinationCertified){
+            System.out.println("Vaccine Administrate Successful");
+        }
+    }
 }
