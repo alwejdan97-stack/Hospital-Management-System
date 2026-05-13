@@ -11,8 +11,8 @@ public abstract class HelperUtils {
     public static boolean isValidString(String str, int minLength, int maxLength){}
     public static boolean isValidString(String str, String regex){}
 
-    public void generateId(){}
-    public void generateId(String prefix){}
-    public void generateId(String prefix, int length){}
-    public void generateId(String prefix, String suffix){}
+    public static void generateId(){}
+    public static void generateId(String prefix){}
+    public static void generateId(String prefix, int length){}
+    public static void generateId(String prefix, String suffix){}
 }
