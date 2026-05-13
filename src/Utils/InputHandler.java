@@ -1,5 +1,6 @@
 package Utils;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
@@ -56,6 +57,16 @@ public class InputHandler {
             }
         }
     }
-    public static Date getDateInput(String prompt){}
+    public static LocalDate getDateInput(String prompt){
+        while(true){
+            try{
+                System.out.println(prompt+formatter);
+                LocalDate input=LocalDate.parse(scanner.nextLine(),formatter);
+                return input;
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Date Input");
+            }
+        }
+    }
     public static Boolean getConfirmation(String prompt){}
 }
