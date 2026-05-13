@@ -82,7 +82,12 @@ public abstract class HelperUtils {
     }
 
     //Date Validation Methods (Overloaded)
-    public static boolean isValidDate(Date date){}
+    public static boolean isValidDate(Date date){
+        if(date!=null){
+            return true;
+        }
+        return false;
+    }
     public static boolean isValidDate(String dateStr) {}
     public static boolean isValidDate(Date date, Date minDate, Date maxDate){}
     public static boolean isFutureDate(Date date){}
