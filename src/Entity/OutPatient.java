@@ -9,7 +9,7 @@ public class OutPatient extends Patient implements Displayable {
     private LocalDate lastVisitDate;
     private String preferredDoctorId;
 
-    public OutPatient(int visitCount, LocalDate lastVisitDate, String preferredDoctorId) {
+    public OutPatient() {
         super();
         this.visitCount = visitCount;
         this.lastVisitDate = lastVisitDate;
