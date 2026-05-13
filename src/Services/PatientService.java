@@ -26,6 +26,7 @@ public class PatientService implements Manageable, Searchable {
     public EmergencyPatient emergencyPatient=new EmergencyPatient();
     public MedicalRecordService medicalRecordService=new MedicalRecordService();
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    InputHandler inputHandler=new InputHandler();
 
     public Patient addPatient(){
         System.out.println(" ** Register New Patient ** ");
@@ -94,7 +95,11 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             patientList.add(addPatient());
-            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
+            patientList.add(addInPatient());
+            patientList.add(addOutPatient());
+            patientList.add(addEmergencyPatient());
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -139,7 +144,8 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             inPatientList.add(addInPatient());
-            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -182,8 +188,8 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             outPatientList.add(addOutPatient());
-            System.out.println();
-            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -194,18 +200,31 @@ public class PatientService implements Manageable, Searchable {
         System.out.println(" ** Register Emergency Patient ** ");
 
         String first= InputHandler.getStringInput("Enter First Name: ");
+        emergencyPatient.setFirstName(first);
         String last= InputHandler.getStringInput("Enter Last Name");
+        emergencyPatient.setLastName(last);
         String id= InputHandler.getStringInput("Enter ID: ");
+        emergencyPatient.setPatientId(id);
         String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        emergencyPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
+        emergencyPatient.setGender(gender);
         String address= InputHandler.getStringInput("Enter Address: ");
+        emergencyPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
+        emergencyPatient.setEmail(email);
         String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        emergencyPatient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        emergencyPatient.setEmergencyContact(emergencyContactNumber);
         LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
+        emergencyPatient.setRegistrationDate(registrationDate);
         String emergencyType=InputHandler.getStringInput("Enter Emergency Type:");
+        emergencyPatient.setEmergencyType(emergencyType);
         String arrivalMode=InputHandler.getStringInput("Enter Arrival Mode:");
+        emergencyPatient.setArrivalMode(arrivalMode);
         Boolean administrative=InputHandler.getConfirmation("Enter If Administrative ER:");
+        emergencyPatient.setAdmittedViaER(administrative);
 
         System.out.println("Emergency Patient Added Successfully");
         return emergencyPatient;
@@ -240,7 +259,8 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            if(InputHandler.getStringInput("If want ot update more patient press C").equalsIgnoreCase("C")){
+            System.out.println("If want ot update more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -263,7 +283,8 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            if(InputHandler.getStringInput("If want ot delete more patient press C").equalsIgnoreCase("C")){
+            System.out.println("If want ot delete more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
