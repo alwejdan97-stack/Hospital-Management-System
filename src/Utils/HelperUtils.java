@@ -127,7 +127,12 @@ public abstract class HelperUtils {
     }
 
     //Numeric Validation Methods (Overloaded)
-    public static boolean isValidNumber(int num, int min, int max){}
+    public static boolean isValidNumber(int num, int min, int max){
+        if(num>=min && num<=max){
+            return true;
+        }
+        return false;
+    }
     public static boolean isValidNumber(double num, double min, double max){}
     public static boolean isPositive(int num){}
     public static boolean isPositive(double num){}
