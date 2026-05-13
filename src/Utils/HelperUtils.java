@@ -15,4 +15,11 @@ public abstract class HelperUtils {
     public static void generateId(String prefix){}
     public static void generateId(String prefix, int length){}
     public static void generateId(String prefix, String suffix){}
+
+    public static boolean isValidDate(Date date){}
+    public static boolean isValidDate(String dateStr) {}
+    public static boolean isValidDate(Date date, Date minDate, Date maxDate){}
+    public static boolean isFutureDate(Date date){}
+    public static boolean isPastDate(Date date){}
+    public static boolean isToday(Date date){}
 }
