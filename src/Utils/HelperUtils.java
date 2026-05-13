@@ -49,7 +49,12 @@ public abstract class HelperUtils {
         }
         return false;
     }
-    public static boolean isValidString(String str, String regex){}
+    public static boolean isValidString(String str, String regex){
+        if(str.matches(regex)){
+            return true;
+        }
+        return false;
+    }
 
     //ID Generation Methods (Overloaded)
     public static void generateId(){}
