@@ -1,6 +1,5 @@
 package Entity;
 
-import Behaviour.DepartmentInterface;
 import Behaviour.Displayable;
 
 import java.util.List;
@@ -59,15 +58,15 @@ public class Department implements Displayable {
 
 
     public void assignDoctor(String stringName) {
-        assignDoctor(stringName);
+        doctors.add(stringName);
     }
 
     public void assignNurse(String nursName) {
-        assignNurse(nursName);
+        nurses.add(nursName);
     }
 
     public void updateBedAvailability(int updatedBed) {
-        updateBedAvailability(updatedBed);
+        setAvailableBeds(updatedBed);
     }
 
     @Override
