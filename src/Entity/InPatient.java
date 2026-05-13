@@ -14,6 +14,7 @@ public class InPatient extends Patient implements Displayable, Billable {
     private String admittingDoctorId;
     private Double dailyCharges;
 
+
     public InPatient() {
         super();
         this.admissionDate = admissionDate;
