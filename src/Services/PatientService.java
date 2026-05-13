@@ -429,8 +429,8 @@ public class PatientService implements Manageable, Searchable {
             }
 
             case 6 -> {
-                System.out.println("== Show SPECIFIC Patient Using ID ==");
-                getPatientById();
+                System.out.println("== Search For a Patient ==");
+                searchPatientsByName();
             }
 
             case 7 -> {
@@ -443,14 +443,14 @@ public class PatientService implements Manageable, Searchable {
                 removePatient();
             }
 
-            case 9 -> {
-                System.out.println("== Search For a Patient ==");
-                searchPatientsByName();
-            }
-
-            case 10-> {
+            case 9-> {
                 System.out.println("== View Patient Medical History ==");
                 medicalRecordService.displayPatientHistory();
+            }
+
+            case 10 -> {
+                System.out.println("== Show SPECIFIC Patient Using ID ==");
+                getPatientById();
             }
 
             case 11 ->
