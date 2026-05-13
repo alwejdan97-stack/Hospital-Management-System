@@ -1,6 +1,7 @@
 package Entity;
 
 import Behaviour.Displayable;
+import Utils.HelperUtils;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class Surgeon extends Doctor implements Displayable {
     }
 
     public void performSurgery(){
-        if(operationTheatreAccess !=null && operationTheatreAccess){
+        if(HelperUtils.isNotNull(operationTheatreAccess) && operationTheatreAccess){
             surgeriesPerformed++;
             System.out.println("Performed Successful");
         }
