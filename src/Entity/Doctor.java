@@ -90,6 +90,7 @@ public class Doctor extends Person implements Displayable {
         System.out.println("Assigned Patients: "+assignedPatients);
     }
 
+
     @Override
     public void displaySummary() {
         super.displaySummary();
