@@ -5,14 +5,41 @@ import java.util.Date;
 
 public abstract class HelperUtils {
     //Null Check Methods (Overloaded)
-    public static boolean isNull(Object obj){}
-    public static boolean isNull(String str){}
-    public static boolean isNotNull(Object obj){}
-    public static boolean isNotNull(String str){}
+    public static boolean isNull(Object obj){
+        if(obj==null){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNull(String str){
+        if(str==null){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNotNull(Object obj){
+        if(obj!=null){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNotNull(String str){
+        if(str!=null){
+            return true;
+        }
+        return false;
+    }
 
     //String Validation Methods (Overloaded)
-    public static boolean isValidString(String str){}
-    public static boolean isValidString(String str, int minLength){}
+    public static boolean isValidString(String str){
+        if(str!=null&&str!=" "){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isValidString(String str, int minLength){
+
+    }
     public static boolean isValidString(String str, int minLength, int maxLength){}
     public static boolean isValidString(String str, String regex){}
 
