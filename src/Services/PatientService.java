@@ -326,7 +326,7 @@ public class PatientService implements Manageable, Searchable {
                 System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
         }
     }
-    public static void searchPatientsByName(){
+    public static void searchPatients(){
         System.out.println(" ** Search For Patient ** ");
         displayAllPatients();
         System.out.println("Enter Patient Name");
@@ -381,7 +381,13 @@ public class PatientService implements Manageable, Searchable {
 
     public void displayPatients(String filter){
         System.out.println("== Display all patients ==");
-        for(Patient p: patientList){}
+        System.out.println("Enter Filter To Display Patient");
+        filter=scanner.nextLine();
+        for(Patient p: patientList){
+            if(p.getLastName().equalsIgnoreCase(filter) ||p.getFirstName().equalsIgnoreCase(filter) ||p.getPatientId().equalsIgnoreCase(filter) ||p.getPhoneNumber().equalsIgnoreCase(filter) ||p.getBloodGroup().equalsIgnoreCase(filter) ||p.getInsuranceId().equalsIgnoreCase(filter) ||p.getDateOfBirth().equalsIgnoreCase(filter) ||p.getGender().equalsIgnoreCase(filter) ||p.getEmail().equalsIgnoreCase(filter) ||p.getMedicalRecords().equals(filter)){
+
+            }
+        }
     }
 
     public void displayPatients(int limit){
