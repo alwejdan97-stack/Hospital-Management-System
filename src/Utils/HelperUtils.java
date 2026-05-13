@@ -12,7 +12,7 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isNull(String str){
-        if(str==null){
+        if(str==null&&str.isEmpty()){
             return true;
         }
         return false;
@@ -24,7 +24,7 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isNotNull(String str){
-        if(str!=null){
+        if(str!=null & !str.isEmpty()){
             return true;
         }
         return false;
@@ -32,15 +32,23 @@ public abstract class HelperUtils {
 
     //String Validation Methods (Overloaded)
     public static boolean isValidString(String str){
-        if(str!=null&&str!=" "){
+        if(str!=null && !str.isEmpty()){
             return true;
         }
         return false;
     }
     public static boolean isValidString(String str, int minLength){
-
+        if(str.length()==minLength){
+            return true;
+        }
+        return false;
     }
-    public static boolean isValidString(String str, int minLength, int maxLength){}
+    public static boolean isValidString(String str, int minLength, int maxLength){
+        if(str.length()>=maxLength && str.length()<=maxLength){
+            return true;
+        }
+        return false;
+    }
     public static boolean isValidString(String str, String regex){}
 
     //ID Generation Methods (Overloaded)
