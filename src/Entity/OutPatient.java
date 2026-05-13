@@ -55,6 +55,9 @@ public class OutPatient extends Patient implements Displayable {
 
     }
     public void scheduleFollowUp(){}
-    public void updateVisitCount(){}
+    public void updateVisitCount(){
+        visitCount++;
+        lastVisitDate=LocalDate.now();
+    }
 
 }
