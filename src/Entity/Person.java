@@ -5,7 +5,7 @@ import Behaviour.Displayable;
 import java.util.Objects;
 
 public class Person implements Displayable {
-    String id;
+    private String id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -14,7 +14,7 @@ public class Person implements Displayable {
     private String email;
     private String address;
 
-    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address) {
+    public Person() {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
