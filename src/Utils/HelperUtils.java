@@ -38,7 +38,7 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isValidString(String str, int minLength){
-        if(str.length()==minLength){
+        if(str.length()>=minLength){
             return true;
         }
         return false;
