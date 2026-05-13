@@ -133,11 +133,36 @@ public abstract class HelperUtils {
         }
         return false;
     }
-    public static boolean isValidNumber(double num, double min, double max){}
-    public static boolean isPositive(int num){}
-    public static boolean isPositive(double num){}
-    public static boolean isNegative(int num){}
-    public static boolean isNegative(double num){}
+    public static boolean isValidNumber(double num, double min, double max){
+        if(num>=min && num<=max){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isPositive(int num){
+        if(num>0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isPositive(double num){
+        if(num>0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNegative(int num){
+        if(num<0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNegative(double num){
+        if(num<0){
+            return true;
+        }
+        return false;
+    }
 
     //Input Validation Methods (Overloaded)
     public static boolean isValidAge(int age){
