@@ -2,6 +2,7 @@ package Utils;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.UUID;
@@ -141,6 +142,11 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isValidAge(LocalDate dateOfBirth){
-        if(dateOfBirth){}
+        LocalDate today=LocalDate.now();
+        int age= Period.between(dateOfBirth,today).getYears();
+        if(age>=0){
+            return true;
+        }
+        return false;
     }
 }
