@@ -68,5 +68,17 @@ public class InputHandler {
             }
         }
     }
-    public static Boolean getConfirmation(String prompt){}
+    public static Boolean getConfirmation(String prompt){
+        while(true){
+            try{
+                System.out.println(prompt+" YES / NO ");
+                String input=scanner.nextLine().trim().toLowerCase();
+                if(HelperUtils.isNotNull(input)&&input.equals("yes")||input.equals("y")){
+                    return true;
+                }else if(HelperUtils.isNotNull(input)&&input.equals("no")||input.equals("n")){}
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Answer Input");
+            }
+        }
+    }
 }
