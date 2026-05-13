@@ -40,9 +40,14 @@ public class Surgeon extends Doctor implements Displayable {
         return operationTheatreAccess;
     }
 
-    public void performSurgery(){}
-    public void updateSurgeryCount(String newSurgery){
-        updateSurgeryCount(newSurgery);
+    public void performSurgery(){
+        if(operationTheatreAccess !=null && operationTheatreAccess){
+            surgeriesPerformed++;
+            System.out.println("Performed Successful");
+        }
+    }
+    public void updateSurgeryCount(int newSurgery){
+        setSurgeriesPerformed(newSurgery);
     }
 
     @Override
