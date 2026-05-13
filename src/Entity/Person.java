@@ -14,8 +14,7 @@ public class Person implements Displayable {
     private String email;
     private String address;
 
-    public Person() {
-        //super();
+    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
