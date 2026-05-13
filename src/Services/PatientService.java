@@ -130,7 +130,7 @@ public class PatientService implements Manageable, Searchable {
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
         LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
         LocalDate visitDate=InputHandler.getDateInput("Enter Last Visit Date:");
-        String preferredDoctor=InputHandler.getStringInput("Enter Preferred Doctor ID:")
+        String preferredDoctor=InputHandler.getStringInput("Enter Preferred Doctor ID:");
 
         System.out.println("Out Patient Added Successfully");
         return outPatient;
@@ -151,33 +151,19 @@ public class PatientService implements Manageable, Searchable {
     public EmergencyPatient addEmergencyPatient(){
         System.out.println(" ** Register Emergency Patient ** ");
 
-        System.out.println("Enter First Name: ");
-        emergencyPatient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name");
-        emergencyPatient.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        emergencyPatient.setPatientId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        emergencyPatient.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Gender: ");
-        emergencyPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        emergencyPatient.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        emergencyPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        emergencyPatient.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Emergency Contact Number:");
-        emergencyPatient.setEmergencyContact(scanner.nextLine());
-        System.out.println("Enter Registration Date:");
-        LocalDate registrationDate = LocalDate.parse(scanner.nextLine(), formatter);
-        emergencyPatient.setRegistrationDate(registrationDate);
-        System.out.println("Enter Emergency Type:");
-        emergencyPatient.setEmergencyType(scanner.nextLine());
-        System.out.println("Enter Arrival Mode:");
-        emergencyPatient.setArrivalMode(scanner.nextLine());
-        System.out.println("Enter If Administrative ER:");
-        emergencyPatient.setAdmittedViaER(scanner.hasNextBoolean());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
+        String id= InputHandler.getStringInput("Enter ID: ");
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        String address= InputHandler.getStringInput("Enter Address: ");
+        String email= InputHandler.getStringInput("Enter Email: ");
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
+        String emergencyType=InputHandler.getStringInput("Enter Emergency Type:");
+        String arrivalMode=InputHandler.getStringInput("Enter Arrival Mode:");
+        Boolean administrative=InputHandler.getConfirmation("Enter If Administrative ER:");
 
         System.out.println("Emergency Patient Added Successfully");
         return emergencyPatient;
