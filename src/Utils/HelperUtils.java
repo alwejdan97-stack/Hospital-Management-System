@@ -98,7 +98,12 @@ public abstract class HelperUtils {
             return false;
         }
     }
-    public static boolean isValidDate(Date date, Date minDate, Date maxDate){}
+    public static boolean isValidDate(Date date, Date minDate, Date maxDate){
+        if(date>=minDate && date<=maxDate){
+            return true;
+        }
+        return false;
+    }
     public static boolean isFutureDate(Date date){}
     public static boolean isPastDate(Date date){}
     public static boolean isToday(Date date){}
