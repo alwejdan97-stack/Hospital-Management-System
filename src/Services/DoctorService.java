@@ -55,8 +55,7 @@ public class DoctorService implements Manageable, Searchable {
         doctor.setFirstName(name);
         specialization=InputHandler.getStringInput("Enter Specialization: ");
         doctor.setSpecialization(specialization);
-        System.out.println("Enter Phone Number:");
-        phone=scanner.nextLine();
+        phone=InputHandler.getStringInput("Enter Phone Number:");
         doctor.setPhoneNumber(phone);
 
         System.out.println("Doctor Added Successfully");
@@ -64,20 +63,15 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     public Doctor addDoctor(String name, String specialization, String phone, double consultationFee){
-        System.out.println("Enter First Name: ");
-        String first=scanner.nextLine();
-        System.out.println("Enter Last Name: ");
-        String last=scanner.nextLine();
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
         name=first+last;
         doctor.setFirstName(name);
-        System.out.println("Enter Specialization: ");
-        specialization=scanner.nextLine();
+        specialization=InputHandler.getStringInput("Enter Specialization: ");
         doctor.setSpecialization(specialization);
-        System.out.println("Enter Phone Number:");
-        phone=scanner.nextLine();
+        phone=InputHandler.getStringInput("Enter Phone Number:");
         doctor.setPhoneNumber(phone);
-        System.out.println("Enter Consultation Fee: ");
-        consultationFee=scanner.nextInt();
+        consultationFee=InputHandler.getDoubleInput("Enter Consultation Fee: ");
         doctor.setConsultationFee(consultationFee);
 
         System.out.println("Doctor Added Successfully");
@@ -105,13 +99,11 @@ public class DoctorService implements Manageable, Searchable {
 
     public void assignPatient(String doctorId, String patientId){
         System.out.println(doctorList+" ");
-        System.out.println("Enter Doctor ID");
-        doctorId=scanner.nextLine();
+        doctorId=InputHandler.getStringInput("Enter Doctor ID");
         Boolean found=false;
         for(Doctor d: doctorList) {
             if (d.getDoctorId().equalsIgnoreCase(doctorId)) {
-                System.out.println("Enter Patient ID");
-                patientId=scanner.nextLine();
+                patientId=InputHandler.getStringInput("Enter Patient ID");
                 doctor.assignPatient(patientId);
                 System.out.println("Patient Successfully Assign");
                 found=true;
@@ -132,13 +124,12 @@ public class DoctorService implements Manageable, Searchable {
 
     public void  assignPatient(String doctorId, List<String> patientIds) {
         System.out.println(doctorList+" ");
-        System.out.println("Enter doctor ID");
-        doctorId=scanner.nextLine();
+        doctorId=InputHandler.getStringInput("Enter doctor ID");
         Boolean found=false;
         for(Doctor d: doctorList) {
             if (d.getDoctorId().equalsIgnoreCase(doctorId)) {
-                System.out.println("Enter Patient ID");
-                patientIds.add(scanner.nextLine());
+                String patientId=InputHandler.getStringInput("Enter Patient ID");
+                patientIds.add(patientId);
                 d.setAssignedPatients(patientIds);
                 System.out.println("Patient Successfully Assign");
                 found=true;
@@ -152,13 +143,12 @@ public class DoctorService implements Manageable, Searchable {
 
     public void editDoctor(){
         displayAllDoctors();
-        System.out.println("Enter Doctor ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Doctor ID");
         Boolean found=false;
         for(Doctor d: doctorList){
-            if(d.getDoctorId().equalsIgnoreCase(ID)){
-                System.out.println("Enter New Name");
-                d.setFirstName(scanner.nextLine());
+            if(d.getDoctorId().equalsIgnoreCase(id)){
+                String newName=InputHandler.getStringInput("Enter New Name");
+                d.setFirstName(newName);
                 System.out.println("Doctor Updated Successfully");
                 found=true;
                 break;
@@ -178,12 +168,11 @@ public class DoctorService implements Manageable, Searchable {
 
     public void removeDoctor(){
         displayAllDoctors();
-        System.out.println("Enter Doctor ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Doctor ID");
         Boolean found=false;
         for(Doctor d: doctorList){
-            if(d.getDoctorId().equalsIgnoreCase(ID)){
-                doctorList.remove(ID);
+            if(d.getDoctorId().equalsIgnoreCase(id)){
+                doctorList.remove(id);
                 System.out.println("Doctor Removed Successful");
                 found=true;
                 break;
@@ -203,11 +192,10 @@ public class DoctorService implements Manageable, Searchable {
 
     public void getDoctorById(){
         displayAllDoctors();
-        System.out.println("Enter Doctor ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Doctor ID");
         Boolean found = false;
         for(Doctor d: doctorList){
-            if(d.getDoctorId().equalsIgnoreCase(ID)){
+            if(d.getDoctorId().equalsIgnoreCase(id)){
                 System.out.println("Doctor Name: "+d.getFirstName()+" "+d.getLastName());
                 System.out.println("Doctor ID: "+d.getDoctorId());
                 System.out.println("Doctor Birthday: "+d.getDateOfBirth());
@@ -242,8 +230,7 @@ public class DoctorService implements Manageable, Searchable {
         if(doctorList.isEmpty()){
             System.out.println("NO Doctor In The List");
         }
-        System.out.println("Enter doctor specialization");
-        specialization=scanner.nextLine();
+        specialization=InputHandler.getStringInput("Enter doctor specialization");
         for (Doctor d:doctorList){
             if(d.getSpecialization().equalsIgnoreCase(specialization)){
                 System.out.println(d+" ");
@@ -254,8 +241,7 @@ public class DoctorService implements Manageable, Searchable {
         if(doctorList.isEmpty()){
             System.out.println("NO Doctor InThe List");
         }
-        System.out.println("Enter Department ID");
-        departmentId=scanner.nextLine();
+        departmentId=InputHandler.getStringInput("Enter Department ID");
         for (Doctor d:doctorList){
             if(d.getDepartmentId().equalsIgnoreCase(departmentId)&&d.getAvailableSlots().equals(showAvailableOnly)){
                 System.out.println(d+" ");
@@ -265,8 +251,7 @@ public class DoctorService implements Manageable, Searchable {
 
     public void getDoctorsBySpecialization(){
         displayAllDoctors();
-        System.out.println("Enter Doctor Specialization");
-        java.lang.String specialization=scanner.nextLine();
+        String specialization=InputHandler.getStringInput("Enter doctor specialization");
         Boolean found = false;
         for(Doctor d: doctorList){
             if(d.getSpecialization().equalsIgnoreCase(specialization)){
@@ -287,8 +272,7 @@ public class DoctorService implements Manageable, Searchable {
     }
 public void searchDoctorByName(){
     displayAllDoctors();
-    System.out.println("Enter Doctor Name");
-    java.lang.String name=scanner.nextLine();
+    String name=InputHandler.getStringInput("Enter Doctor Name");
     Boolean found = false;
     for(Doctor p: doctorList){
         if(p.getFirstName().equalsIgnoreCase(name)){
