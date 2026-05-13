@@ -54,21 +54,11 @@ public class PatientService implements Manageable, Searchable {
 
     public Patient addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
         System.out.println("== Add patient with with blood group and email ==");
-        System.out.println("Enter First Name: ");
-        firstName=scanner.nextLine();
-        patient.setFirstName(firstName);
-        System.out.println("Enter Second Name");
-        lastName=scanner.nextLine();
-        patient.setLastName(lastName);
-        System.out.println("Enter Phone Number:");
-        phone=scanner.nextLine();
-        patient.setPhoneNumber(phone);
-        System.out.println("Enter Blood Group:");
-        bloodGroup=scanner.nextLine();
-        patient.setBloodGroup(bloodGroup);
-        System.out.println("Enter Email: ");
-        email=scanner.nextLine();
-        patient.setEmail(email);
+        firstName= InputHandler.getStringInput("Enter First Name: ");
+        lastName= InputHandler.getStringInput("Enter Last Name");
+        phone= InputHandler.getStringInput("Enter Phone Number:");
+        bloodGroup= InputHandler.getStringInput("Enter Blood Group:");
+        email= InputHandler.getStringInput("Enter Email: ");
 
         System.out.println("Patient Added Successfully");
         return patient;
