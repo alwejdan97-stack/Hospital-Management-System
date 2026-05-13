@@ -126,7 +126,6 @@ public class DoctorService implements Manageable, Searchable {
         surgeon.setSpecialization(specialization);
         int surgeonPreferred=InputHandler.getIntInput("Enter Surgeon ");
         surgeon.setSurgeriesPerformed(surgeonPreferred);
-        String surgeryType=InputHandler.getStringInput("Enter Surgery Type");
         Boolean operationThreatAccess=InputHandler.getConfirmation("Enter Operation");
         surgeon.setOperationTheatreAccess(operationThreatAccess);
 
@@ -135,6 +134,52 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     public List<Surgeon> addSurgeons(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            surgeonList.add(addSurgeon());
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
+                continueFlag=false;
+            }
+        }
+        return surgeonList;
+    }
+
+    public Consultant addConsultant(){
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        consultant.setFirstName(first);
+        String last= InputHandler.getStringInput("Enter Last Name");
+        consultant.setLastName(last);
+        String id= InputHandler.getStringInput("Enter ID: ");
+        consultant.setDoctorId(id);
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        consultant.setDateOfBirth(dateOfBirth);
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        consultant.setGender(gender);
+        String address= InputHandler.getStringInput("Enter Address: ");
+        consultant.setAddress(address);
+        String email= InputHandler.getStringInput("Enter Email: ");
+        consultant.setEmail(email);
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        consultant.setPhoneNumber(phoneNumber);
+        int experienceYear= InputHandler.getIntInput("Enter Experience Year:");
+        consultant.setExperienceYears(experienceYear);
+        String qualification= InputHandler.getStringInput("Enter Qualification: ");
+        consultant.setQualification(qualification);
+        String specialization= InputHandler.getStringInput("Enter Specialization: ");
+        consultant.setSpecialization(specialization);
+        int consultationDuration=InputHandler.getIntInput("Enter Consultation Duration ");
+        consultant.setConsultationDuration(consultationDuration);
+        int consultantFee=InputHandler.getIntInput("Enter Consultant Fee");
+        consultant.setConsultationFee(consultantFee);
+        Boolean onlineConsultationAvailable=InputHandler.getConfirmation("Enter Online Consultation Available");
+        consultant.setOnlineConsultationAvailable(onlineConsultationAvailable);
+
+        System.out.println("Consultant Add Successfully");
+        return consultant;
+    }
+
+    public List<Consultant> addConsultants(){
         Boolean continueFlag = true;
         while (continueFlag) {
             surgeonList.add(addSurgeon());
