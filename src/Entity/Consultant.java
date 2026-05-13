@@ -1,6 +1,7 @@
 package Entity;
 
 import Behaviour.Displayable;
+import Utils.HelperUtils;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class Consultant extends Doctor implements Displayable {
         System.out.println(consultationTypes+" | "+consultationDuration);
     }
     public void scheduleConsultation(){
-        if(onlineConsultationAvailable!=null && onlineConsultationAvailable){
+        if(HelperUtils.isNotNull(onlineConsultationAvailable) && onlineConsultationAvailable){
             System.out.println("Schedule Successful");
         }
     }
