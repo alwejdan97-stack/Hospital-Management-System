@@ -31,14 +31,23 @@ public class PatientService implements Manageable, Searchable {
         System.out.println(" ** Register New Patient ** ");
 
         String first= InputHandler.getStringInput("Enter First Name: ");
+        patient.setFirstName(first);
         String last= InputHandler.getStringInput("Enter Last Name");
+        patient.setLastName(last);
         String id= InputHandler.getStringInput("Enter ID: ");
+        patient.setPatientId(id);
         String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        patient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
+        patient.setGender(gender);
         String address= InputHandler.getStringInput("Enter Address: ");
+        patient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
+        patient.setEmail(email);
         String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        patient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        patient.setEmergencyContact(emergencyContactNumber);
 
         System.out.println("Patient Added Successfully");
         return patient;
