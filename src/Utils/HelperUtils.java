@@ -1,5 +1,8 @@
 package Utils;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public abstract class HelperUtils {
     public static boolean isNull(Object obj){}
     public static boolean isNull(String str){}
@@ -29,4 +32,7 @@ public abstract class HelperUtils {
     public static boolean isPositive(double num){}
     public static boolean isNegative(int num){}
     public static boolean isNegative(double num){}
+
+    public static boolean isValidAge(int age){}
+    public static boolean isValidAge(LocalDate dateOfBirth){}
 }
