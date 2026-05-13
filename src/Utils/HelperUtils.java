@@ -99,7 +99,7 @@ public abstract class HelperUtils {
         }
     }
     public static boolean isValidDate(Date date, Date minDate, Date maxDate){
-        if(date>=minDate && date<=maxDate){
+        if(!date.before(minDate) && !date.after(maxDate)){
             return true;
         }
         return false;
