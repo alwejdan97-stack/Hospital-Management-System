@@ -22,6 +22,7 @@ public class PatientService implements Manageable, Searchable {
     public InPatient inPatient=new InPatient();
     public OutPatient outPatient=new OutPatient();
     public EmergencyPatient emergencyPatient=new EmergencyPatient();
+    public MedicalRecordService medicalRecordService=new MedicalRecordService();
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Patient addPatient(){
@@ -437,11 +438,12 @@ public class PatientService implements Manageable, Searchable {
                 searchPatientsByName();
             }
 
-            case 9-> {
+            case 10-> {
                 System.out.println("== View Patient Medical History ==");
+                medicalRecordService.displayPatientHistory();
             }
 
-            case 10 ->
+            case 11 ->
             {
                 return false;
             }
