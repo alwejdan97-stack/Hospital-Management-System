@@ -134,6 +134,13 @@ public abstract class HelperUtils {
     public static boolean isNegative(double num){}
 
     //Input Validation Methods (Overloaded)
-    public static boolean isValidAge(int age){}
-    public static boolean isValidAge(LocalDate dateOfBirth){}
+    public static boolean isValidAge(int age){
+        if(age>=0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isValidAge(LocalDate dateOfBirth){
+        if(dateOfBirth){}
+    }
 }
