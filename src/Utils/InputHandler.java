@@ -10,19 +10,26 @@ public class InputHandler {
 
     public static String getStringInput(String prompt){
         String input=" ";
-        while(HelperUtils.isNotNull(input)){
+        while(HelperUtils.isNull(input)){
             System.out.println(prompt);
-            input=scanner.nextLine();
+            input=scanner.nextLine().trim();
+            if(input.isEmpty()){
+                System.out.println("Input Can't Be Empty");
+            }
         }
         return input;
     }
     public static int getIntInput(String prompt){
-        String input=" ";
-        while(input.isEmpty()){
-            System.out.println(prompt);
-            input=scanner.nextLine();
+        while(true){
+            try{
+
+                System.out.println(prompt);
+                int input=Integer.parseInt(scanner.nextLine());
+                return input;
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Integer Input");
+            }
         }
-        return input;
     }
     public static int getIntInput(String prompt, int min, int max){}
     public static double getDoubleInput(String prompt){}
