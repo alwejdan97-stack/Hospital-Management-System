@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class MedicalRecord implements Displayable{
     private String recordId;
     private String patientId;
-    private String stringId;
+    private String doctorId;
     private LocalDate visitDate;
     private String diagnosis;
     private String prescription;
@@ -18,7 +18,7 @@ public class MedicalRecord implements Displayable{
         super();
         this.recordId = recordId;
         this.patientId = patientId;
-        this.stringId = stringId;
+        this.doctorId = doctorId;
         this.visitDate = visitDate;
         this.diagnosis = diagnosis;
         this.prescription = prescription;
@@ -35,7 +35,7 @@ public class MedicalRecord implements Displayable{
     }
 
     public void setDoctorId(String stringId) {
-        this.stringId = stringId;
+        this.doctorId = doctorId;
     }
 
     public void setVisitDate(LocalDate visitDate) {
@@ -71,7 +71,7 @@ public class MedicalRecord implements Displayable{
     }
 
     public String getDoctorId() {
-        return stringId;
+        return doctorId;
     }
 
     public LocalDate getVisitDate() {
@@ -93,7 +93,7 @@ public class MedicalRecord implements Displayable{
     @Override
     public void displayInfo(){
         System.out.println("Record ID: "+recordId);
-        System.out.println("Doctor ID: "+ stringId);
+        System.out.println("Doctor ID: "+ doctorId);
         System.out.println("Patient ID: "+patientId);
         System.out.println("Prescription: "+prescription);
         System.out.println("Visit Date: "+visitDate);
