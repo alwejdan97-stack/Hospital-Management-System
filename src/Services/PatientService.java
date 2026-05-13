@@ -326,7 +326,7 @@ public class PatientService implements Manageable, Searchable {
                 System.out.println("Patient Name: " + p.getFirstName() + " " + p.getLastName()+" | Patient ID: "+p.getPatientId());
         }
     }
-    public static void searchPatients(){
+    public static void searchPatientsByName(){
         System.out.println(" ** Search For Patient ** ");
         displayAllPatients();
         System.out.println("Enter Patient Name");
@@ -385,7 +385,11 @@ public class PatientService implements Manageable, Searchable {
         filter=scanner.nextLine();
         for(Patient p: patientList){
             if(p.getLastName().equalsIgnoreCase(filter) ||p.getFirstName().equalsIgnoreCase(filter) ||p.getPatientId().equalsIgnoreCase(filter) ||p.getPhoneNumber().equalsIgnoreCase(filter) ||p.getBloodGroup().equalsIgnoreCase(filter) ||p.getInsuranceId().equalsIgnoreCase(filter) ||p.getDateOfBirth().equalsIgnoreCase(filter) ||p.getGender().equalsIgnoreCase(filter) ||p.getEmail().equalsIgnoreCase(filter) ||p.getMedicalRecords().equals(filter)){
-
+                System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName());
+                System.out.println("Patient ID: "+p.getPatientId());
+                System.out.println("Patient Birthday: "+p.getDateOfBirth());
+                System.out.println("Patient Phone Number: "+p.getPhoneNumber());
+                System.out.println("Patient Address: "+p.getAddress());
             }
         }
     }
