@@ -209,6 +209,7 @@ public class PatientService implements Manageable, Searchable {
     }
 
     public void editPatient(){
+        System.out.println(" ** Update Patient ** ");
         displayAllPatients();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
@@ -234,6 +235,7 @@ public class PatientService implements Manageable, Searchable {
         }
     }
     public void removePatient(){
+        System.out.println(" ** Remove Patient ** ");
         displayAllPatients();
         System.out.println("Enter Patient ID");
         String ID=scanner.nextLine();
@@ -285,7 +287,7 @@ public class PatientService implements Manageable, Searchable {
         }
     }
     public static void searchPatientsByName(){
-        //displayAllPatients();
+        displayAllPatients();
         System.out.println("Enter Patient Name");
         String name=scanner.nextLine();
         Boolean found = false;
@@ -327,7 +329,7 @@ public class PatientService implements Manageable, Searchable {
     }
 
     public void displayPatients(){
-        System.out.println("== Display all patients ==");
+        System.out.println(" ** Display All Patients ** ");
         if(patientList.isEmpty()){
             System.out.println("No Patient In The List");
         }
