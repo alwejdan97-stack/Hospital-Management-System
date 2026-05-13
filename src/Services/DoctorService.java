@@ -2,9 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
-import Entity.Doctor;
-import Entity.MedicalRecord;
-import Entity.Patient;
+import Entity.*;
 import Utils.InputHandler;
 
 //import static DoctorService.doctorList;
@@ -17,6 +15,12 @@ public class DoctorService implements Manageable, Searchable {
     public Doctor doctor =new Doctor();
     public List<Doctor> avilableSlots=new ArrayList<>();
     public List<Patient> patientList=new ArrayList<>();
+    public Surgeon surgeon=new Surgeon();
+    public Consultant consultant=new Consultant();
+    public GeneralPractitioner generalPractitioner=new GeneralPractitioner();
+    public List<Surgeon> surgeonList=new ArrayList<>();
+    public List<Consultant> consultantList=new ArrayList<>();
+    public List<GeneralPractitioner> generalPractitionerList=new ArrayList<>();
 
     public Doctor addDoctor(){
         System.out.println(" ** Adding new Doctor ** ");
@@ -95,6 +99,51 @@ public class DoctorService implements Manageable, Searchable {
             }
         }
         return doctorList;
+    }
+
+    public Surgeon addSurgeon(){
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        surgeon.setFirstName(first);
+        String last= InputHandler.getStringInput("Enter Last Name");
+        surgeon.setLastName(last);
+        String id= InputHandler.getStringInput("Enter ID: ");
+        surgeon.setDoctorId(id);
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        surgeon.setDateOfBirth(dateOfBirth);
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        surgeon.setGender(gender);
+        String address= InputHandler.getStringInput("Enter Address: ");
+        surgeon.setAddress(address);
+        String email= InputHandler.getStringInput("Enter Email: ");
+        surgeon.setEmail(email);
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        surgeon.setPhoneNumber(phoneNumber);
+        int experienceYear= InputHandler.getIntInput("Enter Experience Year:");
+        surgeon.setExperienceYears(experienceYear);
+        String qualification= InputHandler.getStringInput("Enter Qualification: ");
+        surgeon.setQualification(qualification);
+        String specialization= InputHandler.getStringInput("Enter Specialization: ");
+        surgeon.setSpecialization(specialization);
+        int surgeonPreferred=InputHandler.getIntInput("Enter Surgeon ");
+        surgeon.setSurgeriesPerformed(surgeonPreferred);
+        String surgeryType=InputHandler.getStringInput("Enter Surgery Type");
+        Boolean operationThreatAccess=InputHandler.getConfirmation("Enter Operation");
+        surgeon.setOperationTheatreAccess(operationThreatAccess);
+
+        System.out.println("Surgeon Add Successfully");
+        return surgeon;
+    }
+
+    public List<Surgeon> addSurgeons(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            surgeonList.add(addSurgeon());
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
+                continueFlag=false;
+            }
+        }
+        return surgeonList;
     }
 
     public void assignPatient(String doctorId, String patientId){
