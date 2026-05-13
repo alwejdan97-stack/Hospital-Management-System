@@ -53,6 +53,7 @@ public class PatientService implements Manageable, Searchable {
         System.out.println("Patient Added Successfully");
         return patient;
     }
+
     public Patient addPatient(String firstName, String lastName, String phone){
         System.out.println("== Add patient with minimal information ==");
         firstName= InputHandler.getStringInput("Enter First Name: ");
@@ -95,11 +96,11 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             patientList.add(addPatient());
-            patientList.add(addInPatient());
+            /*patientList.add(addInPatient());
             patientList.add(addOutPatient());
-            patientList.add(addEmergencyPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            patientList.add(addEmergencyPatient());*/
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -144,8 +145,8 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             inPatientList.add(addInPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -188,8 +189,8 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             outPatientList.add(addOutPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -230,12 +231,13 @@ public class PatientService implements Manageable, Searchable {
         return emergencyPatient;
     }
 
-    public List<EmergencyPatient> addEmergencyPatients(){
+    public List<EmergencyPatient> addEmergencyPatients() {
         Boolean continueFlag = true;
         while (continueFlag) {
             emergencyPatientList.add(addEmergencyPatient());
-            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
-                continueFlag=false;
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if (scanner.nextLine().equalsIgnoreCase("E")) {
+                continueFlag = false;
             }
         }
         return emergencyPatientList;
@@ -259,8 +261,8 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot update more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -283,8 +285,8 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot delete more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -442,12 +444,12 @@ public class PatientService implements Manageable, Searchable {
                 medicalRecordService.displayPatientHistory();
             }
 
-            case 10 -> {
+            case 11 -> {
                 System.out.println("== Show SPECIFIC Patient Using ID ==");
                 getPatientById();
             }
 
-            case 11 ->
+            case 10 ->
             {
                 return false;
             }
