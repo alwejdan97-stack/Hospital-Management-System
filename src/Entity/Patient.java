@@ -15,9 +15,6 @@ public class Patient extends Person implements Displayable {
     private String insuranceId;
     private List<String > medicalRecords;
     private List<String> appointments;
-    private String phone;
-    private String email;
-    private String address;
 
     public static Scanner scanner=new Scanner(System.in);
 
@@ -98,30 +95,31 @@ public class Patient extends Person implements Displayable {
     @Override
     public void displaySummary() {
         super.displaySummary();
-        System.out.println(patientId+" | "+bloodGroup+" | "+phone);
+        System.out.println(patientId+" | "+bloodGroup);
     }
 
     public void addMedicalRecord(String record) {
-        addMedicalRecord(record);
+        medicalRecords.add(record);
     }
 
     public void addAppointment(String appointment) {
-        addAppointment(appointment);
+        appointments.add(appointment);
     }
 
     public void updateInsurance(String newInsurance) {
-        updateInsurance(newInsurance);
+        this.insuranceId=newInsurance;
     }
 
     public void updateContact(String phone){
-        this.phone=phone;
+        setPhoneNumber(phone);
     }
     public void updateContact(String phone, String email){
-        this.phone=phone;
+        setPhoneNumber(phone);
+        setEmail(email);
     }
     public void updateContact(String phone, String email, String address){
-        this.phone=phone;
-        this.email=email;
-        this.address=address;
+        setPhoneNumber(phone);
+        setEmail(email);
+        setAddress(address);
     }
 }
