@@ -88,7 +88,12 @@ public abstract class HelperUtils {
         }
         return false;
     }
-    public static boolean isValidDate(String dateStr) {}
+    public static boolean isValidDate(String dateStr) {
+        if(dateStr!=null){
+            return true;
+        }
+        return false;
+    }
     public static boolean isValidDate(Date date, Date minDate, Date maxDate){}
     public static boolean isFutureDate(Date date){}
     public static boolean isPastDate(Date date){}
