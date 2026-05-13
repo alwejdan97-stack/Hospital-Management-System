@@ -184,13 +184,12 @@ public class PatientService implements Manageable, Searchable {
     public void editPatient(){
         System.out.println(" ** Update Patient ** ");
         displayAllPatients();
-        System.out.println("Enter Patient ID");
-        String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Patient ID");
         Boolean found=false;
         for(Patient p:patientList){
-            if(p.getPatientId().equals(ID)){
-                System.out.println("Enter New Name");
-                p.setFirstName(scanner.nextLine());
+            if(p.getPatientId().equals(id)){
+                String newName=InputHandler.getStringInput("Enter New Name");
+                p.setFirstName(newName);
                 System.out.println("Patient Updated Successfully");
                 found=true;
                 break;
@@ -201,8 +200,7 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot update more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            if(InputHandler.getStringInput("If want ot update more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
