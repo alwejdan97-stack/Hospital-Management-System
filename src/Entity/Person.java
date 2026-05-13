@@ -1,6 +1,7 @@
 package Entity;
 
 import Behaviour.Displayable;
+import Utils.HelperUtils;
 
 import java.util.Objects;
 
@@ -76,7 +77,7 @@ public class Person implements Displayable {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (HelperUtils.isNotNull(o) || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(dateOfBirth, person.dateOfBirth) && Objects.equals(gender, person.gender) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(email, person.email) && Objects.equals(address, person.address);
     }
