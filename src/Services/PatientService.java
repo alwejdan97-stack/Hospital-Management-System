@@ -14,6 +14,9 @@ import static Entity.Patient.scanner;
 
 public class PatientService implements Manageable, Searchable {
     public static List<Patient> patientList=new ArrayList<>();
+    public static List<InPatient> inPatientList=new ArrayList<>();
+    public static List<OutPatient> outPatientList=new ArrayList<>();
+    public static List<EmergencyPatient> emergencyPatientList=new ArrayList<>();
     public static Scanner scanner=new Scanner(System.in);
     public Patient patient=new Patient();
     public InPatient inPatient=new InPatient();
@@ -139,6 +142,18 @@ public class PatientService implements Manageable, Searchable {
         return inPatient;
     }
 
+    public List<InPatient> addInPatients(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            inPatientList.add(addInPatient());
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+        return inPatientList;
+    }
+
     public OutPatient addOutPatient(){
         System.out.println(" ** Register Out Patient ** ");
 
@@ -171,6 +186,18 @@ public class PatientService implements Manageable, Searchable {
 
         System.out.println("Out Patient Added Successfully");
         return outPatient;
+    }
+
+    public List<OutPatient> addOutPatients(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            outPatientList.add(addOutPatient());
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+        return outPatientList;
     }
 
     public EmergencyPatient addEmergencyPatient(){
@@ -206,6 +233,18 @@ public class PatientService implements Manageable, Searchable {
 
         System.out.println("Emergency Patient Added Successfully");
         return emergencyPatient;
+    }
+
+    public List<EmergencyPatient> addEmergencyPatients(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+            emergencyPatientList.add(addEmergencyPatient());
+            System.out.println("If want ot add more patient press C");
+            if(scanner.nextLine().equalsIgnoreCase("C")){
+                continueFlag=false;
+            }
+        }
+        return emergencyPatientList;
     }
 
     public void editPatient(){
@@ -287,6 +326,7 @@ public class PatientService implements Manageable, Searchable {
         }
     }
     public static void searchPatientsByName(){
+        System.out.println(" ** Search For Patient ** ");
         displayAllPatients();
         System.out.println("Enter Patient Name");
         String name=scanner.nextLine();
@@ -353,8 +393,13 @@ public class PatientService implements Manageable, Searchable {
     public Boolean handelPatientService(Integer patientOption){
         switch (patientOption){
             case 1 -> {
-                System.out.println("== Add New Patient ==");
+                System.out.println("== Register New Patient ==");
                 addPatients();
+            }
+
+            case 2-> {
+                System.out.println("== Register InPatient ==");
+                addInPatient();
             }
             case 2 -> {
                 System.out.println("== Update Patient ==");
