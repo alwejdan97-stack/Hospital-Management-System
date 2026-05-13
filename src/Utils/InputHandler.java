@@ -10,8 +10,8 @@ public class InputHandler {
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public static String getStringInput(String prompt){
-        String input=" ";
-        while(HelperUtils.isNull(input)){
+        String input="";
+        while(HelperUtils.isNull(input) || input.isEmpty()){
             System.out.println(prompt);
             input=scanner.nextLine().trim();
             if(input.isEmpty()){
