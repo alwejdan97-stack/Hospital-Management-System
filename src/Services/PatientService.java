@@ -2,9 +2,12 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
+import Entity.InPatient;
 import Entity.Patient;
 import Entity.Person;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,9 +18,11 @@ public class PatientService implements Manageable, Searchable {
     public static List<Patient> patientList=new ArrayList<>();
     public static Scanner scanner=new Scanner(System.in);
     public Patient patient=new Patient();
+    public InPatient inPatient=new InPatient();
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Patient addPatient(){
-        System.out.println(" ** Adding new Patient ** ");
+        System.out.println(" ** Register New Patient ** ");
 
         System.out.println("Enter First Name: ");
         patient.setFirstName(scanner.nextLine());
@@ -96,6 +101,40 @@ public class PatientService implements Manageable, Searchable {
         }
         return patientList;
     }
+
+    public InPatient addInPatient(){
+        System.out.println(" ** Register InPatient ** ");
+
+        System.out.println("Enter First Name: ");
+        inPatient.setFirstName(scanner.nextLine());
+        System.out.println("Enter Last Name");
+        inPatient.setLastName(scanner.nextLine());
+        System.out.println("Enter ID: ");
+        inPatient.setPatientId(scanner.nextLine());
+        System.out.println("Enter Date Of Birth: ");
+        inPatient.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Address: ");
+        inPatient.setAddress(scanner.nextLine());
+        System.out.println("Enter Email: ");
+        inPatient.setGender(scanner.nextLine());
+        System.out.println("Enter Phone Number:");
+        inPatient.setPhoneNumber(scanner.nextLine());
+        System.out.println("Enter Emergency Contact Number:");
+        inPatient.setEmergencyContact(scanner.nextLine());
+        System.out.println("Enter Admission Date");
+        LocalDate admissionDate = LocalDate.parse(scanner.nextLine(), formatter);
+        inPatient.setAdmissionDate(admissionDate);
+        System.out.println("Enter Room Number");
+        inPatient.setRoomNumber(scanner.nextLine());
+        System.out.println("Enter Bed Number");
+        inPatient.setBedNumber(scanner.nextLine());
+        System.out.println("Enter Daily Charges: ");
+        inPatient.setDailyCharges(scanner.nextDouble());
+
+        System.out.println("InPatient Added Successfully");
+        return inPatient;
+    }
+
     public void editPatient(){
         displayAllPatients();
         System.out.println("Enter Patient ID");
