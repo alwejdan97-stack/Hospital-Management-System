@@ -13,24 +13,28 @@ public class MenuMessage {
             8. Exit
             """;
     public static String PATIENT_MENU_MESSAGE = """
-            1- Add New Patient
-            2- Update Patient
-            3- Show Patients
-            4- Show SPECIFIC Patient Using ID
-            5- Delete Patient
-            6- Search For a Patient
-            7- Go back to Main Menu
+            1.1 Register New Patient
+            1.2 Register InPatient
+            1.3 Register OutPatient
+            1.4 Register Emergency Patient
+            1.5 View All Patients
+            1.6 Search Patient
+            1.7 Update Patient Information
+            1.8 Remove Patient
+            1.9 View Patient Medical History
             """;
 
     public static String DOCTOR_MENU_MESSAGE = """
-            1- Add New Doctor
-            2- Update Doctor
-            3- Show Doctors
-            4- Show SPECIFIC Doctor Using ID
-            5- Delete Doctor
-            6- Search For Doctor Using Specialization
-            7- Display Available Doctor
-            8- Go Back to Main Menu
+            2.1 Add Doctor
+            2.2 Add Surgeon
+            2.3 Add Consultant
+            2.4 Add General Practitioner
+            2.5 View All Doctors
+            2.6 Search Doctor by Specialization
+            2.7 View Available Doctors
+            2.8 Assign Patient to Doctor
+            2.9 Update Doctor Information
+            2.10 Remove Doctor
             """;
     public static String NURSE_MENU_MESSAGE = """
             1- Add New Nurse
