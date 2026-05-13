@@ -112,7 +112,10 @@ public abstract class HelperUtils {
         return false;
     }
     public static boolean isPastDate(Date date){
-
+        if(date.before(new Date())){
+            return true;
+        }
+        return false;
     }
     public static boolean isToday(Date date){}
 
