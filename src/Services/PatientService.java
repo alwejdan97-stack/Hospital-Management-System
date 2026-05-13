@@ -401,32 +401,32 @@ public class PatientService implements Manageable, Searchable {
                 System.out.println("== Register InPatient ==");
                 addInPatient();
             }
-            case 2 -> {
+            case 3 -> {
                 System.out.println("== Update Patient ==");
                 editPatient();
             }
 
-            case 3 -> {
+            case 4 -> {
                 System.out.println("== Show Patients ==");
                 displayAllPatients();
             }
 
-            case 4 -> {
+            case 5 -> {
                 System.out.println("== Show SPECIFIC Patient Using ID ==");
                 getPatientById();
             }
 
-            case 5 -> {
+            case 6 -> {
                 System.out.println("== Delete Patient ==");
                 removePatient();
             }
 
-            case 6 -> {
+            case 7 -> {
                 System.out.println("== Search For a Patient ==");
                 searchPatientsByName();
             }
 
-            case 7 ->
+            case 8 ->
             {
                 return false;
             }
