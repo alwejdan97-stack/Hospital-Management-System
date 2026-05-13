@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.InPatient;
+import Entity.OutPatient;
 import Entity.Patient;
 import Entity.Person;
 
@@ -19,6 +20,7 @@ public class PatientService implements Manageable, Searchable {
     public static Scanner scanner=new Scanner(System.in);
     public Patient patient=new Patient();
     public InPatient inPatient=new InPatient();
+    public OutPatient outPatient=new OutPatient();
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Patient addPatient(){
@@ -32,6 +34,8 @@ public class PatientService implements Manageable, Searchable {
         patient.setPatientId(scanner.nextLine());
         System.out.println("Enter Date Of Birth: ");
         patient.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Gender: ");
+        patient.setGender(scanner.nextLine());
         System.out.println("Enter Address: ");
         patient.setAddress(scanner.nextLine());
         System.out.println("Enter Email: ");
@@ -113,6 +117,8 @@ public class PatientService implements Manageable, Searchable {
         inPatient.setPatientId(scanner.nextLine());
         System.out.println("Enter Date Of Birth: ");
         inPatient.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Gender: ");
+        inPatient.setGender(scanner.nextLine());
         System.out.println("Enter Address: ");
         inPatient.setAddress(scanner.nextLine());
         System.out.println("Enter Email: ");
@@ -133,6 +139,40 @@ public class PatientService implements Manageable, Searchable {
 
         System.out.println("InPatient Added Successfully");
         return inPatient;
+    }
+
+    public OutPatient addOutPatient(){
+        System.out.println(" ** Register OutPatient ** ");
+
+        System.out.println("Enter First Name: ");
+        outPatient.setFirstName(scanner.nextLine());
+        System.out.println("Enter Last Name");
+        outPatient.setLastName(scanner.nextLine());
+        System.out.println("Enter ID: ");
+        outPatient.setPatientId(scanner.nextLine());
+        System.out.println("Enter Date Of Birth: ");
+        outPatient.setDateOfBirth(scanner.nextLine());
+        System.out.println("Enter Gender: ");
+        outPatient.setGender(scanner.nextLine());
+        System.out.println("Enter Address: ");
+        outPatient.setAddress(scanner.nextLine());
+        System.out.println("Enter Email: ");
+        outPatient.setGender(scanner.nextLine());
+        System.out.println("Enter Phone Number:");
+        outPatient.setPhoneNumber(scanner.nextLine());
+        System.out.println("Enter Emergency Contact Number:");
+        outPatient.setEmergencyContact(scanner.nextLine());
+        System.out.println("Enter Registration Date:");
+        LocalDate registrationDate = LocalDate.parse(scanner.nextLine(), formatter);
+        outPatient.setRegistrationDate(registrationDate);
+        System.out.println("Enter Last Visit Date:");
+        LocalDate lastVisitDate = LocalDate.parse(scanner.nextLine(), formatter);
+        outPatient.setLastVisitDate(lastVisitDate);
+        System.out.println("Enter Preferrd Doctor ID");
+        outPatient.setPreferredDoctorId(scanner.nextLine());
+
+        System.out.println("OutPatient Added Successfully");
+        return outPatient;
     }
 
     public void editPatient(){
