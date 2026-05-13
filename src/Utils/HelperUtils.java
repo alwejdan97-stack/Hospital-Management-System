@@ -65,20 +65,21 @@ public abstract class HelperUtils {
         return id;
     }
     public static String generateId(String prefix){
-        UUID uuid=UUID.randomUUID();
-        String id=uuid.toString();
-        return prefix+" | "+id;
+        //UUID uuid=UUID.randomUUID();
+        String id=prefix+" | "+(int)Math.random()*100000;
+        return id;
     }
     public static String generateId(String prefix, int length){
         StringBuilder id=new StringBuilder(prefix+" | ");
-        //SecureRandom random=new SecureRandom();
-        //String id=uuid.toString();
         for(int i=0; i<length;i++){
            id.append((int)Math.random()*10);
         }
         return id.toString();
     }
-    public static String generateId(String prefix, String suffix){}
+    public static String generateId(String prefix, String suffix){
+        String id=prefix+" | "+(int)Math.random()*100000+" | "+suffix;
+        return id;
+    }
 
     //Date Validation Methods (Overloaded)
     public static boolean isValidDate(Date date){}
