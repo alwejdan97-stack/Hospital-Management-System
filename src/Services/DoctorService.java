@@ -38,14 +38,11 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     public Doctor addDoctor(String name, String specialization, String phone){
-        System.out.println("Enter First Name: ");
-        String first=scanner.nextLine();
-        System.out.println("Enter Last Name: ");
-        String last=scanner.nextLine();
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
         name=first+last;
         doctor.setFirstName(name);
-        System.out.println("Enter Specialization: ");
-        specialization=scanner.nextLine();
+        specialization=InputHandler.getStringInput("Enter Specialization: ");
         doctor.setSpecialization(specialization);
         System.out.println("Enter Phone Number:");
         phone=scanner.nextLine();
@@ -87,8 +84,8 @@ public class DoctorService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             doctorList.add(addDoctor());
-            System.out.println("If want ot add more doctors press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -161,8 +158,8 @@ public class DoctorService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot update more Doctors press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -186,8 +183,8 @@ public class DoctorService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot delete more doctors press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
