@@ -108,8 +108,7 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             inPatientList.add(addInPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -140,8 +139,8 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             outPatientList.add(addOutPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println();
+            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -173,8 +172,7 @@ public class PatientService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             emergencyPatientList.add(addEmergencyPatient());
-            System.out.println("If want ot add more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            if(InputHandler.getStringInput("If want ot add more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
@@ -188,8 +186,7 @@ public class PatientService implements Manageable, Searchable {
         Boolean found=false;
         for(Patient p:patientList){
             if(p.getPatientId().equals(id)){
-                String newName=InputHandler.getStringInput("Enter New Name");
-                p.setFirstName(newName);
+                p.setFirstName(InputHandler.getStringInput("Enter New Name"));
                 System.out.println("Patient Updated Successfully");
                 found=true;
                 break;
@@ -208,12 +205,11 @@ public class PatientService implements Manageable, Searchable {
     public void removePatient(){
         System.out.println(" ** Remove Patient ** ");
         displayAllPatients();
-        System.out.println("Enter Patient ID");
-        String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Patient ID");
         Boolean found=false;
         for(Patient p:patientList){
-            if(p.getPatientId().equals(ID)){
-            patientList.remove(ID);
+            if(p.getPatientId().equals(id)){
+            patientList.remove(id);
                 System.out.println("Patient Removed Successful");
                 found=true;
                 break;
@@ -224,8 +220,7 @@ public class PatientService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot delete more patient press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            if(InputHandler.getStringInput("If want ot delete more patient press C").equalsIgnoreCase("C")){
                 continueFlag=false;
             }
         }
