@@ -150,17 +150,29 @@ public class PatientService implements Manageable, Searchable {
         System.out.println(" ** Register Out Patient ** ");
 
         String first= InputHandler.getStringInput("Enter First Name: ");
+        outPatient.setFirstName(first);
         String last= InputHandler.getStringInput("Enter Last Name");
+        outPatient.setLastName(last);
         String id= InputHandler.getStringInput("Enter ID: ");
+        outPatient.setPatientId(id);
         String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        outPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
+        outPatient.setGender(gender);
         String address= InputHandler.getStringInput("Enter Address: ");
+        outPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
+        outPatient.setEmail(email);
         String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        outPatient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        outPatient.setEmergencyContact(emergencyContactNumber);
         LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
+        outPatient.setRegistrationDate(registrationDate);
         LocalDate visitDate=InputHandler.getDateInput("Enter Last Visit Date:");
+        outPatient.setLastVisitDate(visitDate);
         String preferredDoctor=InputHandler.getStringInput("Enter Preferred Doctor ID:");
+        outPatient.setPreferredDoctorId(preferredDoctor);
 
         System.out.println("Out Patient Added Successfully");
         return outPatient;
