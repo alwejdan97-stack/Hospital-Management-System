@@ -18,6 +18,7 @@ public class PatientService implements Manageable, Searchable {
     public Patient patient=new Patient();
     public InPatient inPatient=new InPatient();
     public OutPatient outPatient=new OutPatient();
+    public EmergencyPatient emergencyPatient=new EmergencyPatient();
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Patient addPatient(){
@@ -176,34 +177,35 @@ public class PatientService implements Manageable, Searchable {
         System.out.println(" ** Register Emergency Patient ** ");
 
         System.out.println("Enter First Name: ");
-        outPatient.setFirstName(scanner.nextLine());
+        emergencyPatient.setFirstName(scanner.nextLine());
         System.out.println("Enter Last Name");
-        outPatient.setLastName(scanner.nextLine());
+        emergencyPatient.setLastName(scanner.nextLine());
         System.out.println("Enter ID: ");
-        outPatient.setPatientId(scanner.nextLine());
+        emergencyPatient.setPatientId(scanner.nextLine());
         System.out.println("Enter Date Of Birth: ");
-        outPatient.setDateOfBirth(scanner.nextLine());
+        emergencyPatient.setDateOfBirth(scanner.nextLine());
         System.out.println("Enter Gender: ");
-        outPatient.setGender(scanner.nextLine());
+        emergencyPatient.setGender(scanner.nextLine());
         System.out.println("Enter Address: ");
-        outPatient.setAddress(scanner.nextLine());
+        emergencyPatient.setAddress(scanner.nextLine());
         System.out.println("Enter Email: ");
-        outPatient.setGender(scanner.nextLine());
+        emergencyPatient.setGender(scanner.nextLine());
         System.out.println("Enter Phone Number:");
-        outPatient.setPhoneNumber(scanner.nextLine());
+        emergencyPatient.setPhoneNumber(scanner.nextLine());
         System.out.println("Enter Emergency Contact Number:");
-        outPatient.setEmergencyContact(scanner.nextLine());
+        emergencyPatient.setEmergencyContact(scanner.nextLine());
         System.out.println("Enter Registration Date:");
         LocalDate registrationDate = LocalDate.parse(scanner.nextLine(), formatter);
-        outPatient.setRegistrationDate(registrationDate);
-        System.out.println("Enter Last Visit Date:");
-        LocalDate lastVisitDate = LocalDate.parse(scanner.nextLine(), formatter);
-        outPatient.setLastVisitDate(lastVisitDate);
-        System.out.println("Enter Preferrd Doctor ID");
-        outPatient.setPreferredDoctorId(scanner.nextLine());
+        emergencyPatient.setRegistrationDate(registrationDate);
+        System.out.println("Enter Emergency Type:");
+        emergencyPatient.setEmergencyType(scanner.nextLine());
+        System.out.println("Enter Arrival Mode:");
+        emergencyPatient.setArrivalMode(scanner.nextLine());
+        System.out.println("Enter If Administrative ER:");
+        emergencyPatient.setAdmittedViaER(scanner.hasNextBoolean());
 
-        System.out.println("OutPatient Added Successfully");
-        return outPatient;
+        System.out.println("Emergency Patient Added Successfully");
+        return emergencyPatient;
     }
 
     public void editPatient(){
