@@ -119,32 +119,18 @@ public class PatientService implements Manageable, Searchable {
     public OutPatient addOutPatient(){
         System.out.println(" ** Register Out Patient ** ");
 
-        System.out.println("Enter First Name: ");
-        outPatient.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name");
-        outPatient.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        outPatient.setPatientId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        outPatient.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Gender: ");
-        outPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        outPatient.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        outPatient.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        outPatient.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Emergency Contact Number:");
-        outPatient.setEmergencyContact(scanner.nextLine());
-        System.out.println("Enter Registration Date:");
-        LocalDate registrationDate = LocalDate.parse(scanner.nextLine(), formatter);
-        outPatient.setRegistrationDate(registrationDate);
-        System.out.println("Enter Last Visit Date:");
-        LocalDate lastVisitDate = LocalDate.parse(scanner.nextLine(), formatter);
-        outPatient.setLastVisitDate(lastVisitDate);
-        System.out.println("Enter Preferrd Doctor ID");
-        outPatient.setPreferredDoctorId(scanner.nextLine());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        String last= InputHandler.getStringInput("Enter Last Name");
+        String id= InputHandler.getStringInput("Enter ID: ");
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        String address= InputHandler.getStringInput("Enter Address: ");
+        String email= InputHandler.getStringInput("Enter Email: ");
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
+        LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
+        LocalDate visitDate=InputHandler.getDateInput("Enter Last Visit Date:");
+        String preferredDoctor=InputHandler.getStringInput("Enter Preferred Doctor ID:")
 
         System.out.println("Out Patient Added Successfully");
         return outPatient;
