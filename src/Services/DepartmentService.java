@@ -21,6 +21,7 @@ public class DepartmentService implements Manageable, Searchable {
     public List<Patient> patientList=new ArrayList<>();
     public DoctorService doctorService=new DoctorService();
     public NurseService nurseService=new NurseService();
+    public ReportAndStatisticsService reportAndStatisticsService=new ReportAndStatisticsService();
 
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -177,7 +178,7 @@ public class DepartmentService implements Manageable, Searchable {
 
             case 3 ->{
                 System.out.println("== View Department Details ==");
-
+                getDepartmentById();
             }
 
             case 4 -> {
@@ -197,8 +198,7 @@ public class DepartmentService implements Manageable, Searchable {
 
             case 7 -> {
                 System.out.println("== View Department Statistics ==");
-
-
+                reportAndStatisticsService.departmentOccupancyReport();
             }
 
             case 8 ->
