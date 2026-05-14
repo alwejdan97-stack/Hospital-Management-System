@@ -23,6 +23,15 @@ public class Nurse extends Person implements Displayable {
         this.assignedPatients = assignedPatients;
     }
 
+    public Nurse(String nurseId, String departmentId, String shift, String qualification, List<String> assignedPatients) {
+        super();
+        this.nurseId = nurseId;
+        this.departmentId = departmentId;
+        this.shift = shift;
+        this.qualification = qualification;
+        this.assignedPatients = assignedPatients;
+    }
+
     public void setNurseId(String nurseId){
         this.nurseId=nurseId;
     }
