@@ -107,20 +107,43 @@ public class MainApp {
         List<Appointment> appointmentList=new ArrayList<>();
 
         //patient testing
-        patientList.add(new Patient("P-01","Wejdan Salim","Female","Room-01"));
+        /*patientList.add(new Patient("P-01","Wejdan Salim","Female","Room-01"));
         patientList.add(new InPatient("P-02","Hoor Omar","Female","Room-02"));
         patientList.add(new OutPatient("P-03","Noor Ali","Female","Room-03"));
-        patientList.add(new EmergencyPatient("P-04","Ali Nasser","Male","Room-04"));
+        patientList.add(new EmergencyPatient("P-04","Ali Nasser","Male","Room-04"));*/
+
+        for(int i=1;i<=12;i++){
+            Patient patient=new Patient();
+            patient.setPatientId("D00 "+i);
+            patient.setFirstName("Name "+i);
+
+            if(i%2==0){
+                patient.setGender("Female");
+            }else{
+                patient.setGender("Male");
+            }
+
+            if(i<=3){
+                patient.setCaseType("Regular");
+            }else if(i<=6){
+                patient.setCaseType("InPatient");
+            }else if(i<=8){
+                patient.setCaseType("OutPatient");
+            }else{
+                patient.setCaseType("Emergency");
+            }
+            patientList.add(patient);
+        }
 
         //doctor
-        doctorList.add(new Doctor("D-01","Wejdan Salim","Consultant","Cardiology"));
+        /*doctorList.add(new Doctor("D-01","Wejdan Salim","Consultant","Cardiology"));
         doctorList.add(new Doctor("D-02","Hoor Omar","Surgeon","Neurology"));
         doctorList.add(new Consultant("D-03","Ali Ahmed","Consultant","General"));
         doctorList.add(new Consultant("D-04","Sara Said","Consultant","Emergency"));
         doctorList.add(new GeneralPractitioner("D-05","Fatema Ali","General Practitioner","Cardiology"));
         doctorList.add(new GeneralPractitioner("D-06","Fatema Saif","General Practitioner","General"));
         doctorList.add(new Surgeon("D-07","Tom Tomas","Surgeon","Emergency"));
-        doctorList.add(new Surgeon("D-08","Nasser Ali","Surgeon","Neurlogy"));
+        doctorList.add(new Surgeon("D-08","Nasser Ali","Surgeon","Neurlogy"));*/
 
         for(int i=1;i<=12;i++){
             Doctor doctor=new Doctor();
