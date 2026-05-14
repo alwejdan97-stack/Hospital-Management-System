@@ -1,5 +1,6 @@
 package Utils;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -11,7 +12,7 @@ public class InputHandler {
 
     public static String getStringInput(String prompt){
         String input="";
-        while(HelperUtils.isNull(input) || input.isEmpty()){
+        while(input.isEmpty()){
             System.out.println(prompt);
             input=scanner.nextLine().trim();
             if(input.isEmpty()){
@@ -63,7 +64,7 @@ public class InputHandler {
                 System.out.println(prompt+formatter);
                 LocalDate input=LocalDate.parse(scanner.nextLine(),formatter);
                 return input;
-            }catch(NumberFormatException e){
+            }catch(DateTimeException e){
                 System.out.println("Invalid Date Input");
             }
         }
