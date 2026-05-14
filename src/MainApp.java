@@ -5,6 +5,7 @@ import Services.*;
 import Utils.InputHandler;
 import Utils.MenuMessage;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -121,38 +122,71 @@ public class MainApp {
         doctorList.add(new Surgeon("D-07","Tom Tomas","Surgeon","Emergency"));
         doctorList.add(new Surgeon("D-08","Nasser Ali","Surgeon","Neurlogy"));
 
+        for(int i=1;i<=12;i++){
+            Doctor doctor=new Doctor();
+            doctor.setDoctorId("D00 "+i);
+            doctor.setFirstName("Name "+i);
+            if(i<=3){
+                doctor.setSpecialization("Surgeon");
+            }else if(i<=5){
+                doctor.setSpecialization("Consultant");
+            }else{
+                doctor.setSpecialization("General Practitioner");
+            }
+            doctorList.add(doctor);
+        }
+
         //nurse
-        nurseList.add(new Nurse("N-01","Wejdan Salim"));
+        /*nurseList.add(new Nurse("N-01","Wejdan Salim"));
         nurseList.add(new Nurse("N-02","Hoor Said"));
         nurseList.add(new Nurse("N-03","Omar Salim"));
         nurseList.add(new Nurse("N-04","Sara Ali"));
-        nurseList.add(new Nurse("N-05","Sara Said"));
+        nurseList.add(new Nurse("N-05","Sara Said"));*/
+
+        for(int i=1;i<=12;i++){
+            Nurse nurse=new Nurse();
+            nurse.setNurseId("N00 "+i);
+            nurse.setFirstName("Name "+i);
+            nurseList.add(nurse);
+        }
 
         //department
         departmentList.add(new Department("DEPT-1","Neurology"));
         departmentList.add(new Department("DEPT-2","Cardiology"));
         departmentList.add(new Department("DEPT-3","Emergency"));
 
+        for(int i=1;i<=12;i++){
+            Department department=new Department();
+            department.setDepartmentId("DEPT00 "+i);
+            department.setDepartmentName("Department ");
+            departmentList.add(department);
+        }
+
         //medical record
         medicalRecordList.add(new MedicalRecord("MR-1","P001","Diabetes"));
         medicalRecordList.add(new MedicalRecord("MR-2","P002","Diabetes"));
         medicalRecordList.add(new MedicalRecord("MR-3","P003","Diabetes"));
 
+        for(int i=1;i<=12;i++){
+            MedicalRecord medicalRecord=new MedicalRecord();
+            medicalRecord.setRecordId("M00 "+i);
+            medicalRecord.setPatientId(patientList.get(i%10).getPatientId());
+            medicalRecord.setDiagnosis("Diagnosis "+i);
+            medicalRecordList.add(medicalRecord);
+        }
+
+
         //appointment
-        appointmentList.add(new Appointment("A01","P01","D01"));
-        appointmentList.add(new Appointment("A02","P02","D02"));
-        appointmentList.add(new Appointment("A03","P03","D03"));
-        appointmentList.add(new Appointment("A04","P04","D04"));
-        appointmentList.add(new Appointment("A05","P05","D05"));
-        appointmentList.add(new Appointment("A06","P06","D06"));
-        appointmentList.add(new Appointment("A07","P07","D07"));
-        appointmentList.add(new Appointment("A08","P08","D08"));
-        appointmentList.add(new Appointment("A09","P09","D09"));
-        appointmentList.add(new Appointment("A010","P010","D010"));
-        appointmentList.add(new Appointment("A011","P011","D011"));
-        appointmentList.add(new Appointment("A012","P012","D012"));
-        appointmentList.add(new Appointment("A013","P013","D013"));
-        appointmentList.add(new Appointment("A014","P014","D014"));
-        appointmentList.add(new Appointment("A015","P015","D015"));
+        for(int i=1;i<=15;i++){
+            Appointment appointment=new Appointment();
+            appointment.setAppointmentId("A00 "+i);
+            appointment.setPatientId(patientList.get(i%10).getPatientId());
+            appointment.setDoctorId(doctorList.get(i%8).getDoctorId());
+            appointment.setAppointmentDate(LocalDate.now().plusDays(i));
+            appointment.setStatus("Schedule");
+            appointmentList.add(appointment);
+        }
+
+        System.out.println("Data Added Successfully");
     }
 }
