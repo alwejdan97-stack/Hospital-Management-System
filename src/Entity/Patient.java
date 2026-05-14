@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class Patient extends Person implements Displayable {
     private String patientId;
     private String bloodGroup;
+    private String departmentId;
+    private String caseType;
     private List<String > allergies;
     private String  emergencyContact;
     private LocalDate registrationDate;
@@ -22,10 +24,26 @@ public class Patient extends Person implements Displayable {
         super();
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;
+        this.departmentId = departmentId;
+        this.allergies = allergies;
+        this.caseType = caseType;
+        this.emergencyContact = emergencyContact;
+        this.insuranceId = insuranceId;
+        this.registrationDate = registrationDate;
+        this.medicalRecords = medicalRecords;
+        this.appointments = appointments;
+    }
+
+    public Patient(String patientId, String bloodGroup, String departmentId, String caseType, List<String> allergies, String emergencyContact, String insuranceId, LocalDate registrationDate, List<String> medicalRecords, List<String> appointments) {
+        super();
+        this.patientId = patientId;
+        this.bloodGroup = bloodGroup;
+        this.departmentId = departmentId;
+        this.caseType = caseType;
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
-        this.registrationDate = registrationDate;
         this.insuranceId = insuranceId;
+        this.registrationDate = registrationDate;
         this.medicalRecords = medicalRecords;
         this.appointments = appointments;
     }
@@ -78,12 +96,26 @@ public class Patient extends Person implements Displayable {
     public List<String> getAppointments(){
         return appointments;
     }
+    public void setDepartmentId(String departmentId){
+        this.departmentId=departmentId;
+    }
+    public String getDepartmentId(){
+        return departmentId;
+    }
+    public void setCaseType(String caseType){
+        this.caseType=caseType;
+    }
+    public String getCaseType(){
+        return caseType;
+    }
 
     @Override
     public void displayInfo(){
         super.displayInfo();
         System.out.println("Patient Id: "+patientId);
         System.out.println("Blood Group: "+bloodGroup);
+        System.out.println("Department ID: "+getDepartmentId());
+        System.out.println("Emergency Case Type: "+getCaseType());
         System.out.println("Allergies: "+allergies);
         System.out.println("Appointments: "+appointments);
         System.out.println("Emergency Contact: "+emergencyContact);
