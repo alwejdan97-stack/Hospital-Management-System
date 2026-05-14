@@ -444,19 +444,18 @@ public Boolean handelDoctorService(Integer doctorOption){
 
         case 2 -> {
             System.out.println("== Add Surgeon ==");
-            addDoctors();
+            addSurgeons();
         }
 
         case 3 -> {
             System.out.println("== Add Consultant ==");
-            addDoctors();
+            addConsultants();
         }
 
         case 4 -> {
             System.out.println("== Add General Practitioner ==");
-            addDoctors();
+            addGeneralPractitioners();
         }
-
 
         case 5 -> {
             System.out.println("==  View All Doctors ==");
