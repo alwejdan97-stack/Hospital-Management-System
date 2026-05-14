@@ -1,6 +1,7 @@
 //package ObjectOrientedProgramming.OOPDemo;
 import Menu.Menu;
 import Services.*;
+import Utils.InputHandler;
 import Utils.MenuMessage;
 
 import java.util.Scanner;
@@ -24,14 +25,14 @@ public class MainApp {
         Boolean mainMenuContinue = true;
         while (mainMenuContinue) {
             menu.displayMenu();
-            Integer option = input.nextInt();
+            Integer option = InputHandler.getIntInput("Enter Option Number");
             switch (option) {
                 case 1 -> {
                     Boolean PatientMenuContinue = true;
                     while (PatientMenuContinue) {
                         System.out.println(" *********** Patient Management ***********");
                         System.out.println(menuMessage.PATIENT_MENU_MESSAGE);
-                        Integer patientOption = input.nextInt();
+                        Integer patientOption = InputHandler.getIntInput("Enter Option Number");
                         PatientMenuContinue = patientService.handelPatientService(patientOption);
                     }
                 }
@@ -39,7 +40,7 @@ public class MainApp {
                     while (doctorMenuContinue) {
                         System.out.println("*********** Doctor Management ***********");
                         System.out.println(menuMessage.DOCTOR_MENU_MESSAGE);
-                        Integer doctorOption=input.nextInt();
+                        Integer doctorOption=InputHandler.getIntInput("Enter Option Number");
                         doctorMenuContinue=doctorService.handelDoctorService(doctorOption);
                     }
                 }
@@ -47,8 +48,24 @@ public class MainApp {
                     while (nurseMenuContinue) {
                         System.out.println("*********** Nurse Management ***********");
                         System.out.println(MenuMessage.NURSE_MENU_MESSAGE);
-                        Integer nurseOption=input.nextInt();
+                        Integer nurseOption=InputHandler.getIntInput("Enter Option Number");
                         nurseMenuContinue=nurseService.handelNurseService(nurseOption);
+                    }
+                }
+                case 4 -> {Boolean appointmentMenuContinue = true;
+                    while (appointmentMenuContinue) {
+                        System.out.println("*********** Appointment Management ***********");
+                        System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
+                        Integer appointmentOption=InputHandler.getIntInput("Enter Option Number");
+                        appointmentMenuContinue=appointmentService.handelAppointmentService(appointmentOption);
+                    }
+                }
+                case 5 -> {Boolean medicalRecordMenuContinue = true;
+                    while (medicalRecordMenuContinue) {
+                        System.out.println("*********** Medical Records Management ***********");
+                        System.out.println(MenuMessage.MEDICAL_SERVICE_MENU_MESSAGE);
+                        Integer medicalRecordOption=InputHandler.getIntInput("Enter Option Number");
+                        medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
                     }
                 }
                 case 6 -> {
@@ -56,32 +73,18 @@ public class MainApp {
                     while (departmentMenuContinue) {
                         System.out.println("*********** Department Management ***********");
                         System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
-                        Integer departmentOption = input.nextInt();
+                        Integer departmentOption = InputHandler.getIntInput("Enter Option Number");
                         departmentMenuContinue = departmentService.handelDepartmentService(departmentOption);
                     }
                 }
-
-                case 5 -> {Boolean medicalRecordMenuContinue = true;
-                    while (medicalRecordMenuContinue) {
-                        System.out.println("*********** Medical Records Management ***********");
-                        System.out.println(MenuMessage.MEDICAL_SERVICE_MENU_MESSAGE);
-                        Integer medicalRecordOption=input.nextInt();
-                        medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
-                    }
-                }
-
-
-                case 4 -> {Boolean appointmentMenuContinue = true;
-                    while (appointmentMenuContinue) {
-                        System.out.println("*********** Appointment Management ***********");
-                        System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
-                        Integer appointmentOption=input.nextInt();
-                        appointmentMenuContinue=appointmentService.handelAppointmentService(appointmentOption);
-                    }
-                }
-
                 case 7 ->{
-                    System.out.println("*********** Reports and Statistics ***********");
+                    Boolean reportMenuContinue = true;
+                    while (reportMenuContinue) {
+                        System.out.println("*********** Reports and Statistics ***********");
+                        System.out.println(MenuMessage.REPORT_AND_STATISTICS_MENU_MESSAGE);
+                        Integer reportOption = InputHandler.getIntInput("Enter Option Number");
+                        reportMenuContinue = reportAndStatisticsService.handelReportService(reportOption);
+                    }
                 }
 
                 case 8 -> {
