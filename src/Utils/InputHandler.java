@@ -3,6 +3,7 @@ package Utils;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -63,7 +64,7 @@ public class InputHandler {
                 System.out.println(prompt+formatter);
                 LocalDate input=LocalDate.parse(scanner.nextLine(),formatter);
                 return input;
-            }catch(DateTimeException e){
+            }catch(DateTimeParseException e){
                 System.out.println("Invalid Date Input");
             }
         }
