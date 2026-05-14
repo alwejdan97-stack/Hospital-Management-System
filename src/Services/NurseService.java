@@ -3,7 +3,6 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Nurse;
-import Entity.Patient;
 import Utils.InputHandler;
 
 import java.util.ArrayList;
