@@ -4,8 +4,6 @@ import Behaviour.Appointable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Appointment;
-import Entity.Department;
-import Entity.Doctor;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -13,13 +11,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.*;
 
 public class AppointmentService implements Manageable, Searchable, Appointable {
     public static List<Appointment> appointmentList = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
     public static Appointment appointment = new Appointment();
-    public static Patient patient = new Patient();
+    public static Patient person = new Patient();
 
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
