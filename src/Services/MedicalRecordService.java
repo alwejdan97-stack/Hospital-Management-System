@@ -5,6 +5,7 @@ import Behaviour.Searchable;
 import Entity.MedicalRecord;
 import Entity.Nurse;
 import Entity.Patient;
+import Utils.InputHandler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,9 +32,9 @@ public class MedicalRecordService implements Manageable, Searchable {
         medicalRecord.setPatientId(patientId);
         String diagnosis= InputHandler.getStringInput("Enter Diagnosis: ");
         medicalRecord.setDiagnosis(diagnosis);
-        String prescription= InputHandler.getStringInput("Enter Prescription: " ");
-                medicalRecord.setPrescription(prescription);
-        String visitDate= InputHandler.getDateInput("Enter Visit Date: ");
+        String prescription= InputHandler.getStringInput("Enter Prescription:  ");
+        medicalRecord.setPrescription(prescription);
+        LocalDate visitDate= InputHandler.getDateInput("Enter Visit Date: ");
         medicalRecord.setVisitDate(visitDate);
         String testResults= InputHandler.getStringInput("Enter Test Result:");
         medicalRecord.setTestResults(testResults);
@@ -135,7 +136,7 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
 
     public void displayPatientHistory(){
-        //displayAllRecords();
+        displayAllRecords();
         String id= InputHandler.getStringInput("Enter Patient ID");
 
         Boolean found = false;
