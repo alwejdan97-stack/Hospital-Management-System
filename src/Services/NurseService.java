@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Nurse;
 import Entity.Patient;
+import Utils.InputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,30 +18,30 @@ public class NurseService implements Manageable, Searchable {
     public Nurse addNurse(){
         System.out.println(" ** Adding new Nurse ** ");
 
-        System.out.println("Enter First Name: ");
-        nurse.setFirstName(scanner.nextLine());
-        System.out.println("Enter Last Name: ");
-        nurse.setLastName(scanner.nextLine());
-        System.out.println("Enter ID: ");
-        nurse.setNurseId(scanner.nextLine());
-        System.out.println("Enter Date Of Birth: ");
-        nurse.setDateOfBirth(scanner.nextLine());
-        System.out.println("Enter Address: ");
-        nurse.setAddress(scanner.nextLine());
-        System.out.println("Enter Email: ");
-        nurse.setGender(scanner.nextLine());
-        System.out.println("Enter Phone Number:");
-        nurse.setPhoneNumber(scanner.nextLine());
-        System.out.println("Enter Qualification:");
-        nurse.setQualification(scanner.nextLine());
-        System.out.println("Enter Gender: ");
-        nurse.setGender(scanner.nextLine());
-        System.out.println("Enter Shift: ");
-        nurse.setShift(scanner.nextLine());
-        System.out.println("Assign Patient:");
-        nurse.assignedPatient(scanner.nextLine());
-        System.out.println("Enter Department ID: ");
-        nurse.setDepartmentId(scanner.nextLine());
+        String first= InputHandler.getStringInput("Enter First Name: ");
+        nurse.setFirstName(first);
+        String last= InputHandler.getStringInput("Enter Last Name");
+        nurse.setLastName(last);
+        String id= InputHandler.getStringInput("Enter ID: ");
+        nurse.setNurseId(id);
+        String dateOfBirth= InputHandler.getStringInput("Enter Date Of Birth: ");
+        nurse.setDateOfBirth(dateOfBirth);
+        String gender= InputHandler.getStringInput("Enter Gender: ");
+        nurse.setGender(gender);
+        String address= InputHandler.getStringInput("Enter Address: ");
+        nurse.setAddress(address);
+        String email= InputHandler.getStringInput("Enter Email: ");
+        nurse.setEmail(email);
+        String phoneNumber= InputHandler.getStringInput("Enter Phone Number:");
+        nurse.setPhoneNumber(phoneNumber);
+        String qualification= InputHandler.getStringInput("Enter Qualification:");
+        nurse.setQualification(qualification);
+        String shift= InputHandler.getStringInput("Enter Shift: ");
+        nurse.setShift(shift);
+        String assignPatient= InputHandler.getStringInput("Assign Patient:");
+        nurse.assignedPatient(assignPatient);
+        String departmentId= InputHandler.getStringInput("Enter Department ID: ");
+        nurse.setDepartmentId(departmentId);
 
         System.out.println("Nurse Add Successfully");
         return nurse;
@@ -58,13 +59,12 @@ public class NurseService implements Manageable, Searchable {
     }
     public void editNurse(){
         displayAllNurses();
-        System.out.println("Enter Nurse ID");
-        String ID=scanner.nextLine();
+        String id= InputHandler.getStringInput("Enter Nurse ID");
         Boolean found=false;
         for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(ID)){
-                System.out.println("Enter New Name");
-                n.setFirstName(scanner.nextLine());
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                String newName=InputHandler.getStringInput("Enter New Name:");
+                n.setFirstName(newName);
                 System.out.println("Nurse Updated Successfully");
                 found=true;
                 break;
@@ -83,12 +83,11 @@ public class NurseService implements Manageable, Searchable {
     }
     public void removeNurse(){
         displayAllNurses();
-        System.out.println("Enter Nurse ID");
-        String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Nurse ID");
         Boolean found=false;
         for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(ID)){
-                nurseList.remove(ID);
+            if(n.getNurseId().equalsIgnoreCase(id)){
+                nurseList.remove(id);
                 System.out.println("Nurse Removed Successful");
                 found=true;
                 break;
@@ -107,11 +106,10 @@ public class NurseService implements Manageable, Searchable {
     }
     public void getNurseById(){
         displayAllNurses();
-        System.out.println("Enter Nurse ID");
-        String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Nurse ID");
         Boolean found = false;
         for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(ID)){
+            if(n.getNurseId().equalsIgnoreCase(id)){
                 System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName());
                 System.out.println("Nurse ID: "+n.getNurseId());
                 System.out.println("Nurse Birthday: "+n.getDateOfBirth());
@@ -130,11 +128,10 @@ public class NurseService implements Manageable, Searchable {
 
     public void getNursesByDepartment(){
         displayAllNurses();
-        System.out.println("Enter Nurse Department");
-        String department=scanner.nextLine();
+        String departmentName=InputHandler.getStringInput("Enter Nurse Department");
         Boolean found = false;
         for(Nurse n:nurseList){
-            if(n.getNurseId().equalsIgnoreCase(department)){
+            if(n.getNurseId().equalsIgnoreCase(departmentName)){
                 System.out.println("Nurse Name: "+n.getFirstName()+" "+n.getLastName());
                 System.out.println("Nurse ID: "+n.getNurseId());
                 System.out.println("Nurse Birthday: "+n.getDateOfBirth());
@@ -153,8 +150,7 @@ public class NurseService implements Manageable, Searchable {
 
     public void getNursesByShift(){
         displayAllNurses();
-        System.out.println("Enter Nurse Shift");
-        String shift=scanner.nextLine();
+        String shift= InputHandler.getStringInput("Enter Shift: ");
         Boolean found = false;
         for(Nurse n:nurseList){
             if(n.getShift().equalsIgnoreCase(shift)){
@@ -185,8 +181,7 @@ public class NurseService implements Manageable, Searchable {
 
     public Nurse searchNurseByName(){
         displayAllNurses();
-        System.out.println("Enter Nurse Name");
-        String name=scanner.nextLine();
+        String name= InputHandler.getStringInput("Enter Shift: ");
         Boolean found = false;
         for(Nurse n: nurseList){
             if(n.getFirstName().equalsIgnoreCase(name)){
