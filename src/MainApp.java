@@ -18,6 +18,7 @@ public class MainApp {
         DepartmentService departmentService=new DepartmentService();
         AppointmentService appointmentService=new AppointmentService();
         MedicalRecordService medicalRecordService=new MedicalRecordService();
+        ReportAndStatisticsService reportAndStatisticsService=new ReportAndStatisticsService();
         MenuMessage menuMessage=new MenuMessage();
 
         Boolean mainMenuContinue = true;
@@ -28,7 +29,7 @@ public class MainApp {
                 case 1 -> {
                     Boolean PatientMenuContinue = true;
                     while (PatientMenuContinue) {
-                        System.out.println(" *********** Patient Menu ***********");
+                        System.out.println(" *********** Patient Management ***********");
                         System.out.println(menuMessage.PATIENT_MENU_MESSAGE);
                         Integer patientOption = input.nextInt();
                         PatientMenuContinue = patientService.handelPatientService(patientOption);
@@ -36,7 +37,7 @@ public class MainApp {
                 }
                 case 2 -> {Boolean doctorMenuContinue = true;
                     while (doctorMenuContinue) {
-                        System.out.println("*********** Doctor Menu ***********");
+                        System.out.println("*********** Doctor Management ***********");
                         System.out.println(menuMessage.DOCTOR_MENU_MESSAGE);
                         Integer doctorOption=input.nextInt();
                         doctorMenuContinue=doctorService.handelDoctorService(doctorOption);
@@ -44,16 +45,16 @@ public class MainApp {
                 }
                 case 3 ->{Boolean nurseMenuContinue = true;
                     while (nurseMenuContinue) {
-                        System.out.println("*********** Nurse Menu ***********");
+                        System.out.println("*********** Nurse Management ***********");
                         System.out.println(MenuMessage.NURSE_MENU_MESSAGE);
                         Integer nurseOption=input.nextInt();
                         nurseMenuContinue=nurseService.handelNurseService(nurseOption);
                     }
                 }
-                case 4 -> {
+                case 6 -> {
                     Boolean departmentMenuContinue = true;
                     while (departmentMenuContinue) {
-                        System.out.println("*********** Department Menu ***********");
+                        System.out.println("*********** Department Management ***********");
                         System.out.println(MenuMessage.DEPARTMENT_MENU_MESSAGE);
                         Integer departmentOption = input.nextInt();
                         departmentMenuContinue = departmentService.handelDepartmentService(departmentOption);
@@ -62,7 +63,7 @@ public class MainApp {
 
                 case 5 -> {Boolean medicalRecordMenuContinue = true;
                     while (medicalRecordMenuContinue) {
-                        System.out.println("*********** Medical Record Menu ***********");
+                        System.out.println("*********** Medical Records Management ***********");
                         System.out.println(MenuMessage.MEDICAL_SERVICE_MENU_MESSAGE);
                         Integer medicalRecordOption=input.nextInt();
                         medicalRecordMenuContinue=medicalRecordService.handelMedicalRecordService(medicalRecordOption);
@@ -70,13 +71,17 @@ public class MainApp {
                 }
 
 
-                case 6 -> {Boolean appointmentMenuContinue = true;
+                case 4 -> {Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
-                        System.out.println("*********** Appointment Menu ***********");
+                        System.out.println("*********** Appointment Management ***********");
                         System.out.println(MenuMessage.APPOINTMENT_MENU_MESSAGE);
                         Integer appointmentOption=input.nextInt();
                         appointmentMenuContinue=appointmentService.handelAppointmentService(appointmentOption);
                     }
+                }
+
+                case 7 ->{
+                    System.out.println("*********** Reports and Statistics ***********");
                 }
 
                 case 8 -> {
