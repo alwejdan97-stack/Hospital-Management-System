@@ -22,11 +22,23 @@ public class Doctor extends Person implements Displayable {
         this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
-        this.departmentId = departmentId;
         this.experienceYears = experienceYears;
+        this.departmentId = departmentId;
         this.consultationFee = consultationFee;
         this.availableSlots = availableSlots;
         this.assignedPatients = assignedPatients;
+    }
+
+    public Doctor(String doctorId, String specialization, String qualification, Integer experienceYears, String departmentId, Double consultationFee, List<String> assignedPatients, List<String> availableSlots) {
+        super();
+        this.doctorId = doctorId;
+        this.specialization = specialization;
+        this.qualification = qualification;
+        this.experienceYears = experienceYears;
+        this.departmentId = departmentId;
+        this.consultationFee = consultationFee;
+        this.assignedPatients = assignedPatients;
+        this.availableSlots = availableSlots;
     }
 
     public void setDoctorId(String doctorId){
