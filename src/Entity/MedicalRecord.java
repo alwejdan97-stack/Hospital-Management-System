@@ -15,14 +15,24 @@ public class MedicalRecord implements Displayable{
     private String notes;
 
     public MedicalRecord() {
-        super();
-        this.recordId = recordId;
         this.patientId = patientId;
         this.doctorId = doctorId;
+        this.recordId = recordId;
         this.visitDate = visitDate;
         this.diagnosis = diagnosis;
         this.prescription = prescription;
         this.testResults = testResults;
+        this.notes = notes;
+    }
+
+    public MedicalRecord(String recordId, String patientId, LocalDate visitDate, String diagnosis, String doctorId, String testResults, String prescription, String notes) {
+        this.recordId = recordId;
+        this.patientId = patientId;
+        this.visitDate = visitDate;
+        this.diagnosis = diagnosis;
+        this.doctorId = doctorId;
+        this.testResults = testResults;
+        this.prescription = prescription;
         this.notes = notes;
     }
 
