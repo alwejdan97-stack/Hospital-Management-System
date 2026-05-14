@@ -9,12 +9,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.*;
 
 public class MainApp {
     static Menu menu = new Menu();
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        MainApp mainApp=new MainApp();
+        mainApp.dataAndTesting();
+
         PatientService patientService=new PatientService();
         DoctorService doctorService=new DoctorService();
         NurseService nurseService=new NurseService();
