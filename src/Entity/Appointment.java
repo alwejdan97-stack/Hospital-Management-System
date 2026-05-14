@@ -16,9 +16,7 @@ public class Appointment implements Displayable {
     private String notes;
     private String addedBy;
     private LocalDateTime timestamp;
-
-    public Appointment() {
-        super();
+    public Appointment(){
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.doctorId = doctorId;
@@ -26,8 +24,20 @@ public class Appointment implements Displayable {
         this.appointmentTime = appointmentTime;
         this.status = status;
         this.reason = reason;
-        this.addedBy = addedBy;
         this.notes = notes;
+        this.addedBy = addedBy;
+        this.timestamp = timestamp;
+    }
+    public Appointment(String appointmentId, String patientId, String doctorId, LocalDate appointmentDate, String appointmentTime, String status, String reason, String notes, String addedBy, LocalDateTime timestamp) {
+        this.appointmentId = appointmentId;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
+        this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
+        this.status = status;
+        this.reason = reason;
+        this.notes = notes;
+        this.addedBy = addedBy;
         this.timestamp = timestamp;
     }
 
