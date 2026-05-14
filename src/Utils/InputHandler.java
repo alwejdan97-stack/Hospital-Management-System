@@ -61,7 +61,7 @@ public class InputHandler {
     public static LocalDate getDateInput(String prompt){
         while(true){
             try{
-                System.out.println(prompt+formatter);
+                System.out.println(prompt+" "+formatter);
                 LocalDate input=LocalDate.parse(scanner.nextLine(),formatter);
                 return input;
             }catch(DateTimeParseException e){
@@ -71,15 +71,15 @@ public class InputHandler {
     }
     public static Boolean getConfirmation(String prompt){
         while(true){
-            try{
+
                 System.out.println(prompt+" YES / NO ");
                 String input=scanner.nextLine().trim().toLowerCase();
                 if(HelperUtils.isNotNull(input)&&input.equals("yes")||input.equals("y")){
                     return true;
-                }else if(HelperUtils.isNotNull(input)&&input.equals("no")||input.equals("n")){}
-            }catch(NumberFormatException e){
+                }else if(HelperUtils.isNotNull(input)&&input.equals("no")||input.equals("n")){
+                    return false;
+                }
                 System.out.println("Invalid Answer Input");
-            }
         }
     }
 }
