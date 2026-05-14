@@ -105,22 +105,27 @@ public class ReportAndStatisticsService {
         switch (reportOption){
             case 1 ->{
                 System.out.println("== Daily Appointments Report ==");
+                dailyAppointmentReport();
             }
 
             case 2 ->{
                 System.out.println("== Doctor Performance Report ==");
+                doctorPerformanceReport();
             }
 
             case 3 ->{
                 System.out.println("== Department Occupancy Report ==");
+                departmentOccupancyReport();
             }
 
             case 4 ->{
                 System.out.println("== Patient Statistics ==");
+                patientStatistics();
             }
 
             case 5 ->{
                 System.out.println("== Emergency Cases Report ==");
+                emergencyCaseReport();
             }
 
             case 6 ->{
@@ -131,5 +136,6 @@ public class ReportAndStatisticsService {
                 System.out.println("Invalid Option");
             }
         }
+        return true;
     }
 }
