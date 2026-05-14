@@ -107,11 +107,6 @@ public class MainApp {
         List<Appointment> appointmentList=new ArrayList<>();
 
         //patient testing
-        /*patientList.add(new Patient("P-01","Wejdan Salim","Female","Room-01"));
-        patientList.add(new InPatient("P-02","Hoor Omar","Female","Room-02"));
-        patientList.add(new OutPatient("P-03","Noor Ali","Female","Room-03"));
-        patientList.add(new EmergencyPatient("P-04","Ali Nasser","Male","Room-04"));*/
-
         for(int i=1;i<=12;i++){
             Patient patient=new Patient();
             patient.setPatientId("D00 "+i);
@@ -136,15 +131,6 @@ public class MainApp {
         }
 
         //doctor
-        /*doctorList.add(new Doctor("D-01","Wejdan Salim","Consultant","Cardiology"));
-        doctorList.add(new Doctor("D-02","Hoor Omar","Surgeon","Neurology"));
-        doctorList.add(new Consultant("D-03","Ali Ahmed","Consultant","General"));
-        doctorList.add(new Consultant("D-04","Sara Said","Consultant","Emergency"));
-        doctorList.add(new GeneralPractitioner("D-05","Fatema Ali","General Practitioner","Cardiology"));
-        doctorList.add(new GeneralPractitioner("D-06","Fatema Saif","General Practitioner","General"));
-        doctorList.add(new Surgeon("D-07","Tom Tomas","Surgeon","Emergency"));
-        doctorList.add(new Surgeon("D-08","Nasser Ali","Surgeon","Neurlogy"));*/
-
         for(int i=1;i<=12;i++){
             Doctor doctor=new Doctor();
             doctor.setDoctorId("D00 "+i);
@@ -160,12 +146,6 @@ public class MainApp {
         }
 
         //nurse
-        /*nurseList.add(new Nurse("N-01","Wejdan Salim"));
-        nurseList.add(new Nurse("N-02","Hoor Said"));
-        nurseList.add(new Nurse("N-03","Omar Salim"));
-        nurseList.add(new Nurse("N-04","Sara Ali"));
-        nurseList.add(new Nurse("N-05","Sara Said"));*/
-
         for(int i=1;i<=12;i++){
             Nurse nurse=new Nurse();
             nurse.setNurseId("N00 "+i);
@@ -174,10 +154,6 @@ public class MainApp {
         }
 
         //department
-        departmentList.add(new Department("DEPT-1","Neurology"));
-        departmentList.add(new Department("DEPT-2","Cardiology"));
-        departmentList.add(new Department("DEPT-3","Emergency"));
-
         for(int i=1;i<=12;i++){
             Department department=new Department();
             department.setDepartmentId("DEPT00 "+i);
@@ -186,10 +162,6 @@ public class MainApp {
         }
 
         //medical record
-        medicalRecordList.add(new MedicalRecord("MR-1","P001","Diabetes"));
-        medicalRecordList.add(new MedicalRecord("MR-2","P002","Diabetes"));
-        medicalRecordList.add(new MedicalRecord("MR-3","P003","Diabetes"));
-
         for(int i=1;i<=12;i++){
             MedicalRecord medicalRecord=new MedicalRecord();
             medicalRecord.setRecordId("M00 "+i);
