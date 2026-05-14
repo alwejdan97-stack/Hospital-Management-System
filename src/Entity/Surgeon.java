@@ -10,13 +10,6 @@ public class Surgeon extends Doctor implements Displayable {
     private List<String> surgeryTypes;
     private Boolean operationTheatreAccess;
 
-    /*public Surgeon() {
-        super();
-        this.surgeriesPerformed = surgeriesPerformed;
-        this.surgeryTypes = surgeryTypes;
-        this.operationTheatreAccess = operationTheatreAccess;
-    }*/
-
     public Surgeon() {
         super();
         this.surgeriesPerformed = surgeriesPerformed;
@@ -24,8 +17,14 @@ public class Surgeon extends Doctor implements Displayable {
         this.operationTheatreAccess = operationTheatreAccess;
     }
 
-    public Surgeon(String doctorId, String wejdanSalim, String consultant, String neurlogy, int surgeriesPerformed, List<String> surgeryTypes, Boolean operationTheatreAccess) {
-        super(doctorId, wejdanSalim, consultant, neurlogy);
+    public Surgeon(int surgeriesPerformed, List<String> surgeryTypes, Boolean operationTheatreAccess) {
+        this.surgeriesPerformed = surgeriesPerformed;
+        this.surgeryTypes = surgeryTypes;
+        this.operationTheatreAccess = operationTheatreAccess;
+    }
+
+    public Surgeon(String doctorId, String specialization, String qualification, Integer experienceYears, String departmentId, Double consultationFee, List<String> assignedPatients, List<String> availableSlots, int surgeriesPerformed, List<String> surgeryTypes, Boolean operationTheatreAccess) {
+        super(doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, assignedPatients, availableSlots);
         this.surgeriesPerformed = surgeriesPerformed;
         this.surgeryTypes = surgeryTypes;
         this.operationTheatreAccess = operationTheatreAccess;
