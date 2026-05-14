@@ -10,8 +10,29 @@ public class Consultant extends Doctor implements Displayable {
     private Boolean onlineConsultationAvailable;
     private int consultationDuration;
 
+    /*public Consultant() {
+        super();
+        this.consultationTypes = consultationTypes;
+        this.onlineConsultationAvailable = onlineConsultationAvailable;
+        this.consultationDuration = consultationDuration;
+    }*/
+
+    public Consultant() {
+        super();
+        this.consultationTypes = consultationTypes;
+        this.onlineConsultationAvailable = onlineConsultationAvailable;
+        this.consultationDuration = consultationDuration;
+    }
+
     public Consultant(List<String> consultationTypes, Boolean onlineConsultationAvailable, int consultationDuration) {
         super();
+        this.consultationTypes = consultationTypes;
+        this.onlineConsultationAvailable = onlineConsultationAvailable;
+        this.consultationDuration = consultationDuration;
+    }
+
+    public Consultant(String doctorId, String specialization, String qualification, Integer experienceYears, String departmentId, Double consultationFee, List<String> assignedPatients, List<String> availableSlots, List<String> consultationTypes, Boolean onlineConsultationAvailable, int consultationDuration) {
+        super(doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, assignedPatients, availableSlots);
         this.consultationTypes = consultationTypes;
         this.onlineConsultationAvailable = onlineConsultationAvailable;
         this.consultationDuration = consultationDuration;
