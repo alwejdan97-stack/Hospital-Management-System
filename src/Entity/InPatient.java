@@ -5,6 +5,7 @@ import Behaviour.Displayable;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 public class InPatient extends Patient implements Displayable, Billable {
     private LocalDate admissionDate;
@@ -14,9 +15,28 @@ public class InPatient extends Patient implements Displayable, Billable {
     private String admittingDoctorId;
     private Double dailyCharges;
 
-
     public InPatient() {
         super();
+        this.admissionDate = admissionDate;
+        this.dischargeDate = dischargeDate;
+        this.roomNumber = roomNumber;
+        this.bedNumber = bedNumber;
+        this.admittingDoctorId = admittingDoctorId;
+        this.dailyCharges = dailyCharges;
+    }
+
+    public InPatient(LocalDate admissionDate, LocalDate dischargeDate, String roomNumber, String bedNumber, String admittingDoctorId, Double dailyCharges) {
+        super();
+        this.admissionDate = admissionDate;
+        this.dischargeDate = dischargeDate;
+        this.roomNumber = roomNumber;
+        this.bedNumber = bedNumber;
+        this.admittingDoctorId = admittingDoctorId;
+        this.dailyCharges = dailyCharges;
+    }
+
+    public InPatient(String patientId, String bloodGroup, String departmentId, String caseType, List<String> allergies, String emergencyContact, String insuranceId, LocalDate registrationDate, List<String> medicalRecords, List<String> appointments, LocalDate admissionDate, LocalDate dischargeDate, String roomNumber, String bedNumber, String admittingDoctorId, Double dailyCharges) {
+        super(patientId, bloodGroup, departmentId, caseType, allergies, emergencyContact, insuranceId, registrationDate, medicalRecords, appointments);
         this.admissionDate = admissionDate;
         this.dischargeDate = dischargeDate;
         this.roomNumber = roomNumber;
