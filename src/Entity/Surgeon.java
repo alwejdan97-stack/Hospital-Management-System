@@ -10,8 +10,22 @@ public class Surgeon extends Doctor implements Displayable {
     private List<String> surgeryTypes;
     private Boolean operationTheatreAccess;
 
-    public Surgeon(int surgeriesPerformed, List<String> surgeryTypes, Boolean operationTheatreAccess) {
+    /*public Surgeon() {
         super();
+        this.surgeriesPerformed = surgeriesPerformed;
+        this.surgeryTypes = surgeryTypes;
+        this.operationTheatreAccess = operationTheatreAccess;
+    }*/
+
+    public Surgeon() {
+        super();
+        this.surgeriesPerformed = surgeriesPerformed;
+        this.surgeryTypes = surgeryTypes;
+        this.operationTheatreAccess = operationTheatreAccess;
+    }
+
+    public Surgeon(String doctorId, String wejdanSalim, String consultant, String neurlogy, int surgeriesPerformed, List<String> surgeryTypes, Boolean operationTheatreAccess) {
+        super(doctorId, wejdanSalim, consultant, neurlogy);
         this.surgeriesPerformed = surgeriesPerformed;
         this.surgeryTypes = surgeryTypes;
         this.operationTheatreAccess = operationTheatreAccess;
