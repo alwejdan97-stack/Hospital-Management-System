@@ -13,6 +13,26 @@ public class Department implements Displayable {
     private int bedCapacity;
     private int availableBeds;
 
+    public Department() {
+        this.departmentId = departmentId;
+        this.departmentName = departmentName;
+        this.doctors = doctors;
+        this.headDoctorId = headDoctorId;
+        this.nurses = nurses;
+        this.bedCapacity = bedCapacity;
+        this.availableBeds = availableBeds;
+    }
+
+    public Department(String departmentId, String departmentName, String headDoctorId, List<String> doctors, List<String> nurses, int bedCapacity, int availableBeds) {
+        this.departmentId = departmentId;
+        this.departmentName = departmentName;
+        this.headDoctorId = headDoctorId;
+        this.doctors = doctors;
+        this.nurses = nurses;
+        this.bedCapacity = bedCapacity;
+        this.availableBeds = availableBeds;
+    }
+
     public void setDepartmentId(java.lang.String departmentId){
         this.departmentId=departmentId;
     }
