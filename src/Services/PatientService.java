@@ -325,7 +325,7 @@ public class PatientService implements Manageable, Searchable {
             }
         }
     public static void displayAllPatients(){
-        if(PatientService.patientList.isEmpty()){
+        if(patientList.isEmpty()){
             System.out.println("NO Patient in the List");
         }
         for(Patient p: PatientService.patientList) {
@@ -337,7 +337,7 @@ public class PatientService implements Manageable, Searchable {
         displayAllPatients();
         String name=InputHandler.getStringInput("Enter Patient Name");
         Boolean found = false;
-        for(Patient p: PatientService.patientList){
+        for(Patient p: patientList){
             if(p.getFirstName().equalsIgnoreCase(name)){
                 System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName()+" is found");
                 found=true;
