@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.*;
+import Utils.InputHandler;
 
 
 import java.time.format.DateTimeFormatter;
@@ -26,21 +27,16 @@ public class DepartmentService implements Manageable, Searchable {
     public Department addDepartment(){
         System.out.println(" ** Adding new Department ** ");
 
-        System.out.println("Enter Department Name:");
-        department.setDepartmentName(scanner.nextLine());
-        System.out.println("Enter Department ID: ");
-        department.setDepartmentId(scanner.nextLine());
-        System.out.println("Enter Head Doctor ID:");
-        department.setHeadDoctorId(scanner.nextLine());
-        /*System.out.println("Enter Doctors");
-        department.setDoctors(doctorService.addDoctors());
-        System.out.println("Enter Nurses");
-        department.setNurses(nurseService.addNurses());*/
-        System.out.println("Enter available Bed");
-        department.setAvailableBeds(scanner.nextInt());
-        System.out.println("Enter Bed Capacity");
-        department.setBedCapacity(scanner.nextInt());
-
+        String departmentName=InputHandler.getStringInput("Enter Department Name:");
+        department.setDepartmentName(departmentName);
+        String departmentId=InputHandler.getStringInput("Enter Department ID: ");
+        department.setDepartmentId(departmentId);
+        String headDoctorId=InputHandler.getStringInput("Enter Head Doctor ID:");
+        department.setHeadDoctorId(headDoctorId);
+        int availableBed=InputHandler.getIntInput("Enter available Bed");
+        department.setAvailableBeds(availableBed);
+        int bedCapacity=InputHandler.getIntInput("Enter Bed Capacity");
+        department.setBedCapacity(bedCapacity);
 
         System.out.println("Department Add Successfully");
         return department;
@@ -50,8 +46,8 @@ public class DepartmentService implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
             departmentList.add(addDepartment());
-            System.out.println("If want ot add more Departments press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -60,13 +56,12 @@ public class DepartmentService implements Manageable, Searchable {
 
     public void updateDepartments(){
         displayAllDepartments();
-        System.out.println("Enter Department ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Department ID");
         Boolean found=false;
         for(Department d:departmentList){
-            if(d.getDepartmentId().equalsIgnoreCase(ID)){
-                System.out.println("Enter New Department ID");
-                d.setDepartmentId(scanner.nextLine());
+            if(d.getDepartmentId().equalsIgnoreCase(id)){
+                String newName=InputHandler.getStringInput("Enter New Department ID");
+                d.setDepartmentId(newName);
                 System.out.println("Department Updated Successfully");
                 found=true;
                 break;
@@ -77,8 +72,8 @@ public class DepartmentService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot update more Departments press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
@@ -86,12 +81,11 @@ public class DepartmentService implements Manageable, Searchable {
 
     public void deleteDepartment(){
         displayAllDepartments();
-        System.out.println("Enter Department ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Department ID");
         Boolean found=false;
         for(Department d:departmentList){
-            if(d.getDepartmentId().equalsIgnoreCase(ID)){
-                departmentList.remove(ID);
+            if(d.getDepartmentId().equalsIgnoreCase(id)){
+                departmentList.remove(id);
                 System.out.println("Department Removed Successful");
                 found=true;
                 break;
@@ -102,20 +96,19 @@ public class DepartmentService implements Manageable, Searchable {
         }
         Boolean continueFlag = true;
         while (continueFlag){
-            System.out.println("If want ot delete more Departments press C");
-            if(scanner.nextLine().equalsIgnoreCase("C")){
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
                 continueFlag=false;
             }
         }
     }
 
-    public void getAppointmentById(){
+    public void getDepartmentById(){
         displayAllDepartments();
-        System.out.println("Enter Department ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Department ID");
         Boolean found = false;
         for(Department d:departmentList) {
-            if (d.getDepartmentId().equalsIgnoreCase(ID)) {
+            if (d.getDepartmentId().equalsIgnoreCase(id)) {
                 System.out.println("Department Name: "+d.getDepartmentName()+" | Department ID: " + d.getDepartmentId() + " | Doctors: " + d.getDoctors() + " | Nurses: " + d.getNurses() + " | Bed Capacity: " + d.getBedCapacity() + " | Available Bed: " + d.getAvailableBeds());
                 found=true;
             }
@@ -136,55 +129,79 @@ public class DepartmentService implements Manageable, Searchable {
 
     public void assignDoctorToDepartment(){
         System.out.println(doctorList);
-        System.out.println("Enter Doctor ID");
-        java.lang.String ID=scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Doctor ID");
         Boolean found = false;
         for(Doctor d: doctorList) {
-            if (d.getDepartmentId().equalsIgnoreCase(ID)) {
-                System.out.println("Enter Department ID");
-                d.setDepartmentId(scanner.nextLine());
-                System.out.println("Doctor Successfully assign");
+            if (d.getDepartmentId().equalsIgnoreCase(id)) {
+                String departmentId=InputHandler.getStringInput("Enter Department ID");
+                d.setDepartmentId(departmentId);
+                System.out.println("Doctor Successfully Assign");
                 found=true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("Doctor NOT found");
+            System.out.println("Doctor NOT Found");
+        }
+    }
+
+    public void assignNurseToDepartment(){
+        System.out.println(nurseList);
+        String id=InputHandler.getStringInput("Enter Nurse ID: ");;
+        Boolean found = false;
+        for(Nurse n: nurseList) {
+            if (n.getDepartmentId().equalsIgnoreCase(id)) {
+                String departmentId= InputHandler.getStringInput("Enter Department ID");
+                n.setDepartmentId(departmentId);
+                System.out.println("Nurse Successfully Assign");
+                found=true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Nurse NOT Found");
         }
     }
 
     public Boolean handelDepartmentService(Integer departmentOption){
         switch (departmentOption){
             case 1 -> {
-                System.out.println("== Add New Department ==");
+                System.out.println("== Add Department ==");
                 addDepartments();
             }
-            case 2 -> {
-                System.out.println("== Update Department ==");
-                updateDepartments();
-            }
 
-            case 3 -> {
-                System.out.println("== Show Departments ==");
+            case 2 -> {
+                System.out.println("== View All Departments ==");
                 displayAllDepartments();
             }
 
+            case 3 ->{
+                System.out.println("== View Department Details ==");
+
+            }
+
             case 4 -> {
-                System.out.println("== Show Departments Using Department ID ==");
-                getAppointmentById();
-            }
-
-            case 5 -> {
-                System.out.println("== Delete Department ==");
-                deleteDepartment();
-            }
-
-            case 6 -> {
-                System.out.println("== Assign Doctors To Departments ==");
+                System.out.println("== Assign Doctor to Department ==");
                 assignDoctorToDepartment();
             }
 
-            case 7 ->
+            case 5 ->{
+                System.out.println("== Assign Nurse to Department ==");
+                assignNurseToDepartment();
+            }
+
+            case 6 -> {
+                System.out.println("== Update Department Information ==");
+                updateDepartments();
+            }
+
+            case 7 -> {
+                System.out.println("== View Department Statistics ==");
+
+
+            }
+
+            case 8 ->
             {
                 return false;
             }
