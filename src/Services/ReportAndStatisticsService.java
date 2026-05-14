@@ -58,7 +58,7 @@ public class ReportAndStatisticsService {
         for(Department d:departmentList){
             int count=0;
             for(Patient p:patientList){
-                if(p.getDepartmentId.equalsIgnoreCase(d.getDepartmentId())){
+                if(p.getDepartmentId().equalsIgnoreCase(d.getDepartmentId())){
                     count++;
                 }
             }
@@ -88,7 +88,7 @@ public class ReportAndStatisticsService {
         System.out.println("*** Emergency Cases Report ***");
         int count=0;
         for(Patient p:patientList){
-            if(p.getGender().equalsIgnoreCase("Emergency")){
+            if(p.getCaseType().equalsIgnoreCase("Emergency")){
                 System.out.println("Patient ID: "+p.getPatientId());
                 System.out.println("Patient Name: "+p.getFirstName()+" "+p.getLastName());
                 System.out.println("Patient Gender: "+p.getGender());
