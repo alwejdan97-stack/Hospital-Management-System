@@ -41,6 +41,8 @@ public class PatientService implements Manageable, Searchable {
         patient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
         patient.setGender(gender);
+        String departmentID=InputHandler.getStringInput("Enter Department ID: ");
+        patient.setDepartmentId(departmentID);
         String address= InputHandler.getStringInput("Enter Address: ");
         patient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
@@ -49,6 +51,8 @@ public class PatientService implements Manageable, Searchable {
         patient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
         patient.setEmergencyContact(emergencyContactNumber);
+        String emergencyCaseType=InputHandler.getStringInput("Enter Emergency Case Type:");
+        patient.setCaseType(emergencyCaseType);
 
         System.out.println("Patient Added Successfully");
         return patient;
@@ -120,6 +124,8 @@ public class PatientService implements Manageable, Searchable {
         inPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
         inPatient.setGender(gender);
+        String departmentID=InputHandler.getStringInput("Enter Department ID: ");
+        patient.setDepartmentId(departmentID);
         String address= InputHandler.getStringInput("Enter Address: ");
         inPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
@@ -128,6 +134,8 @@ public class PatientService implements Manageable, Searchable {
         inPatient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
         inPatient.setEmergencyContact(emergencyContactNumber);
+        String emergencyCaseType=InputHandler.getStringInput("Enter Emergency Case Type:");
+        patient.setCaseType(emergencyCaseType);
         LocalDate admissionDate=InputHandler.getDateInput("Enter Admission Date");
         inPatient.setAdmissionDate(admissionDate);
         String roomNumber=InputHandler.getStringInput("Enter Room Number");
@@ -166,6 +174,8 @@ public class PatientService implements Manageable, Searchable {
         outPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
         outPatient.setGender(gender);
+        String departmentID=InputHandler.getStringInput("Enter Department ID: ");
+        patient.setDepartmentId(departmentID);
         String address= InputHandler.getStringInput("Enter Address: ");
         outPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
@@ -174,6 +184,8 @@ public class PatientService implements Manageable, Searchable {
         outPatient.setPhoneNumber(phoneNumber);
         String emergencyContactNumber= InputHandler.getStringInput("Enter Emergency Contact Number:");
         outPatient.setEmergencyContact(emergencyContactNumber);
+        String emergencyCaseType=InputHandler.getStringInput("Enter Emergency Case Type:");
+        patient.setCaseType(emergencyCaseType);
         LocalDate registrationDate=InputHandler.getDateInput("Enter Registration Date:");
         outPatient.setRegistrationDate(registrationDate);
         LocalDate visitDate=InputHandler.getDateInput("Enter Last Visit Date:");
@@ -210,6 +222,8 @@ public class PatientService implements Manageable, Searchable {
         emergencyPatient.setDateOfBirth(dateOfBirth);
         String gender= InputHandler.getStringInput("Enter Gender: ");
         emergencyPatient.setGender(gender);
+        String departmentID=InputHandler.getStringInput("Enter Department ID: ");
+        patient.setDepartmentId(departmentID);
         String address= InputHandler.getStringInput("Enter Address: ");
         emergencyPatient.setAddress(address);
         String email= InputHandler.getStringInput("Enter Email: ");
