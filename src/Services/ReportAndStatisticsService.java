@@ -4,6 +4,7 @@ import Entity.Appointment;
 import Entity.Department;
 import Entity.Doctor;
 import Entity.Patient;
+import Utils.HelperUtils;
 import Utils.InputHandler;
 
 import java.time.LocalDate;
@@ -33,12 +34,14 @@ public class ReportAndStatisticsService {
                 count++;
             }
         }
+        if(count==0){
+            System.out.println("NO Appointments");
+        }
         System.out.println("Total Appointments is: "+count);
     }
 
     public void doctorPerformanceReport(){
         System.out.println("*** Doctor Performance Report ***");
-
         for(Doctor d:doctorList){
             int count=0;
             for(Appointment a:appointmentList){
@@ -73,9 +76,9 @@ public class ReportAndStatisticsService {
         int malePatientCount=0;
         int femalePatientCount=0;
         for(Patient p:patientList){
-            if(p.getGender().equalsIgnoreCase("Male")){
+            if(HelperUtils.isNotNull(p.getGender()) && p.getGender().equalsIgnoreCase("Male")){
                 malePatientCount++;
-            }else if(p.getGender().equalsIgnoreCase("Female")){
+            }else if(HelperUtils.isNotNull(p.getGender()) && p.getGender().equalsIgnoreCase("Female")){
                 femalePatientCount++;
             }
         }
@@ -97,6 +100,9 @@ public class ReportAndStatisticsService {
 
                 count++;
             }
+        }
+        if(count==0){
+            System.out.println("No Emergency Case");
         }
         System.out.println("Total Emergency Case: "+count);
     }
