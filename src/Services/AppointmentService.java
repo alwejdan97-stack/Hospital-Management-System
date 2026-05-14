@@ -5,6 +5,8 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entity.Appointment;
 import Entity.Patient;
+import Utils.HelperUtils;
+import Utils.InputHandler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,64 +25,56 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
     public Appointment addAppointment() {
         System.out.println(" ** Adding new Appointment ** ");
 
-        System.out.println("Enter Appointment ID: ");
-        appointment.setAppointmentId(scanner.nextLine());
-        System.out.println("Enter Appointment Date: ");
-        LocalDate visitDate = LocalDate.parse(scanner.nextLine(), formatter);
+        String appointmentId= InputHandler.getStringInput("Enter Appointment ID: ");
+        appointment.setAppointmentId(appointmentId);
+        LocalDate visitDate= InputHandler.getDateInput("Enter Appointment Date: ");
         appointment.setAppointmentDate(visitDate);
-        System.out.println("Enter Appointment Time: ");
-        appointment.setAppointmentTime(scanner.nextLine());
-        System.out.println("Enter Patient ID: ");
-        appointment.setPatientId(scanner.nextLine());
-        System.out.println("Enter Doctor ID: ");
-        appointment.setDoctorId(scanner.nextLine());
-        System.out.println("Enter Reason: ");
-        appointment.setReason(scanner.nextLine());
-        System.out.println("Enter Notes");
-        appointment.setNotes(scanner.nextLine());
+        String appointmentTime= InputHandler.getStringInput("Enter Appointment Time: ");
+        appointment.setAppointmentTime(appointmentTime);
+        String patientId= InputHandler.getStringInput("Enter Patient ID: ");
+        appointment.setPatientId(patientId);
+        String doctorId= InputHandler.getStringInput("Enter Doctor ID: ");
+        appointment.setDoctorId(doctorId);
+        String reason= InputHandler.getStringInput("Enter Reason: ");
+        appointment.setReason(reason);
+        String note= InputHandler.getStringInput("Enter Notes");
+        appointment.setNotes(note);
 
 
-        System.out.println("Appointment Add Successfully");
+        System.out.println("Appointment Added Successfully");
         return appointment;
     }
 
-    public Appointment createAppointment(String patientId, String doctorId, LocalDate date) {
-        System.out.println("Enter Patient ID: ");
-        patientId = scanner.nextLine();
+    public Appointment addAppointment(String patientId, String doctorId, LocalDate date) {
+        patientId= InputHandler.getStringInput("Enter Patient ID: ");
         appointment.setPatientId(patientId);
-        System.out.println("Enter Doctor ID: ");
-        doctorId = scanner.nextLine();
+        doctorId= InputHandler.getStringInput("Enter Doctor ID: ");
         appointment.setDoctorId(doctorId);
-        System.out.println("Enter Appointment Date: ");
-        date = LocalDate.parse(scanner.nextLine(), formatter);
+        date= InputHandler.getDateInput("Enter Appointment Date: ");
         appointment.setAppointmentDate(date);
 
-        System.out.println("Appointment Add Successfully");
+        System.out.println("Appointment Added Successfully");
         return appointment;
     }
 
-    public Appointment createAppointment(String patientId, String doctorId, LocalDate date, String time) {
-        System.out.println("Enter Patient ID: ");
-        patientId = scanner.nextLine();
+    public Appointment addAppointment(String patientId, String doctorId, LocalDate date, String time) {
+        patientId= InputHandler.getStringInput("Enter Patient ID: ");
         appointment.setPatientId(patientId);
-        System.out.println("Enter Doctor ID: ");
-        doctorId = scanner.nextLine();
+        doctorId= InputHandler.getStringInput("Enter Doctor ID: ");
         appointment.setDoctorId(doctorId);
-        System.out.println("Enter Appointment Date: ");
-        date = LocalDate.parse(scanner.nextLine(), formatter);
+        date= InputHandler.getDateInput("Enter Appointment Date: ");
         appointment.setAppointmentDate(date);
-        System.out.println("Enter Appointment Time: ");
-        time = scanner.nextLine();
+        time= InputHandler.getStringInput("Enter Appointment Time: ");
         appointment.setAppointmentTime(time);
 
-        System.out.println("Appointment Add Successfully");
+        System.out.println("Appointment Added Successfully");
         return appointment;
     }
 
-    public Appointment createAppointment(Appointment appointment) {
+    public Appointment addAppointment(Appointment appointment) {
         appointmentList.add(appointment);
 
-        System.out.println("Appointment Add Successfully");
+        System.out.println("Appointment Added Successfully");
         return appointment;
     }
 
@@ -88,9 +82,9 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
         Boolean continueFlag = true;
         while (continueFlag) {
             appointmentList.add(addAppointment());
-            System.out.println("If want ot add more appointments press C");
-            if (scanner.nextLine().equalsIgnoreCase("C")) {
-                continueFlag = false;
+            System.out.println("Press E to exit OR press ENTER for more ");
+            if(scanner.nextLine().equalsIgnoreCase("E")){
+                continueFlag=false;
             }
         }
         return appointmentList;
@@ -98,7 +92,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
     @Override
     public void scheduleAppointment(Appointment appointment) {
-        if (appointment == null) {
+        if (HelperUtils.isNotNull(appointment)) {
             System.out.println("Invalid Appointment");
         }
         appointmentList.add(appointment);
@@ -115,20 +109,18 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             }
         }
         if (!found) {
-            System.out.println("Appointment NOT found");
+            System.out.println("Appointment NOT Found");
         }
     }
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate) {
         System.out.println("** Reschedule Appointment");
         displayAllAppointments();
-        System.out.println("Enter Appointment ID: ");
-        appointmentId = scanner.nextLine();
+        appointmentId=InputHandler.getStringInput("Enter Appointment ID: ");
         boolean found = false;
         for (Appointment a : appointmentList) {
             if (a.getAppointmentId().equalsIgnoreCase(appointmentId)) {
-                System.out.println("Enter New Date: ");
-                newDate = LocalDate.parse(scanner.nextLine(), formatter);
+                newDate=InputHandler.getDateInput("Enter New Date: ");
                 a.setAppointmentDate(newDate);
                 System.out.println("Appointment Reschedule Successfully");
                 found = true;
@@ -138,57 +130,49 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
     public void rescheduleAppointment() {
         displayAllAppointments();
-        System.out.println("Enter Appointment ID");
-        String ID = scanner.nextLine();
+        String id=InputHandler.getStringInput("Enter Appointment ID: ");
         Boolean found = false;
         for (Appointment a : appointmentList) {
-            if (a.getAppointmentId().equalsIgnoreCase(ID)) {
-                System.out.println("Enter New Date");
-                LocalDate date = LocalDate.parse(scanner.nextLine(), formatter);
-                System.out.println("Enter new Time");
-                String newTime = scanner.nextLine();
+            if (a.getAppointmentId().equalsIgnoreCase(id)) {
+                LocalDate newDate=InputHandler.getDateInput("Enter New Date: ");
+                a.setAppointmentDate(newDate);
+                String time= InputHandler.getStringInput("Enter Appointment Time: ");
+                a.setAppointmentTime(time);
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
                 found = true;
             }
         }
         if (!found) {
-            System.out.println("Appointment NOT found");
+            System.out.println("Appointment NOT Found");
         }
     }
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime) {
         System.out.println("** Reschedule Appointment");
         displayAllAppointments();
-        System.out.println("Enter Appointment ID: ");
-        appointmentId = scanner.nextLine();
+        appointmentId=InputHandler.getStringInput("Enter Appointment ID: ");
         boolean found = false;
         for (Appointment a : appointmentList) {
             if (a.getAppointmentId().equalsIgnoreCase(appointmentId)) {
-                System.out.println("Enter New Date: ");
-                newDate = LocalDate.parse(scanner.nextLine(), formatter);
+                newDate=InputHandler.getDateInput("Enter New Date: ");
                 a.setAppointmentDate(newDate);
-                System.out.println("Enter New Time: ");
-                newTime = scanner.nextLine();
+                newTime= InputHandler.getStringInput("Enter Appointment Time: ");
                 a.setAppointmentTime(newTime);
                 System.out.println("Appointment Reschedule Successfully");
                 found = true;
             }
         }
-
     }
 
     public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
             System.out.println("** Reschedule Appointment");
             appointmentList.add(appointment);
             for (Appointment a : appointmentList) {
-                System.out.println("Enter New Date: ");
-                newDate = LocalDate.parse(scanner.nextLine(), formatter);
+                newDate=InputHandler.getDateInput("Enter New Date: ");
                 a.setAppointmentDate(newDate);
-                System.out.println("Enter New Time: ");
-                newTime = scanner.nextLine();
+                newTime= InputHandler.getStringInput("Enter Appointment Time: ");
                 a.setAppointmentTime(newTime);
-                System.out.println("Add Reason:");
-                reason=scanner.nextLine();
+                reason= InputHandler.getStringInput("Enter Reason: ");
                 a.setReason(reason);
 
                 System.out.println("Appointment Reschedule Successfully");
@@ -197,13 +181,12 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
         public void updateAppointment () {
             displayAllAppointments();
-            System.out.println("Enter Appointment ID");
-            String ID = scanner.nextLine();
+            String id=InputHandler.getStringInput("Enter Appointment ID");
             Boolean found = false;
             for (Appointment a : appointmentList) {
-                if (a.getAppointmentId().equals(ID)) {
-                    System.out.println("Enter New Appointment ID");
-                    a.setAppointmentId(scanner.nextLine());
+                if (a.getAppointmentId().equals(id)) {
+                    String newId=InputHandler.getStringInput("Enter New Appointment ID");
+                    a.setAppointmentId(newId);
                     System.out.println("Appointment Updated Successfully");
                     found = true;
                     break;
@@ -214,21 +197,20 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             }
             Boolean continueFlag = true;
             while (continueFlag) {
-                System.out.println("If want ot update more Appointments press C");
-                if (scanner.nextLine().equalsIgnoreCase("C")) {
-                    continueFlag = false;
+                System.out.println("Press E to exit OR press ENTER for more ");
+                if(scanner.nextLine().equalsIgnoreCase("E")){
+                    continueFlag=false;
                 }
             }
         }
 
         public void deleteAppointment () {
             displayAllAppointments();
-            System.out.println("Enter Appointment ID");
-            String ID = scanner.nextLine();
+            String id=InputHandler.getStringInput("Enter Appointment ID");
             Boolean found = false;
             for (Appointment a : appointmentList) {
-                if (a.getAppointmentId().equalsIgnoreCase(ID)) {
-                    appointmentList.remove(ID);
+                if (a.getAppointmentId().equalsIgnoreCase(id)) {
+                    appointmentList.remove(id);
                     System.out.println("Appointment Removed Successful");
                     found = true;
                     break;
@@ -239,20 +221,19 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             }
             Boolean continueFlag = true;
             while (continueFlag) {
-                System.out.println("If want ot delete more Appointments press C");
-                if (scanner.nextLine().equalsIgnoreCase("C")) {
-                    continueFlag = false;
+                System.out.println("Press E to exit OR press ENTER for more ");
+                if(scanner.nextLine().equalsIgnoreCase("E")){
+                    continueFlag=false;
                 }
             }
         }
 
         public void getAppointmentByPatientId () {
             displayAllAppointments();
-            System.out.println("Enter Patient ID");
-            String ID = scanner.nextLine();
+            String id=InputHandler.getStringInput("Enter Patient ID");
             Boolean found = false;
             for (Appointment a : appointmentList) {
-                if (a.getAppointmentId().equalsIgnoreCase(ID)) {
+                if (a.getAppointmentId().equalsIgnoreCase(id)) {
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
                     found = true;
                 }
@@ -264,12 +245,11 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
         public void getAppointmentByDoctorId () {
             displayAllAppointments();
-            System.out.println("Enter Doctor ID");
-            String ID = scanner.nextLine();
+            String id=InputHandler.getStringInput("Enter Doctor ID");
             Boolean found = false;
 
             for (Appointment a : appointmentList) {
-                if (a.getPatientId().equalsIgnoreCase(ID)) {
+                if (a.getPatientId().equalsIgnoreCase(id)) {
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime());
                     found = true;
                 }
@@ -281,8 +261,7 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
         public void getAppointmentByDate () {
             displayAllAppointments();
-            System.out.println("Enter Appointment Date");
-            LocalDate date = LocalDate.parse(scanner.nextLine(), formatter);
+            LocalDate date=InputHandler.getDateInput("Enter Appointment Date");
             Boolean found = false;
             for (Appointment a : appointmentList) {
                 if (a.getAppointmentDate().equals(date)) {
@@ -298,11 +277,10 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
 
         public void cancelAppointment () {
             displayAllAppointments();
-            System.out.println("Enter Appointment ID");
-            String ID = scanner.nextLine();
+            String id=InputHandler.getStringInput("Enter Appointment ID");
             Boolean found = false;
             for (Appointment a : appointmentList) {
-                if (a.getAppointmentId().equalsIgnoreCase(ID)) {
+                if (a.getAppointmentId().equalsIgnoreCase(id)) {
                     a.setStatus("Cancel");
                     System.out.println("Appointment Successfully canceled");
                     found = true;
@@ -312,6 +290,23 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
                 System.out.println("Appointment NOT found");
             }
         }
+
+    public void completeAppointment () {
+        displayAllAppointments();
+        String id=InputHandler.getStringInput("Enter Appointment ID");
+        Boolean found = false;
+        for (Appointment a : appointmentList) {
+            if (a.getAppointmentId().equalsIgnoreCase(id)) {
+                a.setStatus("Complete");
+                System.out.println("Appointment Completed");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Appointment NOT Found");
+        }
+    }
+
         public void displayAllAppointments () {
             if (appointmentList.isEmpty()) {
                 System.out.println("NO Appointments In The List");
@@ -320,10 +315,9 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
             }
         }
-        public static void displayAppointments (LocalDate date){
+        public static void displayAppointments(LocalDate date){
             System.out.println("== Display Appointments By Date ==");
-            System.out.println("Enter Appointment Date");
-            date = LocalDate.parse(scanner.nextLine(), formatter);
+            date=InputHandler.getDateInput("Enter Appointment Date");
             for(Appointment a:appointmentList){
                 if(a.getAppointmentDate().equals(date)){
                     System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
@@ -331,18 +325,26 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
             }
         }
 
+        public void upcomingAppointment(){
+        LocalDate today=LocalDate.now();
+        boolean found=false;
+        for(Appointment a:appointmentList){
+            if(a.getAppointmentDate().isAfter(today) || a.getAppointmentDate().equals(today)){
+                System.out.println(""+a.getAppointmentId());
+                System.out.println(a.getPatientId());
+                System.out.println(a.getDoctorId());
+                System.out.println(a.getAppointmentDate());
+                System.out.println(a.getAppointmentTime());
+                System.out.println(a.getStatus());
+            }
+        }
+        }
 
     public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate) {
         System.out.println("== Display Appointments By Multiple Fields ==");
-        System.out.println("Enter Doctor ID: ");
-        Scanner scanner=new Scanner(System.in);
-        doctorId = scanner.nextLine();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        System.out.println("Enter Start Date: ");
-        startDate = LocalDate.parse(scanner.nextLine(), formatter);
-        System.out.println("Enter End Date: ");
-        endDate = LocalDate.parse(scanner.nextLine(), formatter);
-
+        doctorId=InputHandler.getStringInput("Enter Doctor ID: ");
+        startDate=InputHandler.getDateInput("Enter Start Date: ");
+        endDate=InputHandler.getDateInput("Enter End Date: ");
         for(Appointment a:appointmentList){
             if(a.getDoctorId().equalsIgnoreCase(doctorId)){
                 System.out.println("Appointment ID: " + a.getAppointmentId() + " | Patient ID: " + a.getPatientId() + " | Doctor ID: " + a.getDoctorId() + " | Appointment Date: " + a.getAppointmentDate() + " | Time: " + a.getAppointmentTime() + " | Notes: " + a.getNotes());
@@ -353,47 +355,47 @@ public class AppointmentService implements Manageable, Searchable, Appointable {
     public Boolean handelAppointmentService(Integer appointmentOption) {
         switch (appointmentOption) {
             case 1 -> {
-                System.out.println("== Add New Appointment ==");
+                System.out.println("== Schedule New Appointment ==");
                 addAppointments();
             }
-            case 2 -> {
-                System.out.println("== Update Appointment ==");
-                updateAppointment();
-            }
 
-            case 3 -> {
-                System.out.println("== Show Appointments ==");
+            case 2 -> {
+                System.out.println("== View All Appointments ==");
                 displayAllAppointments();
             }
 
-            case 4 -> {
-                System.out.println("== Show Appointments Using Patient ID ==");
+            case 3 -> {
+                System.out.println("== View Appointments by Patient ==");
                 getAppointmentByPatientId();
             }
 
-            case 5 -> {
-                System.out.println("== Show Appointments Using Doctor ID ==");
+            case 4 -> {
+                System.out.println("== View Appointments by Doctor ==");
                 getAppointmentByDoctorId();
             }
 
-            case 6 -> {
-                System.out.println("== Show Appointments Using Appointment Date ==");
+            case 5 -> {
+                System.out.println("== View Appointments by Date ==");
                 getAppointmentByDate();
             }
 
-            case 7 -> {
-                System.out.println("== Delete Appointments ==");
-                deleteAppointment();
-            }
-
-            case 8 -> {
+            case 6 -> {
                 System.out.println("== Reschedule Appointment ==");
                 rescheduleAppointment();
             }
 
-            case 9 -> {
+            case 7 -> {
                 System.out.println("== Cancel Appointment ==");
                 cancelAppointment();
+            }
+            case 8 -> {
+                System.out.println("== Complete Appointment ==");
+                completeAppointment();
+            }
+
+            case 9 ->{
+                System.out.println("== View Upcoming Appointments ==");
+
             }
 
             case 10 -> {
